@@ -1,0 +1,90 @@
+/*
+ * @Descripttion: slider组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** height *****************/
+  --nv-slider-height: 40px;
+  --nv-slider-vertical-height: 200px;
+  --nv-slider-vertical-width: 40px;
+
+  /**************** border-radius *****************/
+  --nv-slider-runway-border-radius: 3px;
+  --nv-slider-bar-border-radius: 3px;
+  --nv-slider-button-border-radius: 50%;
+
+  /**************** runway & bar *****************/
+  --nv-slider-runway-height-mini: 4px;
+  --nv-slider-runway-height-small: 5px;
+  --nv-slider-runway-height-medium: 6px;
+  --nv-slider-runway-height-large: 8px;
+  --nv-slider-runway-height-huge: 10px;
+
+  --nv-slider-bar-height-mini: 4px;
+  --nv-slider-bar-height-small: 5px;
+  --nv-slider-bar-height-medium: 6px;
+  --nv-slider-bar-height-large: 8px;
+  --nv-slider-bar-height-huge: 10px;
+
+  --nv-slider-vertical-runway-width: 6px;
+  --nv-slider-vertical-bar-width: 6px;
+
+  /**************** button *****************/
+  --nv-slider-button-width-mini: 16px;
+  --nv-slider-button-height-mini: 16px;
+  --nv-slider-button-width-small: 20px;
+  --nv-slider-button-height-small: 20px;
+  --nv-slider-button-width-medium: 24px;
+  --nv-slider-button-height-medium: 24px;
+  --nv-slider-button-width-large: 28px;
+  --nv-slider-button-height-large: 28px;
+  --nv-slider-button-width-huge: 32px;
+  --nv-slider-button-height-huge: 32px;
+  --nv-slider-button-border-width: 2px;
+
+  /**************** stop *****************/
+  --nv-slider-stop-width-mini: 4px;
+  --nv-slider-stop-height-mini: 4px;
+  --nv-slider-stop-width-small: 5px;
+  --nv-slider-stop-height-small: 5px;
+  --nv-slider-stop-width-medium: 6px;
+  --nv-slider-stop-height-medium: 6px;
+  --nv-slider-stop-width-large: 8px;
+  --nv-slider-stop-height-large: 8px;
+  --nv-slider-stop-width-huge: 10px;
+  --nv-slider-stop-height-huge: 10px;
+  --nv-slider-stop-border-radius: 100%;
+
+  /**************** input *****************/
+  --nv-slider-input-width: 130px;
+  --nv-slider-input-margin-left: var(--nv-padding-medium);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** runway *****************/
+  --nv-slider-runway-background-color: var(--nv-neutral-color-border-2);
+
+  /**************** bar *****************/
+  --nv-slider-bar-background-color: var(--nv-primary-color-1);
+
+  /**************** button *****************/
+  --nv-slider-button-border-color: var(--nv-primary-color-1);
+  --nv-slider-button-background-color: var(--nv-neutral-color-white);
+
+  /**************** stop *****************/
+  --nv-slider-stop-background-color: var(--nv-neutral-color-white);
+
+  /**************** disabled *****************/
+  --nv-slider-disabled-bar-background-color: var(--nv-neutral-color-font-4);
+  --nv-slider-disabled-button-border-color: var(--nv-neutral-color-font-4);
+
+  /**************************************************** color end ********************************************************/
+}
+

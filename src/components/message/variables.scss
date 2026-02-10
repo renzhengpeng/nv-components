@@ -1,0 +1,64 @@
+/*
+ * @Descripttion: message组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-message-border-radius: var(--nv-border-radius-small);
+
+  /**************** padding *****************/
+  --nv-message-padding: var(--nv-padding-large) var(--nv-padding-large) var(--nv-padding-large) var(--nv-padding-huge);
+
+  /**************** min-width *****************/
+  --nv-message-min-width: 380px;
+
+  /**************** font-size *****************/
+  --nv-message-icon-font-size: var(--nv-font-size-medium);
+  --nv-message-content-font-size: var(--nv-font-size-small);
+  --nv-message-closebtn-font-size: var(--nv-font-size-medium);
+
+  /**************** spacing *****************/
+  --nv-message-icon-width: var(--nv-font-size-medium);
+  --nv-message-icon-margin-right: var(--nv-padding-medium);
+  --nv-message-closebtn-right: var(--nv-padding-large);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-message-background-color-info: var(--nv-primary-color-10);
+  --nv-message-background-color-success: var(--nv-secondary-color-success-4);
+  --nv-message-background-color-warning: var(--nv-secondary-color-warning-4);
+  --nv-message-background-color-error: var(--nv-secondary-color-danger-4);
+
+  /**************** border *****************/
+  --nv-message-border-color-info: var(--nv-neutral-color-border-3);
+  --nv-message-border-color-success: var(--nv-secondary-color-success-2);
+  --nv-message-border-color-warning: var(--nv-secondary-color-warning-2);
+  --nv-message-border-color-error: var(--nv-secondary-color-danger-2);
+
+  /**************** font *****************/
+  --nv-message-font-color-info: var(--nv-secondary-color-info-1);
+  --nv-message-font-color-success: var(--nv-secondary-color-success-1);
+  --nv-message-font-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-message-font-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************** icon *****************/
+  --nv-message-icon-color-info: var(--nv-secondary-color-info-1);
+  --nv-message-icon-color-success: var(--nv-secondary-color-success-1);
+  --nv-message-icon-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-message-icon-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************** closeBtn *****************/
+  --nv-message-closebtn-color: var(--nv-secondary-color-info-1);
+  --nv-message-closebtn-color-hover: var(--nv-neutral-color-font-2);
+
+  /**************************************************** color end ********************************************************/
+}
+

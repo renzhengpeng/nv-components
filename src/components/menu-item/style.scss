@@ -1,0 +1,138 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: menu-item style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@include b(menu-item) {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--nv-menu-item-padding, 0 20px);
+  height: var(--nv-menu-item-height, 56px);
+  line-height: var(--nv-menu-item-height, 56px);
+  font-size: inherit;
+  color: var(--nv-menu-item-color, #303133);
+  cursor: pointer;
+  transition: all var(--nv-menu-item-transition-duration, 0.3s);
+  list-style: none;
+  margin: 0;
+
+  @include e(content) {
+    display: flex;
+    align-items: center;
+    gap: var(--nv-menu-item-icon-gap, 8px);
+  }
+
+  @include e(icon) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--nv-menu-item-icon-size, 18px);
+    width: var(--nv-menu-item-icon-size, 18px);
+    height: var(--nv-menu-item-icon-size, 18px);
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+  }
+
+  @include e(title) {
+    flex: 1;
+  }
+
+  &:hover:not(.is-disabled):not(.is-active) {
+    background-color: var(--nv-menu-item-background-color-hover, #ecf5ff);
+    color: var(--nv-menu-item-color-hover, #409EFF);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--nv-menu-item-active-indicator-height, 2px);
+    background-color: var(--nv-menu-item-active-indicator-color, #409EFF);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--nv-menu-item-transition-duration, 0.3s) ease;
+  }
+
+  &.is-active {
+    color: var(--nv-menu-item-color-active, #409EFF);
+    background-color: var(--nv-menu-item-background-color-active, #ecf5ff);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.nv-nav-menu.is-vertical {
+  .nv-menu-item {
+    &::after {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      width: var(--nv-menu-item-active-indicator-height, 2px);
+      height: auto;
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform var(--nv-menu-item-transition-duration, 0.3s) ease;
+    }
+
+    &.is-active::after {
+      transform: scaleY(1);
+    }
+  }
+}
+
+// 折叠模式下的样式
+:host([collapsed]) {
+  // 确保tooltip不影响布局
+  nv-tooltip {
+    display: contents;
+  }
+
+  .nv-menu-item {
+    padding: 0;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nv-menu-item__content {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .nv-menu-item__title {
+    display: none;
+  }
+
+  .nv-menu-item__icon {
+    margin: 0;
+  }
+}
+

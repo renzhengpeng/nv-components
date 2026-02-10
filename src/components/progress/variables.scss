@@ -1,0 +1,76 @@
+/*
+ * @Descripttion: progress组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-progress-border-radius: 100px;
+
+  /**************** inner height (line type) *****************/
+  --nv-progress-inner-height-mini: 4px;
+  --nv-progress-inner-height-small: 6px;
+  --nv-progress-inner-height-medium: 6px;
+  --nv-progress-inner-height-large: 8px;
+  --nv-progress-inner-height-huge: 10px;
+
+  /**************** font-size *****************/
+  --nv-progress-inner-font-size-mini: var(--nv-font-size-mini);
+  --nv-progress-inner-font-size-small: var(--nv-font-size-mini);
+  --nv-progress-inner-font-size-medium: var(--nv-font-size-mini);
+  --nv-progress-inner-font-size-large: var(--nv-font-size-small);
+  --nv-progress-inner-font-size-huge: var(--nv-font-size-small);
+
+  --nv-progress-text-font-size-mini: var(--nv-font-size-mini);
+  --nv-progress-text-font-size-small: var(--nv-font-size-mini);
+  --nv-progress-text-font-size-medium: var(--nv-font-size-small);
+  --nv-progress-text-font-size-large: var(--nv-font-size-medium);
+  --nv-progress-text-font-size-huge: var(--nv-font-size-medium);
+
+  --nv-progress-text-inside-font-size-mini: var(--nv-font-size-mini);
+  --nv-progress-text-inside-font-size-small: var(--nv-font-size-mini);
+  --nv-progress-text-inside-font-size-medium: var(--nv-font-size-mini);
+  --nv-progress-text-inside-font-size-large: var(--nv-font-size-small);
+  --nv-progress-text-inside-font-size-huge: var(--nv-font-size-small);
+
+  /**************** spacing *****************/
+  --nv-progress-inner-margin: 0 var(--nv-padding-mini);
+  --nv-progress-text-margin-left: var(--nv-padding-medium);
+  --nv-progress-text-min-width: 50px;
+
+  /**************** circle *****************/
+  --nv-progress-circle-width-mini: 80px;
+  --nv-progress-circle-height-mini: 80px;
+  --nv-progress-circle-width-small: 100px;
+  --nv-progress-circle-height-small: 100px;
+  --nv-progress-circle-width-medium: 126px;
+  --nv-progress-circle-height-medium: 126px;
+  --nv-progress-circle-width-large: 150px;
+  --nv-progress-circle-height-large: 150px;
+  --nv-progress-circle-width-huge: 180px;
+  --nv-progress-circle-height-huge: 180px;
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-progress-inner-background-color: #f0f2f5;
+
+  /**************** font *****************/
+  --nv-progress-inner-font-color: var(--nv-neutral-color-white);
+  --nv-progress-text-font-color: var(--nv-neutral-color-font-2);
+  --nv-progress-text-inside-font-color: var(--nv-neutral-color-white);
+
+  /**************** bar *****************/
+  --nv-progress-bar-background-color-success: var(--nv-secondary-color-success-1);
+  --nv-progress-bar-background-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-progress-bar-background-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************************************************** color end ********************************************************/
+}
+

@@ -1,0 +1,30 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: drawer组件变量
+ */
+:root {
+  --nv-drawer-z-index: 2000;
+  --nv-drawer-background-color: rgba(0, 0, 0, 0.5);
+  --nv-drawer-drawer-background-color: #fff;
+  --nv-drawer-drawer-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --nv-drawer-transition-duration: 0.3s;
+  --nv-drawer-header-padding: 20px;
+  --nv-drawer-header-border-bottom: 1px solid #e4e7ed;
+  --nv-drawer-header-font-size: 18px;
+  --nv-drawer-header-font-weight: 500;
+  --nv-drawer-header-color: #303133;
+  --nv-drawer-close-color: #909399;
+  --nv-drawer-close-font-size: 16px;
+  --nv-drawer-close-transition-duration: 0.3s;
+  --nv-drawer-close-color-hover: #303133;
+  --nv-drawer-body-padding: 20px;
+  --nv-drawer-body-color: #606266;
+  --nv-drawer-body-font-size: 14px;
+  --nv-drawer-body-line-height: 1.5;
+  --nv-drawer-footer-padding: 20px;
+  --nv-drawer-footer-border-top: 1px solid #e4e7ed;
+  --nv-drawer-footer-text-align: right;
+}
+

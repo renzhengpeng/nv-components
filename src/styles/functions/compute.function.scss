@@ -1,0 +1,39 @@
+/*
+ * @Descripttion: 自定义的计算方法
+ * @creater: zhengpeng.ren
+ * @since: 2024-05-29 10:56:21
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-05-29 11:15:09
+ */
+
+/**
+ * @function message: 减法
+ * @return {*}
+ */ 
+@function substract($input, $differene) {
+  @return $input - $differene;
+}
+
+/**
+ * @function message: 加法
+ * @return {*}
+ */ 
+@function add($input, $differene) {
+  @return $input + $differene;
+}
+
+/**
+ * @function message: 乘法
+ * @return {*}
+ */ 
+@function multiplyBy($input, $multiplier) {
+  @return $input * $multiplier;
+}
+
+/**
+ * @function message: 除法
+ * @return {*}
+ */ 
+ @function devideBy($input, $multiplier) {
+  @return $input / $multiplier;
+}

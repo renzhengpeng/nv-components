@@ -1,0 +1,32 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: radio-group组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+// .nv-radio-group
+@include b(radio-group) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0;
+  line-height: 0;
+}
+
+// radio-group 内的 radio 间距（使用 ::slotted 选择器）
+::slotted(nv-radio) {
+  margin-right: var(--nv-radio-group-spacing);
+}
+
+::slotted(nv-radio:last-child) {
+  margin-right: 0;
+}
+

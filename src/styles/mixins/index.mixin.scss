@@ -1,0 +1,73 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024/8/28 14:50
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: mixins
+ */
+// 为单个border设置样式
+@mixin borderFor($position, $borderWidth, $borderStyle, $borderColor, $important: false) {
+  @if $important {
+    border-#{ $position }-width: $borderWidth !important;
+    border-#{ $position }-style: $borderStyle !important;
+    border-#{ $position }-color: $borderColor !important;
+  } @else {
+    border-#{ $position }-width: $borderWidth;
+    border-#{ $position }-style: $borderStyle;
+    border-#{ $position }-color: $borderColor;
+  }
+}
+
+// 为4个border设置同样的样式
+@mixin borderAll($borderWidth, $borderStyle, $borderColor, $important: false) {
+  @include borderFor(top, $borderWidth, $borderStyle, $borderColor, $important);
+  @include borderFor(right, $borderWidth, $borderStyle, $borderColor, $important);
+  @include borderFor(bottom, $borderWidth, $borderStyle, $borderColor, $important);
+  @include borderFor(left, $borderWidth, $borderStyle, $borderColor, $important);
+}
+
+// 为4个border分别设置样式
+@mixin borderEach(
+  $topBorderWidth, $topBorderStyle, $topBorderColor,
+  $rightBorderWidth, $rightBorderStyle, $rightBorderColor,
+  $bottomBorderWidth, $bottomBorderStyle, $bottomBorderColor,
+  $leftBorderWidth, $leftBorderStyle, $leftBorderColor,
+  $important: false
+) {
+  @include borderFor(top, $topBorderWidth, $topBorderStyle, $topBorderColor, $important);
+  @include borderFor(right, $rightBorderWidth, $rightBorderStyle, $rightBorderColor, $important);
+  @include borderFor(bottom, $bottomBorderWidth, $bottomBorderStyle, $bottomBorderColor, $important);
+  @include borderFor(left, $leftBorderWidth, $leftBorderStyle, $leftBorderColor, $important);
+}
+
+// 为单个border-radius设置值
+@mixin borderRadiusFor($verticalPosition, $horizontalPosition, $radius) {
+  border-#{ $verticalPosition }-#{ $horizontalPosition }-radius: $radius;
+}
+
+// 为4个border-radius设置同样的值
+@mixin borderRadiusAll($radius) {
+  @include borderRadiusFor(top, left, $radius);
+  @include borderRadiusFor(top, right, $radius);
+  @include borderRadiusFor(bottom, right, $radius);
+  @include borderRadiusFor(bottom, left, $radius);
+}
+
+// 为4个border-radius分别设置值
+@mixin borderRadiusEach($topLeftRadius, $topRightRadius, $bottomRightRadius, $bottomLeftRadius) {
+  @include borderRadiusFor(top, left, $topLeftRadius);
+  @include borderRadiusFor(top, right, $topRightRadius);
+  @include borderRadiusFor(bottom, right, $bottomRightRadius);
+  @include borderRadiusFor(bottom, left, $bottomLeftRadius);
+}
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin inlineFlexCenter() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,135 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: drawer style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  // 方案 B：关闭时让 host 完全不参与布局（display: none），从而不占文档流位置。
+  // 注意：为了不丢失过渡动画，JS 会在关闭动画结束后再移除 data-rendered。
+  display: none;
+}
+
+// 处于渲染态时才挂载到布局树中（此时内部 wrapper 通过 fixed 覆盖视口）
+:host([data-rendered]) {
+  display: block;
+}
+
+.nv-drawer__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--nv-drawer-z-index, 2000);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--nv-drawer-transition-duration, 0.2s), visibility var(--nv-drawer-transition-duration, 0.2s);
+
+  &.is-modal {
+    background-color: var(--nv-drawer-background-color, rgba(0, 0, 0, 0.5));
+  }
+}
+
+:host([data-open]) .nv-drawer__wrapper {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nv-drawer__drawer {
+  position: absolute;
+  background-color: var(--nv-drawer-drawer-background-color, #fff);
+  box-shadow: var(--nv-drawer-drawer-box-shadow, 0 2px 12px 0 rgba(0, 0, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--nv-drawer-transition-duration, 0.2s);
+
+  &--rtl {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+  }
+
+  &--ltr {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+  }
+
+  &--ttb {
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 100vh; // 确保不超过视口高度
+    transform: translateY(-100%);
+  }
+
+  &--btt {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 100vh; // 确保不超过视口高度
+    transform: translateY(100%);
+  }
+}
+
+:host([data-open]) .nv-drawer__drawer {
+  transform: translate(0, 0);
+}
+
+.nv-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--nv-drawer-header-padding, 20px);
+  border-bottom: var(--nv-drawer-header-border-bottom, 1px solid #e4e7ed);
+}
+
+.nv-drawer__header-content {
+  flex: 1;
+  font-size: var(--nv-drawer-header-font-size, 18px);
+  font-weight: var(--nv-drawer-header-font-weight, 500);
+  color: var(--nv-drawer-header-color, #303133);
+}
+
+.nv-drawer__close {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--nv-drawer-close-color, #909399);
+  font-size: var(--nv-drawer-close-font-size, 16px);
+  transition: color var(--nv-drawer-close-transition-duration, 0.3s);
+
+  &:hover {
+    color: var(--nv-drawer-close-color-hover, #303133);
+  }
+}
+
+.nv-drawer__body {
+  flex: 1;
+  min-height: 0; // 关键：允许 flex 子元素正确处理 overflow
+  padding: var(--nv-drawer-body-padding, 20px);
+  color: var(--nv-drawer-body-color, #606266);
+  font-size: var(--nv-drawer-body-font-size, 14px);
+  line-height: var(--nv-drawer-body-line-height, 1.5);
+  overflow-y: auto;
+}
+
+.nv-drawer__footer {
+  padding: var(--nv-drawer-footer-padding, 20px);
+  border-top: var(--nv-drawer-footer-border-top, 1px solid #e4e7ed);
+  text-align: var(--nv-drawer-footer-text-align, right);
+
+  // 隐藏空的 footer
+  &:empty {
+    display: none;
+  }
+}

@@ -1,0 +1,77 @@
+/*
+ * @Descripttion: alert组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-alert-border-radius: var(--nv-border-radius-small);
+
+  /**************** padding *****************/
+  --nv-alert-padding-mini: var(--nv-padding-mini) var(--nv-padding-small);
+  --nv-alert-padding-small: var(--nv-padding-small) var(--nv-padding-medium);
+  --nv-alert-padding-medium: var(--nv-padding-small) var(--nv-padding-medium);
+  --nv-alert-padding-large: var(--nv-padding-medium) var(--nv-padding-large);
+  --nv-alert-padding-huge: var(--nv-padding-large) var(--nv-padding-huge);
+
+  --nv-alert-content-padding-mini: 0 var(--nv-padding-mini);
+  --nv-alert-content-padding-small: 0 var(--nv-padding-small);
+  --nv-alert-content-padding-medium: 0 var(--nv-padding-small);
+  --nv-alert-content-padding-large: 0 var(--nv-padding-medium);
+  --nv-alert-content-padding-huge: 0 var(--nv-padding-large);
+
+  --nv-alert-padding-left-with-icon: var(--nv-padding-medium);
+
+  /**************** font-size *****************/
+  --nv-alert-icon-font-size-mini: 12px;
+  --nv-alert-icon-font-size-small: 14px;
+  --nv-alert-icon-font-size-medium: 16px;
+  --nv-alert-icon-font-size-large: 18px;
+  --nv-alert-icon-font-size-huge: 20px;
+
+  --nv-alert-title-font-size-mini: var(--nv-font-size-mini);
+  --nv-alert-title-font-size-small: var(--nv-font-size-mini);
+  --nv-alert-title-font-size-medium: 13px;
+  --nv-alert-title-font-size-large: var(--nv-font-size-small);
+  --nv-alert-title-font-size-huge: var(--nv-font-size-medium);
+
+  --nv-alert-description-font-size-mini: var(--nv-font-size-mini);
+  --nv-alert-description-font-size-small: var(--nv-font-size-mini);
+  --nv-alert-description-font-size-medium: var(--nv-font-size-small);
+  --nv-alert-description-font-size-large: var(--nv-font-size-medium);
+  --nv-alert-description-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** spacing *****************/
+  --nv-alert-icon-margin-right: var(--nv-padding-small);
+  --nv-alert-closebtn-right: 15px;
+  --nv-alert-description-margin-top: var(--nv-padding-mini);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-alert-background-color-info: var(--nv-primary-color-10);
+  --nv-alert-background-color-success: var(--nv-secondary-color-success-4);
+  --nv-alert-background-color-warning: var(--nv-secondary-color-warning-4);
+  --nv-alert-background-color-error: var(--nv-secondary-color-danger-4);
+
+  /**************** font *****************/
+  --nv-alert-font-color-info: var(--nv-secondary-color-info-1);
+  --nv-alert-font-color-success: var(--nv-secondary-color-success-1);
+  --nv-alert-font-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-alert-font-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************** icon *****************/
+  --nv-alert-icon-color-info: var(--nv-secondary-color-info-1);
+  --nv-alert-icon-color-success: var(--nv-secondary-color-success-1);
+  --nv-alert-icon-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-alert-icon-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************************************************** color end ********************************************************/
+}
+

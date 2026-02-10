@@ -1,0 +1,132 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: message组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: flex;
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  align-items: center;
+  background-color: var(--nv-message-background-color-info);
+  min-width: var(--nv-message-min-width);
+  box-sizing: border-box;
+  border-radius: var(--nv-message-border-radius);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--nv-message-border-color-info);
+  padding: var(--nv-message-padding);
+  transition: opacity 0.3s, transform 0.3s, top 0.3s;
+  overflow-wrap: anywhere;
+  z-index: 3000;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+// 根据 type 属性设置不同的背景色和边框色
+:host([type="success"]) {
+  background-color: var(--nv-message-background-color-success);
+  border-color: var(--nv-message-border-color-success);
+}
+
+:host([type="info"]) {
+  background-color: var(--nv-message-background-color-info);
+  border-color: var(--nv-message-border-color-info);
+}
+
+:host([type="warning"]) {
+  background-color: var(--nv-message-background-color-warning);
+  border-color: var(--nv-message-border-color-warning);
+}
+
+:host([type="error"]) {
+  background-color: var(--nv-message-background-color-error);
+  border-color: var(--nv-message-border-color-error);
+}
+
+// .nv-message
+@include b(message) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+  width: 100%;
+
+  // 图标
+  &__icon {
+    font-size: var(--nv-message-icon-font-size);
+    width: var(--nv-message-icon-width);
+    margin-right: var(--nv-message-icon-margin-right);
+    display: flex;
+    align-items: center;
+  }
+
+  // 内容
+  &__content {
+    margin: 0;
+    padding: 0;
+    font-size: var(--nv-message-content-font-size);
+    line-height: 1;
+    flex: 1;
+  }
+
+  // 关闭按钮
+  &__closeBtn {
+    margin-left: var(--nv-message-closebtn-margin-left, var(--nv-padding-medium));
+    cursor: pointer;
+    color: var(--nv-message-closebtn-color);
+    font-size: var(--nv-message-closebtn-font-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--nv-message-closebtn-color-hover);
+    }
+  }
+
+  // 居中
+  &.is-center {
+    justify-content: center;
+  }
+
+  // 类型变体
+  &--success {
+    color: var(--nv-message-font-color-success);
+
+    .nv-message__icon {
+      color: var(--nv-message-icon-color-success);
+    }
+  }
+
+  &--info {
+    color: var(--nv-message-font-color-info);
+
+    .nv-message__icon {
+      color: var(--nv-message-icon-color-info);
+    }
+  }
+
+  &--warning {
+    color: var(--nv-message-font-color-warning);
+
+    .nv-message__icon {
+      color: var(--nv-message-icon-color-warning);
+    }
+  }
+
+  &--error {
+    color: var(--nv-message-font-color-error);
+
+    .nv-message__icon {
+      color: var(--nv-message-icon-color-error);
+    }
+  }
+}
+

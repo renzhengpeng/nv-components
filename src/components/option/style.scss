@@ -1,0 +1,41 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: option style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+@import './variables.scss';
+
+:host {
+  display: block;
+  height: var(--nv-option-height);
+  padding: var(--nv-option-padding);
+  font-size: var(--nv-option-font-size);
+  color: var(--nv-option-font-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+  line-height: var(--nv-option-height);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:host(:hover:not([disabled])) {
+  background-color: var(--nv-option-background-color-hover);
+  color: var(--nv-option-font-color-hover);
+}
+
+:host([selected]) {
+  color: var(--nv-option-font-color-selected);
+  font-weight: 500;
+  background-color: var(--nv-option-background-color-selected);
+}
+
+:host([disabled]) {
+  color: var(--nv-option-font-color-disabled);
+  cursor: not-allowed;
+  background-color: transparent;
+}

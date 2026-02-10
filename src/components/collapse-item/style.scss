@@ -1,0 +1,76 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: collapse-item style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(collapse-item) {
+  border-bottom: var(--nv-collapse-item-border-bottom, 1px solid #dcdfe6);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--nv-collapse-item-header-padding, 15px);
+    background-color: var(--nv-collapse-item-header-background-color, #fafafa);
+    color: var(--nv-collapse-item-header-color, #303133);
+    font-size: var(--nv-collapse-item-header-font-size, 13px);
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: var(--nv-collapse-item-header-background-color-hover, #e6e8eb);
+    }
+  }
+
+  &.is-disabled {
+    .nv-collapse-item__header {
+      cursor: not-allowed;
+      opacity: 0.6;
+
+      &:hover {
+        background-color: var(--nv-collapse-item-header-background-color, #fafafa);
+      }
+    }
+  }
+
+  &__title {
+    flex: 1;
+  }
+
+  &__icon {
+    transition: transform 0.3s;
+    color: var(--nv-collapse-item-icon-color, #909399);
+  }
+
+  &.is-active {
+    .nv-collapse-item__icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    transition: height var(--nv-collapse-item-wrapper-transition-duration, 0.3s) ease;
+    height: 0;
+  }
+
+  &__content {
+    padding: var(--nv-collapse-item-content-padding, 15px);
+    color: var(--nv-collapse-item-content-color, #606266);
+    font-size: var(--nv-collapse-item-content-font-size, 13px);
+    line-height: var(--nv-collapse-item-content-line-height, 1.5);
+    background-color: var(--nv-collapse-item-content-background-color, #fff);
+  }
+}

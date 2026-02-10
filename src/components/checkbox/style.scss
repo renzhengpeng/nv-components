@@ -1,0 +1,239 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: checkbox组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  vertical-align: middle;
+}
+
+:host([disabled]) {
+  cursor: not-allowed !important;
+}
+
+// .nv-checkbox
+@include b(checkbox) {
+  color: var(--nv-neutral-color-font-2);
+  font-weight: 500;
+  line-height: 1;
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  font-size: var(--nv-font-size-small);
+  vertical-align: middle;
+
+  // .nv-checkbox__original
+  &__original {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  // .nv-checkbox__input
+  &__input {
+    border: 1px solid var(--nv-checkbox-input-border-color);
+    border-radius: var(--nv-checkbox-input-border-radius);
+    width: var(--nv-checkbox-input-width);
+    height: var(--nv-checkbox-input-height);
+    background-color: var(--nv-checkbox-input-background-color);
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+                background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+
+    // 选中状态的对勾
+    &::after {
+      box-sizing: content-box;
+      content: '';
+      border: 1px solid var(--nv-checkbox-after-border-color);
+      border-left: 0;
+      border-top: 0;
+      height: var(--nv-checkbox-after-height);
+      left: var(--nv-checkbox-after-left);
+      position: absolute;
+      top: var(--nv-checkbox-after-top);
+      transform: rotate(45deg) scaleY(0);
+      width: var(--nv-checkbox-after-width);
+      transition: transform 0.15s ease-in 0.05s;
+      transform-origin: center;
+    }
+  }
+
+  // .nv-checkbox__label
+  &__label {
+    font-size: var(--nv-font-size-small);
+    padding-left: var(--nv-checkbox-label-padding-left);
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  // .nv-checkbox.is-checked
+  &.is-checked {
+    .nv-checkbox__input {
+      background-color: var(--nv-checkbox-input-background-color-checked);
+      border-color: var(--nv-checkbox-input-border-color-checked);
+
+      &::after {
+        transform: rotate(45deg) scaleY(1);
+      }
+    }
+
+    .nv-checkbox__label {
+      color: var(--nv-checkbox-label-font-color-checked);
+    }
+  }
+
+  // .nv-checkbox.is-indeterminate（半选状态）
+  &.is-indeterminate {
+    .nv-checkbox__input {
+      background-color: var(--nv-checkbox-input-background-color-checked);
+      border-color: var(--nv-checkbox-input-border-color-checked);
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: var(--nv-checkbox-indeterminate-left);
+        top: var(--nv-checkbox-indeterminate-top);
+        width: var(--nv-checkbox-indeterminate-width);
+        height: var(--nv-checkbox-indeterminate-height);
+        background-color: var(--nv-checkbox-indeterminate-background-color);
+        transform: scale(1);
+        border: none;
+      }
+    }
+
+    .nv-checkbox__label {
+      color: var(--nv-checkbox-label-font-color-checked);
+    }
+  }
+
+  // .nv-checkbox.is-disabled
+  &.is-disabled {
+    cursor: not-allowed !important;
+
+    .nv-checkbox__input {
+      background-color: var(--nv-checkbox-input-background-color-disabled);
+      border-color: var(--nv-checkbox-input-border-color-disabled);
+      cursor: not-allowed !important;
+
+      &::after {
+        cursor: not-allowed;
+        border-color: var(--nv-checkbox-after-border-color-disabled);
+      }
+    }
+
+    .nv-checkbox__label {
+      color: var(--nv-checkbox-label-font-color-disabled);
+      cursor: not-allowed !important;
+    }
+
+    // 禁用且选中时，背景色为浅灰色
+    &.is-checked {
+      .nv-checkbox__input {
+        background-color: var(--nv-checkbox-input-background-color-disabled-checked);
+        border-color: var(--nv-checkbox-input-border-color-disabled);
+
+        &::after {
+          border-color: var(--nv-checkbox-after-border-color-disabled-checked);
+        }
+      }
+    }
+
+    // 禁用且半选时，背景色为浅灰色
+    &.is-indeterminate {
+      .nv-checkbox__input {
+        background-color: var(--nv-checkbox-input-background-color-disabled-indeterminate);
+        border-color: var(--nv-checkbox-input-border-color-disabled);
+
+        &::after {
+          background-color: var(--nv-checkbox-indeterminate-background-color-disabled);
+        }
+      }
+    }
+  }
+
+  // .nv-checkbox.is-bordered
+  &.is-bordered {
+    padding: var(--nv-checkbox-bordered-padding);
+    border-radius: var(--nv-border-radius-medium);
+    border: 1px solid var(--nv-checkbox-bordered-border-color);
+    box-sizing: border-box;
+    height: var(--nv-checkbox-bordered-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &.is-checked {
+      border-color: var(--nv-checkbox-bordered-border-color-checked);
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+      border-color: var(--nv-checkbox-bordered-border-color-disabled);
+    }
+
+    // Sizes for bordered checkbox
+    &.is-mini {
+      height: var(--nv-checkbox-bordered-height-mini);
+      padding: var(--nv-checkbox-bordered-padding-mini);
+      font-size: var(--nv-checkbox-label-font-size-mini);
+    }
+
+    &.is-small {
+      height: var(--nv-checkbox-bordered-height-small);
+      padding: var(--nv-checkbox-bordered-padding-small);
+      font-size: var(--nv-checkbox-label-font-size-small);
+    }
+
+    &.is-medium {
+      height: var(--nv-checkbox-bordered-height-medium);
+      padding: var(--nv-checkbox-bordered-padding-medium);
+      font-size: var(--nv-checkbox-label-font-size-medium);
+    }
+
+    &.is-large {
+      height: var(--nv-checkbox-bordered-height-large);
+      padding: var(--nv-checkbox-bordered-padding-large);
+      font-size: var(--nv-checkbox-label-font-size-large);
+    }
+
+    &.is-huge {
+      height: var(--nv-checkbox-bordered-height-huge);
+      padding: var(--nv-checkbox-bordered-padding-huge);
+      font-size: var(--nv-checkbox-label-font-size-huge);
+    }
+  }
+
+  // 聚焦状态
+  &:focus {
+    .nv-checkbox__input {
+      outline: var(--nv-checkbox-focus-outline-width) solid var(--nv-checkbox-focus-outline-color);
+      outline-offset: var(--nv-checkbox-focus-outline-offset);
+    }
+  }
+}
+

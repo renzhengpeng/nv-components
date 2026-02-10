@@ -1,0 +1,65 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: avatar style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+}
+
+@include b(avatar) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: var(--nv-avatar-font-color, #fff);
+  background-color: var(--nv-avatar-background-color, #c0c4cc);
+  width: var(--nv-avatar-size-medium, 40px);
+  height: var(--nv-avatar-size-medium, 40px);
+  font-size: var(--nv-avatar-font-size-medium, 14px);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // 圆形
+  &.is-circle {
+    border-radius: 50%;
+  }
+
+  // 方形
+  &.is-square {
+    border-radius: var(--nv-avatar-border-radius, 4px);
+  }
+
+  // 尺寸
+  &.is-large {
+    width: var(--nv-avatar-size-large, 56px);
+    height: var(--nv-avatar-size-large, 56px);
+    line-height: var(--nv-avatar-size-large, 56px);
+    font-size: var(--nv-avatar-font-size-large, 20px);
+  }
+
+  &.is-medium {
+    width: var(--nv-avatar-size-medium, 40px);
+    height: var(--nv-avatar-size-medium, 40px);
+    line-height: var(--nv-avatar-size-medium, 40px);
+    font-size: var(--nv-avatar-font-size-medium, 14px);
+  }
+
+  &.is-small {
+    width: var(--nv-avatar-size-small, 24px);
+    height: var(--nv-avatar-size-small, 24px);
+    line-height: var(--nv-avatar-size-small, 24px);
+    font-size: var(--nv-avatar-font-size-small, 12px);
+  }
+}
+

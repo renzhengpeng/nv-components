@@ -1,0 +1,103 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: skeleton style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(skeleton) {
+  display: flex;
+  width: 100%;
+
+  &__avatar {
+    flex-shrink: 0;
+    background-color: var(--nv-skeleton-background-color, #f2f2f2);
+    margin-right: var(--nv-skeleton-avatar-margin-right, 16px);
+
+    &.avatar-large {
+      width: var(--nv-skeleton-avatar-size-large, 40px);
+      height: var(--nv-skeleton-avatar-size-large, 40px);
+    }
+
+    &.avatar-medium {
+      width: var(--nv-skeleton-avatar-size-medium, 32px);
+      height: var(--nv-skeleton-avatar-size-medium, 32px);
+    }
+
+    &.avatar-small {
+      width: var(--nv-skeleton-avatar-size-small, 24px);
+      height: var(--nv-skeleton-avatar-size-small, 24px);
+    }
+
+    &.avatar-circle {
+      border-radius: 50%;
+    }
+
+    &.avatar-square {
+      border-radius: var(--nv-skeleton-border-radius, 4px);
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    height: var(--nv-skeleton-title-height, 16px);
+    background-color: var(--nv-skeleton-background-color, #f2f2f2);
+    border-radius: var(--nv-skeleton-border-radius, 4px);
+    margin-bottom: var(--nv-skeleton-title-margin-bottom, 16px);
+    width: var(--nv-skeleton-title-width, 40%);
+  }
+
+  &__paragraph {
+    margin-bottom: var(--nv-skeleton-paragraph-margin-bottom, 16px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    height: var(--nv-skeleton-text-height, 16px);
+    background-color: var(--nv-skeleton-background-color, #f2f2f2);
+    border-radius: var(--nv-skeleton-border-radius, 4px);
+    width: 100%;
+
+    &:last-child {
+      width: var(--nv-skeleton-text-last-width, 60%);
+    }
+  }
+
+  // 动画效果
+  &.is-animated {
+    .nv-skeleton__avatar,
+    .nv-skeleton__title,
+    .nv-skeleton__text {
+      background: linear-gradient(
+        90deg,
+        var(--nv-skeleton-background-color, #f2f2f2) 25%,
+        var(--nv-skeleton-background-color-active, #e6e6e6) 37%,
+        var(--nv-skeleton-background-color, #f2f2f2) 63%
+      );
+      background-size: 400% 100%;
+      animation: skeleton-loading 1.4s ease infinite;
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+

@@ -1,0 +1,72 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: divider style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(divider) {
+  position: relative;
+  margin: var(--nv-divider-margin, 20px 0);
+  border-top: var(--nv-divider-border-width, 1px) solid var(--nv-divider-border-color, #dcdfe6);
+
+  // 水平分割线
+  &.is-horizontal {
+    display: block;
+    height: 1px;
+    width: 100%;
+    clear: both;
+
+    // 带文字的水平分割线
+    &.content-position-left {
+      .nv-divider__text {
+        left: 20px;
+        transform: translateY(-50%);
+        padding-right: 20px;
+      }
+    }
+
+    &.content-position-right {
+      .nv-divider__text {
+        right: 20px;
+        transform: translateY(-50%);
+        padding-left: 20px;
+      }
+    }
+
+    &.content-position-center {
+      .nv-divider__text {
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        padding: 0 20px;
+      }
+    }
+
+    .nv-divider__text {
+      position: absolute;
+      background-color: var(--nv-divider-background-color, #fff);
+      color: var(--nv-divider-font-color, #909399);
+      font-size: var(--nv-divider-font-size, 14px);
+      padding: 0 20px;
+      top: 50%;
+    }
+  }
+
+  // 垂直分割线
+  &.is-vertical {
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    margin: 0 var(--nv-divider-vertical-margin, 8px);
+    vertical-align: middle;
+    border-top: 0;
+    border-left: var(--nv-divider-border-width, 1px) solid var(--nv-divider-border-color, #dcdfe6);
+  }
+}
+

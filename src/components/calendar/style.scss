@@ -1,0 +1,167 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: calendar style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(calendar) {
+  background-color: var(--nv-calendar-background-color, #fff);
+  border: var(--nv-calendar-border, 1px solid #e4e7ed);
+  border-radius: var(--nv-calendar-border-radius, 4px);
+  padding: var(--nv-calendar-padding, 20px);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--nv-calendar-header-margin-bottom, 16px);
+  }
+
+  &__btn {
+    background: none;
+    border: none;
+    padding: var(--nv-calendar-btn-padding, 6px 12px);
+    cursor: pointer;
+    color: var(--nv-calendar-btn-color, #606266);
+    transition: color var(--nv-calendar-btn-transition-duration, 0.3s);
+    border-radius: var(--nv-calendar-btn-border-radius, 4px);
+    font-size: var(--nv-calendar-btn-font-size, 14px);
+
+    &:hover {
+      color: var(--nv-calendar-btn-color-hover, #409EFF);
+      background-color: var(--nv-calendar-btn-background-hover, #f5f7fa);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: var(--nv-calendar-title-gap, 8px);
+    font-size: var(--nv-calendar-title-font-size, 16px);
+    font-weight: var(--nv-calendar-title-font-weight, 500);
+    color: var(--nv-calendar-title-color, #303133);
+    width: 180px;
+  }
+
+  &__year-select,
+  &__month-select {
+    // nv-select 组件使用自己的样式，这里可以通过 CSS 变量来定制
+    // 如果需要自定义样式，可以通过 :host-context 或 CSS 变量来实现
+  }
+
+  &__today-btn {
+    text-align: center;
+    margin-bottom: var(--nv-calendar-today-btn-margin-bottom, 12px);
+  }
+
+  &__body {
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--nv-calendar-weekdays-gap, 4px);
+    margin-bottom: var(--nv-calendar-weekdays-margin-bottom, 8px);
+  }
+
+  &__weekday {
+    text-align: center;
+    font-size: var(--nv-calendar-weekday-font-size, 14px);
+    color: var(--nv-calendar-weekday-color, #909399);
+    padding: var(--nv-calendar-weekday-padding, 8px);
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--nv-calendar-days-gap, 4px);
+  }
+
+  &__day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--nv-calendar-day-font-size, 14px);
+    color: var(--nv-calendar-day-color, #606266);
+    cursor: pointer;
+    border-radius: var(--nv-calendar-day-border-radius, 4px);
+    transition: all var(--nv-calendar-day-transition-duration, 0.3s);
+    position: relative;
+    user-select: none;
+
+    &:hover:not(.is-selected):not(.is-other-month):not(.is-disabled):not(.is-range-edge) {
+      background-color: var(--nv-calendar-day-background-color-hover, #f5f7fa);
+    }
+
+    &.is-today {
+      color: var(--nv-calendar-day-color-today, #409EFF);
+      font-weight: var(--nv-calendar-day-font-weight-today, 600);
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: var(--nv-calendar-day-today-dot-bottom, 4px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(--nv-calendar-day-today-dot-size, 4px);
+        height: var(--nv-calendar-day-today-dot-size, 4px);
+        border-radius: 50%;
+        background-color: var(--nv-calendar-day-color-today, #409EFF);
+      }
+    }
+
+    &.is-selected,
+    &.is-range-edge {
+      background-color: var(--nv-calendar-day-background-color-selected, #409EFF);
+      color: var(--nv-calendar-day-color-selected, #fff);
+      z-index: 1;
+      
+      &::after {
+        background-color: var(--nv-calendar-day-color-selected, #fff);
+      }
+
+      &:hover {
+        background-color: var(--nv-calendar-day-background-color-selected-hover, #337ecc);
+      }
+    }
+
+    &.is-in-range {
+      background-color: var(--nv-calendar-day-background-color-in-range, #e6f2ff);
+      color: var(--nv-calendar-day-color-in-range, #409EFF);
+      border-radius: 0;
+
+      &:hover {
+        background-color: var(--nv-calendar-day-background-color-in-range-hover, #d9ecff);
+      }
+    }
+
+    // 范围选择模式下，边缘保持圆角
+    &.is-range-edge.is-in-range {
+      border-radius: var(--nv-calendar-day-border-radius, 4px);
+    }
+
+    &.is-other-month {
+      color: var(--nv-calendar-day-color-other-month, #c0c4cc);
+    }
+
+    &.is-disabled {
+      color: var(--nv-calendar-day-color-disabled, #c0c4cc);
+      background-color: var(--nv-calendar-day-background-color-disabled, #f5f7fa);
+      cursor: not-allowed;
+      text-decoration: line-through;
+      
+      &:hover {
+        background-color: var(--nv-calendar-day-background-color-disabled, #f5f7fa);
+      }
+    }
+  }
+}
+

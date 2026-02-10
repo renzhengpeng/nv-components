@@ -1,0 +1,29 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: carousel-item style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@include b(carousel-item) {
+  width: 100%;
+  height: 100%;
+
+  // slot 内容默认填充满整个容器
+  ::slotted(*) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+

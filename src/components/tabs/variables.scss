@@ -1,0 +1,89 @@
+/*
+ * @Descripttion: tabs组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+ @import url('../../styles/variables/bem.variables.scss');
+
+:root {
+  /**************************************************** namespace start ********************************************************/
+  --nv-components-namespace-tabs-block: 'nv-tabs';
+  --nv-components-namespace-tabs-element-header: 'header';
+  --nv-components-namespace-tabs-element-nav-wrap: 'nav-wrap';
+  --nv-components-namespace-tabs-element-nav-scroll: 'nav-scroll';
+  --nv-components-namespace-tabs-element-nav: 'nav';
+  --nv-components-namespace-tabs-element-item: 'item';
+  --nv-components-namespace-tabs-element-item-label: 'item-label';
+  --nv-components-namespace-tabs-element-item-close: 'item-close';
+  --nv-components-namespace-tabs-element-item-label: 'item-label';
+  --nv-components-namespace-tabs-element-item-edit-input: 'item-edit-input';
+  --nv-components-namespace-tabs-element-item-add: 'item-add';
+  --nv-components-namespace-tabs-element-content: 'content';
+  /**************************************************** namespace end ********************************************************/
+
+
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-tabs-item-border-radius: var(--nv-border-radius-small);
+  --nv-tabs-card-item-border-radius: var(--nv-border-radius-small) var(--nv-border-radius-small) 0 0;
+  --nv-tabs-border-card-item-border-radius: var(--nv-border-radius-small) var(--nv-border-radius-small) 0 0;
+
+  /**************** padding *****************/
+  --nv-tabs-item-padding: 0 var(--nv-padding-huge);
+  --nv-tabs-card-item-margin: 0;
+  --nv-tabs-border-card-item-margin: 0 var(--nv-padding-mini) 0 0;
+  --nv-tabs-border-card-content-padding: var(--nv-padding-large);
+
+  /**************** height & line-height *****************/
+  --nv-tabs-item-height: 40px;
+  --nv-tabs-item-line-height: 40px;
+  --nv-tabs-card-item-height: 38px;
+  --nv-tabs-card-item-line-height: 38px;
+  --nv-tabs-border-card-item-height: 38px;
+  --nv-tabs-border-card-item-line-height: 38px;
+
+  /**************** font-size *****************/
+  --nv-tabs-item-font-size: var(--nv-font-size-small);
+
+  /**************** spacing *****************/
+  --nv-tabs-header-margin-bottom: var(--nv-padding-large);
+  --nv-tabs-nav-wrap-margin-bottom: -1px;
+  --nv-tabs-active-bar-height: 2px;
+  --nv-tabs-nav-wrap-after-height: 2px;
+
+  /**************** shadow *****************/
+  --nv-tabs-border-card-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-tabs-card-item-background-color: var(--nv-neutral-color-white);
+  --nv-tabs-border-card-background-color: var(--nv-neutral-color-white);
+  --nv-tabs-border-card-header-background-color: #f5f7fa;
+  --nv-tabs-border-card-item-active-background-color: var(--nv-neutral-color-white);
+
+  /**************** border *****************/
+  --nv-tabs-nav-wrap-after-background-color: var(--nv-neutral-color-border-2);
+  --nv-tabs-card-header-border-color: var(--nv-neutral-color-border-2);
+  --nv-tabs-card-item-border-color: var(--nv-neutral-color-border-2);
+  --nv-tabs-border-card-border-color: var(--nv-neutral-color-border-1);
+  --nv-tabs-border-card-header-border-color: var(--nv-neutral-color-border-2);
+  --nv-tabs-border-card-item-active-border-color: var(--nv-neutral-color-border-2);
+
+  /**************** font *****************/
+  --nv-tabs-item-font-color: var(--nv-neutral-color-font-1);
+  --nv-tabs-item-font-color-hover: var(--nv-primary-color-1);
+  --nv-tabs-item-font-color-active: var(--nv-primary-color-1);
+  --nv-tabs-item-font-color-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** active-bar *****************/
+  --nv-tabs-active-bar-background-color: var(--nv-primary-color-1);
+
+  /**************************************************** color end ********************************************************/
+}
+

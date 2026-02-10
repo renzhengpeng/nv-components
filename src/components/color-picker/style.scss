@@ -1,0 +1,300 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: color-picker style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+@include b(color-picker) {
+  display: inline-flex;
+
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--nv-color-picker-trigger-border-radius, 4px);
+    padding: 0;
+    background-color: transparent;
+    transition: border-color var(--nv-color-picker-trigger-transition-duration, 0.3s);
+  }
+
+  &.is-bordered {
+    .nv-color-picker__trigger {
+      border: var(--nv-color-picker-trigger-border, 1px solid #dcdfe6);
+      padding: var(--nv-color-picker-trigger-padding, 4px);
+      background-color: var(--nv-color-picker-trigger-background-color, #fff);
+
+      &:hover {
+        border-color: var(--nv-color-picker-trigger-border-color-hover, #409EFF);
+      }
+    }
+  }
+
+  &.is-disabled {
+    .nv-color-picker__trigger {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__color {
+    transition: all var(--nv-color-picker-color-transition-duration, 0.3s);
+  }
+
+  // Size modifiers - Circle & Square (正方形)
+  &--mini {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-size-mini);
+      height: var(--nv-color-picker-color-size-mini);
+    }
+  }
+
+  &--small {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-size-small);
+      height: var(--nv-color-picker-color-size-small);
+    }
+  }
+
+  &--medium {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-size-medium);
+      height: var(--nv-color-picker-color-size-medium);
+    }
+  }
+
+  &--large {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-size-large);
+      height: var(--nv-color-picker-color-size-large);
+    }
+  }
+
+  &--huge {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-size-huge);
+      height: var(--nv-color-picker-color-size-huge);
+    }
+  }
+
+  // Shape modifiers
+  &--circle {
+    .nv-color-picker__color {
+      border-radius: var(--nv-color-picker-color-border-radius-circle);
+    }
+  }
+
+  &--square {
+    .nv-color-picker__color {
+      border-radius: var(--nv-color-picker-color-border-radius-square);
+    }
+  }
+
+  &--rectangle {
+    .nv-color-picker__color {
+      border-radius: var(--nv-color-picker-color-border-radius-rectangle);
+    }
+  }
+
+  // Rectangle shape with different sizes (2:1 比例，高度使用全局高度变量)
+  &--rectangle.nv-color-picker--mini {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-width-rectangle-mini);
+      height: var(--nv-color-picker-color-height-rectangle-mini);
+    }
+  }
+
+  &--rectangle.nv-color-picker--small {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-width-rectangle-small);
+      height: var(--nv-color-picker-color-height-rectangle-small);
+    }
+  }
+
+  &--rectangle.nv-color-picker--medium {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-width-rectangle-medium);
+      height: var(--nv-color-picker-color-height-rectangle-medium);
+    }
+  }
+
+  &--rectangle.nv-color-picker--large {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-width-rectangle-large);
+      height: var(--nv-color-picker-color-height-rectangle-large);
+    }
+  }
+
+  &--rectangle.nv-color-picker--huge {
+    .nv-color-picker__color {
+      width: var(--nv-color-picker-color-width-rectangle-huge);
+      height: var(--nv-color-picker-color-height-rectangle-huge);
+    }
+  }
+
+  &__panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: var(--nv-color-picker-panel-z-index, 2000);
+    background-color: var(--nv-color-picker-panel-background-color, #fff);
+    border: var(--nv-color-picker-panel-border, 1px solid #e4e7ed);
+    border-radius: var(--nv-color-picker-panel-border-radius, 4px);
+    box-shadow: var(--nv-color-picker-panel-box-shadow, 0 2px 12px 0 rgba(0, 0, 0, 0.1));
+    padding: var(--nv-color-picker-panel-padding, 12px);
+    width: var(--nv-color-picker-panel-width, 280px);
+  }
+
+  &__picker {
+    margin-bottom: var(--nv-color-picker-picker-margin-bottom, 8px);
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: var(--nv-color-picker-input-gap, 8px);
+    margin-bottom: var(--nv-color-picker-input-margin-bottom, 12px);
+  }
+
+  &__input-field {
+    flex: 1;
+    --nv-input-height-medium: var(--nv-color-picker-input-height, 32px);
+    --nv-input-font-size-default: var(--nv-color-picker-input-font-size, 12px);
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--nv-color-picker-controls-gap, 4px);
+  }
+
+  &__eye-dropper-button {
+    width: var(--nv-color-picker-eye-dropper-button-size, 32px);
+    min-width: var(--nv-color-picker-eye-dropper-button-size, 32px);
+    height: var(--nv-color-picker-eye-dropper-button-size, 32px);
+    padding: 0;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__format-toggle {
+    height: var(--nv-color-picker-format-toggle-height, 32px);
+    padding: var(--nv-color-picker-format-toggle-padding, 0 12px);
+    white-space: nowrap;
+  }
+
+  &__saturation {
+    position: relative;
+    width: 100%;
+    height: var(--nv-color-picker-saturation-height, 180px);
+    cursor: crosshair;
+    border-radius: var(--nv-color-picker-saturation-border-radius, 2px);
+    overflow: hidden;
+  }
+
+  &__saturation-white {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #fff, transparent);
+  }
+
+  &__saturation-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, #000, transparent);
+  }
+
+  &__saturation-pointer {
+    position: absolute;
+    width: var(--nv-color-picker-pointer-size, 12px);
+    height: var(--nv-color-picker-pointer-size, 12px);
+    border: var(--nv-color-picker-pointer-border, 2px solid #fff);
+    border-radius: var(--nv-color-picker-pointer-border-radius, 50%);
+    box-shadow: var(--nv-color-picker-pointer-box-shadow, 0 0 2px rgba(0, 0, 0, 0.3));
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+  &__hue {
+    position: relative;
+    width: 100%;
+    height: var(--nv-color-picker-hue-height, 12px);
+    margin-top: var(--nv-color-picker-hue-margin-top, 12px);
+    background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+    border-radius: var(--nv-color-picker-hue-border-radius, 2px);
+    cursor: pointer;
+  }
+
+  &__hue-pointer {
+    position: absolute;
+    width: var(--nv-color-picker-pointer-size, 12px);
+    height: var(--nv-color-picker-pointer-size, 12px);
+    border: var(--nv-color-picker-pointer-border, 2px solid #fff);
+    border-radius: var(--nv-color-picker-pointer-border-radius, 50%);
+    box-shadow: var(--nv-color-picker-pointer-box-shadow, 0 0 2px rgba(0, 0, 0, 0.3));
+    transform: translate(-50%, -50%);
+    top: 50%;
+    cursor: pointer;
+  }
+
+  &__alpha {
+    position: relative;
+    width: 100%;
+    height: var(--nv-color-picker-alpha-height, 12px);
+    margin-top: var(--nv-color-picker-alpha-margin-top, 12px);
+    background: linear-gradient(to right, transparent, #000);
+    border-radius: var(--nv-color-picker-alpha-border-radius, 2px);
+    cursor: pointer;
+  }
+
+  &__alpha-pointer {
+    position: absolute;
+    width: var(--nv-color-picker-pointer-size, 12px);
+    height: var(--nv-color-picker-pointer-size, 12px);
+    border: var(--nv-color-picker-pointer-border, 2px solid #fff);
+    border-radius: var(--nv-color-picker-pointer-border-radius, 50%);
+    box-shadow: var(--nv-color-picker-pointer-box-shadow, 0 0 2px rgba(0, 0, 0, 0.3));
+    transform: translate(-50%, -50%);
+    top: 50%;
+    cursor: pointer;
+  }
+
+  &__predefine {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nv-color-picker-predefine-gap, 8px);
+    margin-top: var(--nv-color-picker-predefine-margin-top, 12px);
+    padding-top: var(--nv-color-picker-predefine-padding-top, 12px);
+    border-top: var(--nv-color-picker-predefine-border-top, 1px solid #e4e7ed);
+  }
+
+  &__predefine-color {
+    width: var(--nv-color-picker-predefine-color-size, 20px);
+    height: var(--nv-color-picker-predefine-color-size, 20px);
+    border-radius: var(--nv-color-picker-predefine-color-border-radius, 2px);
+    cursor: pointer;
+    border: var(--nv-color-picker-predefine-color-border, 1px solid #dcdfe6);
+    transition: transform var(--nv-color-picker-predefine-color-transition-duration, 0.2s);
+
+    &:hover {
+      transform: scale(var(--nv-color-picker-predefine-color-hover-scale, 1.1));
+    }
+  }
+}

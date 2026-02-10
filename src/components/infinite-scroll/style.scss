@@ -1,0 +1,25 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: infinite-scroll style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(infinite-scroll) {
+  &__loader {
+    text-align: center;
+    padding: var(--nv-infinite-scroll-loader-padding, 16px);
+  }
+
+  &__loader-text {
+    color: var(--nv-infinite-scroll-loader-text-color, #909399);
+    font-size: var(--nv-infinite-scroll-loader-text-font-size, 14px);
+  }
+}
+

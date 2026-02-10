@@ -1,0 +1,59 @@
+/*
+ * @Descripttion: link组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** font-size *****************/
+  --nv-link-font-size-mini: var(--nv-font-size-mini);
+  --nv-link-font-size-small: var(--nv-font-size-mini);
+  --nv-link-font-size-medium: var(--nv-font-size-small);
+  --nv-link-font-size-large: var(--nv-font-size-medium);
+  --nv-link-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** icon *****************/
+  --nv-link-icon-margin-right: var(--nv-padding-mini);
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+
+  /**************** default *****************/
+  --nv-link-font-color: var(--nv-primary-color-1);
+  --nv-link-font-color-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** primary *****************/
+  --nv-link-font-color-primary: var(--nv-primary-color-1);
+  --nv-link-font-color-primary-hover: var(--nv-primary-color-2);
+  --nv-link-font-color-primary-active: var(--nv-primary-color-1-active);
+  --nv-link-font-color-primary-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** success *****************/
+  --nv-link-font-color-success: var(--nv-secondary-color-success-1);
+  --nv-link-font-color-success-hover: var(--nv-secondary-color-success-1-hover);
+  --nv-link-font-color-success-active: var(--nv-secondary-color-success-1-active);
+  --nv-link-font-color-success-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** warning *****************/
+  --nv-link-font-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-link-font-color-warning-hover: var(--nv-secondary-color-warning-1-hover);
+  --nv-link-font-color-warning-active: var(--nv-secondary-color-warning-1-active);
+  --nv-link-font-color-warning-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** error *****************/
+  --nv-link-font-color-error: var(--nv-secondary-color-danger-1);
+  --nv-link-font-color-error-hover: var(--nv-secondary-color-danger-1-hover);
+  --nv-link-font-color-error-active: var(--nv-secondary-color-danger-1-active);
+  --nv-link-font-color-error-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** info *****************/
+  --nv-link-font-color-info: var(--nv-secondary-color-info-1);
+  --nv-link-font-color-info-hover: var(--nv-secondary-color-info-1-hover);
+  --nv-link-font-color-info-active: var(--nv-secondary-color-info-1-active);
+  --nv-link-font-color-info-disabled: var(--nv-neutral-color-font-4);
+
+  /***************************************************** color end ********************************************************/
+}
+

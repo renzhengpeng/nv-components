@@ -1,0 +1,46 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: statistic style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+}
+
+@include b(statistic) {
+  &__title {
+    margin-bottom: var(--nv-statistic-title-margin-bottom, 4px);
+    color: var(--nv-statistic-title-color, rgba(0, 0, 0, 0.45));
+    font-size: var(--nv-statistic-title-font-size, 14px);
+    line-height: var(--nv-statistic-title-line-height, 1.5);
+  }
+
+  &__content {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__value {
+    color: var(--nv-statistic-value-color, rgba(0, 0, 0, 0.85));
+    font-size: var(--nv-statistic-value-font-size, 24px);
+    font-weight: var(--nv-statistic-value-font-weight, 600);
+    line-height: var(--nv-statistic-value-line-height, 1.5);
+  }
+
+  &__prefix {
+    margin-right: var(--nv-statistic-prefix-margin-right, 4px);
+    color: var(--nv-statistic-prefix-color, rgba(0, 0, 0, 0.85));
+    font-size: var(--nv-statistic-prefix-font-size, 24px);
+  }
+
+  &__suffix {
+    margin-left: var(--nv-statistic-suffix-margin-left, 4px);
+    color: var(--nv-statistic-suffix-color, rgba(0, 0, 0, 0.85));
+    font-size: var(--nv-statistic-suffix-font-size, 24px);
+  }
+}
+

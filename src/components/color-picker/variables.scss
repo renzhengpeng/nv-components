@@ -1,0 +1,83 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: color-picker组件变量
+ */
+:root {
+  // Trigger 触发器
+  --nv-color-picker-trigger-border: 1px solid #dcdfe6;
+  --nv-color-picker-trigger-border-radius: 4px;
+  --nv-color-picker-trigger-padding: 4px;
+  --nv-color-picker-trigger-background-color: #fff;
+  --nv-color-picker-trigger-transition-duration: 0.3s;
+  --nv-color-picker-trigger-border-color-hover: #409EFF;
+
+  // Circle & Square 尺寸（使用全局高度变量）
+  --nv-color-picker-color-size-mini: var(--nv-global-height-mini, 24px);
+  --nv-color-picker-color-size-small: var(--nv-global-height-small, 28px);
+  --nv-color-picker-color-size-medium: var(--nv-global-height-medium, 32px);
+  --nv-color-picker-color-size-large: var(--nv-global-height-large, 36px);
+  --nv-color-picker-color-size-huge: var(--nv-global-height-huge, 40px);
+
+  // Rectangle 尺寸（宽度为高度的 2 倍，高度使用全局高度变量）
+  --nv-color-picker-color-width-rectangle-mini: 48px;
+  --nv-color-picker-color-height-rectangle-mini: var(--nv-global-height-mini, 24px);
+  --nv-color-picker-color-width-rectangle-small: 56px;
+  --nv-color-picker-color-height-rectangle-small: var(--nv-global-height-small, 28px);
+  --nv-color-picker-color-width-rectangle-medium: 64px;
+  --nv-color-picker-color-height-rectangle-medium: var(--nv-global-height-medium, 32px);
+  --nv-color-picker-color-width-rectangle-large: 72px;
+  --nv-color-picker-color-height-rectangle-large: var(--nv-global-height-large, 36px);
+  --nv-color-picker-color-width-rectangle-huge: 80px;
+  --nv-color-picker-color-height-rectangle-huge: var(--nv-global-height-huge, 40px);
+
+  // Shape 形状
+  --nv-color-picker-color-border-radius-circle: 50%;
+  --nv-color-picker-color-border-radius-square: 4px;
+  --nv-color-picker-color-border-radius-rectangle: 2px;
+  // Panel 面板
+  --nv-color-picker-panel-z-index: 2000;
+  --nv-color-picker-panel-background-color: #fff;
+  --nv-color-picker-panel-border: 1px solid #e4e7ed;
+  --nv-color-picker-panel-border-radius: 4px;
+  --nv-color-picker-panel-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --nv-color-picker-panel-padding: 12px;
+  --nv-color-picker-panel-min-width: 200px;
+
+  // Picker 颜色选择区
+  --nv-color-picker-picker-margin-bottom: 12px;
+  // Saturation 饱和度
+  --nv-color-picker-saturation-width: 180px;
+  --nv-color-picker-saturation-height: 180px;
+  --nv-color-picker-saturation-border-radius: 2px;
+
+  // Pointer 指针
+  --nv-color-picker-pointer-size: 12px;
+  --nv-color-picker-pointer-border: 2px solid #fff;
+  --nv-color-picker-pointer-border-radius: 50%;
+  --nv-color-picker-pointer-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+
+  // Hue 色相
+  --nv-color-picker-hue-width: 180px;
+  --nv-color-picker-hue-height: 12px;
+  --nv-color-picker-hue-margin-top: 12px;
+  --nv-color-picker-hue-border-radius: 2px;
+
+  // Alpha 透明度
+  --nv-color-picker-alpha-width: 180px;
+  --nv-color-picker-alpha-height: 12px;
+  --nv-color-picker-alpha-margin-top: 12px;
+  --nv-color-picker-alpha-border-radius: 2px;
+
+  // Predefine 预定义颜色
+  --nv-color-picker-predefine-gap: 8px;
+  --nv-color-picker-predefine-margin-top: 12px;
+  --nv-color-picker-predefine-padding-top: 12px;
+  --nv-color-picker-predefine-border-top: 1px solid #e4e7ed;
+  --nv-color-picker-predefine-color-size: 20px;
+  --nv-color-picker-predefine-color-border-radius: 2px;
+  --nv-color-picker-predefine-color-border: 1px solid #dcdfe6;
+  --nv-color-picker-predefine-color-transition-duration: 0.2s;
+  --nv-color-picker-predefine-color-hover-scale: 1.1;
+}

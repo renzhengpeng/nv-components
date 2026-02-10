@@ -1,0 +1,304 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: progress组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: flex;
+}
+
+// .nv-progress
+@include b(progress) {
+  position: relative;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  // 外层容器
+  &__outer {
+    flex: 1;
+    margin-right: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+  }
+
+  // 内层容器（条形）
+  &__inner {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    background-color: var(--nv-progress-inner-background-color);
+    border-radius: var(--nv-progress-border-radius);
+    // overflow: hidden;
+    position: relative;
+    height: var(--nv-progress-inner-height-medium);
+  }
+
+  // Size modifiers for line type
+  &.is-mini {
+    .nv-progress__inner {
+      height: var(--nv-progress-inner-height-mini);
+    }
+    .nv-progress__text {
+      font-size: var(--nv-progress-text-font-size-mini);
+    }
+    .nv-progress__inner {
+      font-size: var(--nv-progress-inner-font-size-mini);
+    }
+    &.is-text-inside .nv-progress__text {
+      font-size: var(--nv-progress-text-inside-font-size-mini);
+    }
+  }
+
+  &.is-small {
+    .nv-progress__inner {
+      height: var(--nv-progress-inner-height-small);
+    }
+    .nv-progress__text {
+      font-size: var(--nv-progress-text-font-size-small);
+    }
+    .nv-progress__inner {
+      font-size: var(--nv-progress-inner-font-size-small);
+    }
+    &.is-text-inside .nv-progress__text {
+      font-size: var(--nv-progress-text-inside-font-size-small);
+    }
+  }
+
+  &.is-medium {
+    .nv-progress__inner {
+      height: var(--nv-progress-inner-height-medium);
+    }
+    .nv-progress__text {
+      font-size: var(--nv-progress-text-font-size-medium);
+    }
+    .nv-progress__inner {
+      font-size: var(--nv-progress-inner-font-size-medium);
+    }
+    &.is-text-inside .nv-progress__text {
+      font-size: var(--nv-progress-text-inside-font-size-medium);
+    }
+  }
+
+  &.is-large {
+    .nv-progress__inner {
+      height: var(--nv-progress-inner-height-large);
+    }
+    .nv-progress__text {
+      font-size: var(--nv-progress-text-font-size-large);
+    }
+    .nv-progress__inner {
+      font-size: var(--nv-progress-inner-font-size-large);
+    }
+    &.is-text-inside .nv-progress__text {
+      font-size: var(--nv-progress-text-inside-font-size-large);
+    }
+  }
+
+  &.is-huge {
+    .nv-progress__inner {
+      height: var(--nv-progress-inner-height-huge);
+    }
+    .nv-progress__text {
+      font-size: var(--nv-progress-text-font-size-huge);
+    }
+    .nv-progress__inner {
+      font-size: var(--nv-progress-inner-font-size-huge);
+    }
+    &.is-text-inside .nv-progress__text {
+      font-size: var(--nv-progress-text-inside-font-size-huge);
+    }
+  }
+
+  // 进度条
+  &__bar {
+    width: 0%;
+    height: 100%;
+    text-align: right;
+    border-radius: var(--nv-progress-border-radius);
+    line-height: 1;
+    white-space: nowrap;
+    transition: width 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  // 内部文字
+  &__inner {
+    // color: var(--nv-progress-inner-font-color); // 移动到 text--inside
+    // font-size: var(--nv-progress-inner-font-size); // 移动到 text--inside
+    // margin: var(--nv-progress-inner-margin); // 移动到 text--inside
+    display: inline-flex;
+    width: 100%;
+    vertical-align: middle;
+    background-color: var(--nv-progress-inner-background-color);
+    border-radius: var(--nv-progress-border-radius);
+    // overflow: hidden;
+    position: relative;
+    height: var(--nv-progress-inner-height-medium);
+  }
+
+  // 进度条内部文字
+  .nv-progress__text--inside {
+    color: var(--nv-progress-inner-font-color);
+    font-size: var(--nv-progress-inner-font-size);
+    margin: var(--nv-progress-inner-margin);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  // 文字
+  &__text {
+    font-size: var(--nv-progress-text-font-size);
+    color: var(--nv-progress-text-font-color);
+    margin-left: var(--nv-progress-text-margin-left);
+    min-width: var(--nv-progress-text-min-width);
+    line-height: 1;
+    text-align: left;
+  }
+
+  // 文字在内部
+  &.is-text-inside {
+    .nv-progress__text {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      color: var(--nv-progress-text-inside-font-color);
+      font-size: var(--nv-progress-text-inside-font-size);
+      line-height: 1;
+    }
+  }
+
+  // 圆形进度条
+  &.is-circle {
+    display: inline-block;
+    position: relative;
+
+    .nv-progress__outer {
+      width: var(--nv-progress-circle-width-medium);
+      height: var(--nv-progress-circle-height-medium);
+      overflow: visible; // 允许 svg 描边溢出容器
+    }
+
+    .nv-progress__inner,
+    .nv-progress__bar {
+        overflow: visible; // 允许 svg 描边溢出容器
+    }
+
+    &.is-mini .nv-progress__outer {
+      width: var(--nv-progress-circle-width-mini);
+      height: var(--nv-progress-circle-height-mini);
+    }
+
+    &.is-small .nv-progress__outer {
+      width: var(--nv-progress-circle-width-small);
+      height: var(--nv-progress-circle-height-small);
+    }
+
+    &.is-medium .nv-progress__outer {
+      width: var(--nv-progress-circle-width-medium);
+      height: var(--nv-progress-circle-height-medium);
+    }
+
+    &.is-large .nv-progress__outer {
+      width: var(--nv-progress-circle-width-large);
+      height: var(--nv-progress-circle-height-large);
+    }
+
+    &.is-huge .nv-progress__outer {
+      width: var(--nv-progress-circle-width-huge);
+      height: var(--nv-progress-circle-height-huge);
+    }
+
+    .nv-progress__text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  // 仪表盘
+  &.is-dashboard {
+    display: inline-block;
+    position: relative;
+
+    .nv-progress__outer {
+      width: var(--nv-progress-circle-width-medium);
+      height: var(--nv-progress-circle-height-medium);
+      transform: rotate(-90deg);
+      overflow: visible; // 允许 svg 描边溢出容器
+    }
+
+    .nv-progress__inner,
+    .nv-progress__bar {
+        overflow: visible; // 允许 svg 描边溢出容器
+    }
+
+    .nv-progress__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        text-align: center;
+    }
+
+    &.is-mini .nv-progress__outer {
+        width: var(--nv-progress-circle-width-mini);
+        height: var(--nv-progress-circle-height-mini);
+      }
+  
+      &.is-small .nv-progress__outer {
+        width: var(--nv-progress-circle-width-small);
+        height: var(--nv-progress-circle-height-small);
+      }
+  
+      &.is-medium .nv-progress__outer {
+        width: var(--nv-progress-circle-width-medium);
+        height: var(--nv-progress-circle-height-medium);
+      }
+  
+      &.is-large .nv-progress__outer {
+        width: var(--nv-progress-circle-width-large);
+        height: var(--nv-progress-circle-height-large);
+      }
+  
+      &.is-huge .nv-progress__outer {
+        width: var(--nv-progress-circle-width-huge);
+        height: var(--nv-progress-circle-height-huge);
+      }
+  }
+
+
+  // 状态变体
+  &--success {
+    .nv-progress__bar {
+      background-color: var(--nv-progress-bar-background-color-success);
+    }
+  }
+
+  &--warning {
+    .nv-progress__bar {
+      background-color: var(--nv-progress-bar-background-color-warning);
+    }
+  }
+
+  &--error {
+    .nv-progress__bar {
+      background-color: var(--nv-progress-bar-background-color-error);
+    }
+  }
+}
+

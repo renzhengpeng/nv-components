@@ -1,0 +1,25 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: tab-pane组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: none;
+}
+
+:host([active]) {
+  display: block;
+}
+
+// .nv-tab-pane
+@include b(tab-pane) {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+

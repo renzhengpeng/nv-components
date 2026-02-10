@@ -1,0 +1,93 @@
+{
+  "name": "nv-components",
+  "description": "基于Lit的高质量Web Components组件库",
+  "keywords": [
+    "NV Components",
+    "NV",
+    "Components",
+    "Lit",
+    "Lit Components",
+    "Lit Components",
+    "Web Components",
+    "Web Components Library",
+    "Custom Elements"
+  ],
+  "author": "NV",
+  "license": "MIT",
+  "homepage": "https://github.com/nv-components/nv-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nv-components/nv-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nv-components/nv-components/issues"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "browser": "./dist/index.js",
+  "main": "./lib/index.cjs",
+  "module": "./es/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./es/index.mjs",
+      "require": "./lib/index.cjs",
+      "default": "./es/index.mjs"
+    },
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*"
+  },
+  "files": [
+    "es",
+    "lib",
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "start": "yarn run dev",
+    "dev": "vite",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "yarn run build:umd && yarn run build:cmd && yarn run build:es",
+    "build:umd": "tsc && vite build -c umd.vite.config.js",
+    "build:cmd": "tsc && vite build -c cjs.vite.config.js && node scripts/build-styles-lib.js",
+    "build:es": "tsc && vite build -c es.vite.config.js && node scripts/build-styles-es.js",
+    "lint": "eslint"
+  },
+  "peerDependencies": {
+    "@lit-labs/virtualizer": "^2.1.1",
+    "lit": "3.2.0",
+    "prismjs": "^1.30.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "@storybook/addon-docs": "10.0.8",
+    "@storybook/addon-links": "^10.0.8",
+    "@storybook/builder-vite": "^10.0.8",
+    "@storybook/web-components-vite": "^10.0.8",
+    "@types/prismjs": "^1.26.5",
+    "esbuild": "0.21.3",
+    "eslint": "^9.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^17.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-storybook": "10.0.8",
+    "fast-check": "^3.22.0",
+    "globals": "^15.2.0",
+    "marked": "^17.0.1",
+    "prettier": "^3.7.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.77.1",
+    "storybook": "^10.0.8",
+    "typescript": "^5.2.2",
+    "typescript-eslint": "^7.9.0",
+    "vite": "^5.2.0",
+    "vite-plugin-checker": "^0.6.4",
+    "vite-plugin-eslint2": "^4.4.0",
+    "vite-plugin-raw": "^1.0.3"
+  }
+}

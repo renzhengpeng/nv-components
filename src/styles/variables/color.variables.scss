@@ -1,0 +1,172 @@
+/*
+ * @Descripttion: 公共颜色变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-05-28 10:58:32
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-06-18 16:18:10
+ */
+
+/************************* 基础色 ********************************/
+// 主色
+$base_color_white: #FFFFFF;
+$primary_color_1: #409EFF;
+$primary_color_2: #53A8FF;
+$primary_color_3: #66B1FF;
+$primary_color_4: #79BBFF;
+$primary_color_5: #8CC5FF;
+$primary_color_6: #A0CFFF;
+$primary_color_7: #B3D8FF;
+$primary_color_8: #C6E2FF;
+$primary_color_9: #D9ECFF;
+$primary_color_10: #ECF5FF;
+$primary_color_1_active: #3A8EE6;
+
+// 辅助色
+$secondary_color_success_1: #67C23A;
+$secondary_color_success_2: #c2e7b0;
+$secondary_color_success_3: #e1f3d8;
+$secondary_color_success_4: #f0f9eb;
+$secondary_color_warning_1: #E6A23C;
+$secondary_color_warning_2: #f5dab1;
+$secondary_color_warning_3: #faecd8;
+$secondary_color_warning_4: #fdf6ec;
+$secondary_color_danger_1: #F56C6C;
+$secondary_color_danger_2: #fbc4c4;
+$secondary_color_danger_3: #fde2e2;
+$secondary_color_danger_4: #fef0f0;
+$secondary_color_info_1: #909399;
+$secondary_color_info_2: #d3d4d6;
+$secondary_color_info_3: #e9e9eb;
+$secondary_color_info_4: #f4f4f5;
+
+$secondary_color_success_1_hover: #85CE61;
+$secondary_color_success_1_active: #5DAF34;
+$secondary_color_success_1_disabled: #B3E19D;
+$secondary_color_success_2_disabled: #a4da89;
+$secondary_color_info_1_hover: #A6A9AD;
+$secondary_color_info_1_active: #82848A;
+$secondary_color_info_1_disabled: #c8c9cc;
+$secondary_color_info_2_disabled: #bcbec2;
+$secondary_color_warning_1_hover: #EBB563;
+$secondary_color_warning_1_active: #CF9236;
+$secondary_color_warning_1_disabled: #f3d19e;
+$secondary_color_warning_2_disabled: #f0c78a;
+$secondary_color_danger_1_hover: #F78989;
+$secondary_color_danger_1_active: #DD6161;
+$secondary_color_danger_1_disabled: #fab6b6;
+$secondary_color_danger_2_disabled: #f9a7a7;
+
+// 中性色
+$neutral_color_font_1: #303133; // 主要文字
+$neutral_color_font_2: #606266; // 常规文字
+$neutral_color_font_3: #909399; // 次要文字
+$neutral_color_font_4: #C0C4CC; // 占位文字
+$neutral_color_border_1: #DCDFE6; // 一级边框
+$neutral_color_border_2: #E4E7ED; // 二级边框
+$neutral_color_border_3: #EBEEF5; // 三级边框
+$neutral_color_border_4: #F2F6FC; // 四级边框
+$neutral_color_white: #FFFFFF; // 基础白色
+$neutral_color_black: #000000; // 基础黑色
+$neutral_color_transparent: transparent; // 基础黑色
+
+
+// 组件
+$component_bg_color_default: $base_color_white;
+$component_bg_color_primary: $primary_color_1;
+$component_bg_color_success: $secondary_color_success_1;
+$component_bg_color_info: $secondary_color_info_1;
+$component_bg_color_warning: $secondary_color_warning_1;
+$component_bg_color_danger: $secondary_color_danger_1;
+
+
+/************************* 开放的全局颜色变量 ********************************/
+:root {
+  // 主色
+  --nv-primary-color-white: #{ $base_color_white };
+  --nv-primary-color-1: #{ $primary_color_1 };
+  --nv-primary-color-2: #{ $primary_color_2 };
+  --nv-primary-color-3: #{ $primary_color_3 };
+  --nv-primary-color-4: #{ $primary_color_4 };
+  --nv-primary-color-5: #{ $primary_color_5 };
+  --nv-primary-color-6: #{ $primary_color_6 };
+  --nv-primary-color-7: #{ $primary_color_7 };
+  --nv-primary-color-8: #{ $primary_color_8 };
+  --nv-primary-color-9: #{ $primary_color_9 };
+  --nv-primary-color-10: #{ $primary_color_10 };
+  --nv-primary-color-1-active: #{ $primary_color_1_active };
+
+  // 辅助色
+  --nv-secondary-color-success-1: #{ $secondary_color_success_1 };
+  --nv-secondary-color-success-2: #{ $secondary_color_success_2 };
+  --nv-secondary-color-success-3: #{ $secondary_color_success_3 };
+  --nv-secondary-color-success-4: #{ $secondary_color_success_4 };
+  --nv-secondary-color-info-1: #{ $secondary_color_info_1 };
+  --nv-secondary-color-info-2: #{ $secondary_color_info_2 };
+  --nv-secondary-color-info-3: #{ $secondary_color_info_3 };
+  --nv-secondary-color-info-4: #{ $secondary_color_info_4 };
+  --nv-secondary-color-warning-1: #{ $secondary_color_warning_1 };
+  --nv-secondary-color-warning-2: #{ $secondary_color_warning_2 };
+  --nv-secondary-color-warning-3: #{ $secondary_color_warning_3 };
+  --nv-secondary-color-warning-4: #{ $secondary_color_warning_4 };
+  --nv-secondary-color-danger-1: #{ $secondary_color_danger_1 };
+  --nv-secondary-color-danger-2: #{ $secondary_color_danger_2 };
+  --nv-secondary-color-danger-3: #{ $secondary_color_danger_3 };
+  --nv-secondary-color-danger-4: #{ $secondary_color_danger_4 };
+  --nv-secondary-color-success-1-hover: #{ $secondary_color_success_1_hover };
+  --nv-secondary-color-success-1-active: #{ $secondary_color_success_1_active };
+  --nv-secondary-color-success-1-disabled: #{ $secondary_color_success_1_disabled };
+  --nv-secondary-color-success-2-disabled: #{ $secondary_color_success_2_disabled };
+  --nv-secondary-color-info-1-hover: #{ $secondary_color_info_1_hover };
+  --nv-secondary-color-info-1-active: #{ $secondary_color_info_1_active };
+  --nv-secondary-color-info-1-disabled: #{ $secondary_color_info_1_disabled };
+  --nv-secondary-color-info-2-disabled: #{ $secondary_color_info_2_disabled };
+  --nv-secondary-color-warning-1-hover: #{ $secondary_color_warning_1_hover };
+  --nv-secondary-color-warning-1-active: #{ $secondary_color_warning_1_active };
+  --nv-secondary-color-warning-1-disabled: #{ $secondary_color_warning_1_disabled };
+  --nv-secondary-color-warning-2-disabled: #{ $secondary_color_warning_2_disabled };
+  --nv-secondary-color-danger-1-hover: #{ $secondary_color_danger_1_hover };
+  --nv-secondary-color-danger-1-active: #{ $secondary_color_danger_1_active };
+  --nv-secondary-color-danger-1-disabled: #{ $secondary_color_danger_1_disabled };
+  --nv-secondary-color-danger-2-disabled: #{ $secondary_color_danger_2_disabled };
+  
+
+  // 中性色
+  --nv-neutral-color-font-1: #{ $neutral_color_font_1 };
+  --nv-neutral-color-font-2: #{ $neutral_color_font_2 };
+  --nv-neutral-color-font-3: #{ $neutral_color_font_3 };
+  --nv-neutral-color-font-4: #{ $neutral_color_font_4 };
+  --nv-neutral-color-border-1: #{ $neutral_color_border_1 };
+  --nv-neutral-color-border-2: #{ $neutral_color_border_2 };
+  --nv-neutral-color-border-3: #{ $neutral_color_border_3 };
+  --nv-neutral-color-border-4: #{ $neutral_color_border_4 };
+  --nv-neutral-color-white: #{ $neutral_color_white };
+  --nv-neutral-color-black: #{ $neutral_color_black };
+
+  // 组件常规
+  --nv-component-bg-color-primary: #{ $component_bg_color_primary };
+  --nv-component-bg-color-success: #{ $component_bg_color_success };
+  --nv-component-bg-color-warning: #{ $component_bg_color_warning };
+  --nv-component-bg-color-info: #{ $component_bg_color_info };
+
+
+  // 组件禁用
+  --nv-component-bg-color-primary-disabled: #{ $component_bg_color_primary };
+  --nv-component-bg-color-success-disabled: #{ $component_bg_color_success };
+  --nv-component-bg-color-warning-disabled: #{ $component_bg_color_warning };
+  --nv-component-bg-color-info-disabled: #{ $component_bg_color_info };
+
+
+  // 组件hover
+  --nv-component-bg-color-primary-hover: #{ $component_bg_color_primary };
+  --nv-component-bg-color-success-hover: #{ $component_bg_color_success };
+  --nv-component-bg-color-warning-hover: #{ $component_bg_color_warning };
+  --nv-component-bg-color-info-hover: #{ $component_bg_color_info };
+
+
+  // 组件active
+  --nv-component-bg-color-primary-active: #{ $component_bg_color_primary };
+  --nv-component-bg-color-success-active: #{ $component_bg_color_success };
+  --nv-component-bg-color-warning-active: #{ $component_bg_color_warning };
+  --nv-component-bg-color-info-active: #{ $component_bg_color_info };
+
+}

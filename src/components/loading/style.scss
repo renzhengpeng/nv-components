@@ -1,0 +1,309 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: loading组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// 块级元素模式
+:host([block]) {
+  display: block;
+  width: 100%;
+}
+
+// 全屏模式
+:host([fullscreen]) {
+  display: block;
+  width: auto;
+}
+
+// .nv-loading
+@include b(loading) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  // 遮罩层
+  &__mask {
+    position: absolute;
+    z-index: 2000;
+    background-color: var(--nv-loading-mask-background-color);
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // 全屏
+  &.is-fullscreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+
+    .nv-loading__mask {
+      position: fixed;
+    }
+  }
+
+  // 尺寸变体
+  &.size-mini {
+    --nv-loading-circular-width: 20px;
+    --nv-loading-circular-height: 20px;
+    --nv-loading-spinner-width: 20px;
+    --nv-loading-spinner-height: 20px;
+    --nv-loading-spinner-blade-width: 2px;
+    --nv-loading-spinner-blade-height: 6px;
+    --nv-loading-dot-size: 6px;
+    --nv-loading-dots-gap: 4px;
+    --nv-loading-bar-width: 2px;
+    --nv-loading-bar-height: 14px;
+    --nv-loading-bars-gap: 2px;
+    --nv-loading-custom-icon-size: 20px;
+    --nv-loading-text-font-size: 12px;
+  }
+
+  &.size-small {
+    --nv-loading-circular-width: 28px;
+    --nv-loading-circular-height: 28px;
+    --nv-loading-spinner-width: 28px;
+    --nv-loading-spinner-height: 28px;
+    --nv-loading-spinner-blade-width: 2px;
+    --nv-loading-spinner-blade-height: 8px;
+    --nv-loading-dot-size: 8px;
+    --nv-loading-dots-gap: 6px;
+    --nv-loading-bar-width: 3px;
+    --nv-loading-bar-height: 20px;
+    --nv-loading-bars-gap: 3px;
+    --nv-loading-custom-icon-size: 28px;
+    --nv-loading-text-font-size: 13px;
+  }
+
+  // size-medium 使用默认值（在variables.scss中定义）
+
+  &.size-large {
+    --nv-loading-circular-width: 56px;
+    --nv-loading-circular-height: 56px;
+    --nv-loading-spinner-width: 56px;
+    --nv-loading-spinner-height: 56px;
+    --nv-loading-spinner-blade-width: 4px;
+    --nv-loading-spinner-blade-height: 16px;
+    --nv-loading-dot-size: 16px;
+    --nv-loading-dots-gap: 10px;
+    --nv-loading-bar-width: 5px;
+    --nv-loading-bar-height: 40px;
+    --nv-loading-bars-gap: 5px;
+    --nv-loading-custom-icon-size: 56px;
+    --nv-loading-text-font-size: 16px;
+  }
+
+  &.size-huge {
+    --nv-loading-circular-width: 72px;
+    --nv-loading-circular-height: 72px;
+    --nv-loading-spinner-width: 72px;
+    --nv-loading-spinner-height: 72px;
+    --nv-loading-spinner-blade-width: 5px;
+    --nv-loading-spinner-blade-height: 20px;
+    --nv-loading-dot-size: 20px;
+    --nv-loading-dots-gap: 12px;
+    --nv-loading-bar-width: 6px;
+    --nv-loading-bar-height: 50px;
+    --nv-loading-bars-gap: 6px;
+    --nv-loading-custom-icon-size: 72px;
+    --nv-loading-text-font-size: 18px;
+  }
+
+  // 旋转器容器
+  &__spinner-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  // 自定义图标
+  &__custom-icon {
+    display: inline-block;
+    font-size: var(--nv-loading-custom-icon-size, 42px);
+    color: var(--nv-loading-custom-icon-color, var(--nv-primary-color-1));
+    animation: loading-rotate 2s linear infinite;
+  }
+
+  // 圆形旋转器
+  &__circular {
+    width: var(--nv-loading-circular-width, 42px);
+    height: var(--nv-loading-circular-height, 42px);
+    animation: loading-rotate 2s linear infinite;
+
+    .path {
+      animation: loading-dash 1.5s ease-in-out infinite;
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: 0;
+      stroke-width: var(--nv-loading-path-stroke-width, 2);
+      stroke: var(--nv-loading-path-stroke-color, #409eff);
+      stroke-linecap: round;
+    }
+  }
+
+  // 多点旋转器
+  &__spinner {
+    width: var(--nv-loading-spinner-width, 42px);
+    height: var(--nv-loading-spinner-height, 42px);
+    position: relative;
+
+    .spinner-blade {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: var(--nv-loading-spinner-blade-width, 3px);
+      height: var(--nv-loading-spinner-blade-height, 12px);
+      background: var(--nv-loading-spinner-color, #409eff);
+      border-radius: var(--nv-loading-spinner-blade-radius, 2px);
+      transform-origin: center calc(var(--nv-loading-spinner-height, 42px) / 2);
+      transform: rotate(calc(var(--index) * 30deg));
+      animation: loading-spinner-fade 1.2s linear infinite;
+      animation-delay: calc(var(--index) * -0.1s);
+      opacity: 0;
+    }
+  }
+
+  // 点状加载
+  &__dots {
+    display: flex;
+    align-items: center;
+    gap: var(--nv-loading-dots-gap, 8px);
+
+    .dot {
+      width: var(--nv-loading-dot-size, 12px);
+      height: var(--nv-loading-dot-size, 12px);
+      background: var(--nv-loading-dots-color, #409eff);
+      border-radius: 50%;
+      animation: loading-dots-bounce 1.4s ease-in-out infinite;
+
+      &:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0s;
+      }
+    }
+  }
+
+  // 条形加载
+  &__bars {
+    display: flex;
+    align-items: center;
+    gap: var(--nv-loading-bars-gap, 4px);
+
+    .bar {
+      width: var(--nv-loading-bar-width, 4px);
+      height: var(--nv-loading-bar-height, 30px);
+      background: var(--nv-loading-bars-color, #409eff);
+      border-radius: var(--nv-loading-bar-radius, 2px);
+      animation: loading-bars-scale 1s ease-in-out infinite;
+
+      &:nth-child(1) {
+        animation-delay: -0.4s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: -0.2s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: -0.1s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: 0s;
+      }
+    }
+  }
+
+  // 文字
+  &__text {
+    margin: var(--nv-loading-text-margin);
+    font-size: var(--nv-loading-text-font-size);
+    color: var(--nv-loading-text-font-color);
+  }
+}
+
+// 圆形旋转动画
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+// 多点旋转器动画
+@keyframes loading-spinner-fade {
+  0%, 100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+// 点状加载动画
+@keyframes loading-dots-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+// 条形加载动画
+@keyframes loading-bars-scale {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1);
+  }
+}
+

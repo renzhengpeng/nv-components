@@ -1,0 +1,68 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: result style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(result) {
+  text-align: center;
+  padding: var(--nv-result-padding, 48px 32px);
+
+  &__icon {
+    margin-bottom: var(--nv-result-icon-margin-bottom, 24px);
+    font-size: var(--nv-result-icon-size, 72px);
+
+    nv-icon {
+      color: var(--nv-result-icon-color-info, #909399);
+    }
+  }
+
+  &.is-success {
+    .nv-result__icon nv-icon {
+      color: var(--nv-result-icon-color-success, #67C23A);
+    }
+  }
+
+  &.is-warning {
+    .nv-result__icon nv-icon {
+      color: var(--nv-result-icon-color-warning, #E6A23C);
+    }
+  }
+
+  &.is-error {
+    .nv-result__icon nv-icon {
+      color: var(--nv-result-icon-color-error, #F56C6C);
+    }
+  }
+
+  &__title {
+    margin-bottom: var(--nv-result-title-margin-bottom, 16px);
+    font-size: var(--nv-result-title-font-size, 20px);
+    font-weight: var(--nv-result-title-font-weight, 500);
+    color: var(--nv-result-title-color, #303133);
+    line-height: var(--nv-result-title-line-height, 1.5);
+  }
+
+  &__sub-title {
+    margin-bottom: var(--nv-result-sub-title-margin-bottom, 24px);
+    font-size: var(--nv-result-sub-title-font-size, 14px);
+    color: var(--nv-result-sub-title-color, #909399);
+    line-height: var(--nv-result-sub-title-line-height, 1.5);
+  }
+
+  &__content {
+    margin-bottom: var(--nv-result-content-margin-bottom, 24px);
+  }
+
+  &__extra {
+    margin-top: var(--nv-result-extra-margin-top, 24px);
+  }
+}
+

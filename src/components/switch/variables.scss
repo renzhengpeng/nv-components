@@ -1,0 +1,155 @@
+/*
+ * @Descripttion: switch组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** font-size *****************/
+  --nv-switch-font-size-mini: var(--nv-font-size-mini);
+  --nv-switch-font-size-small: var(--nv-font-size-small);
+  --nv-switch-font-size-medium: var(--nv-font-size-medium);
+  --nv-switch-font-size-large: var(--nv-font-size-medium);
+  --nv-switch-font-size-huge: var(--nv-font-size-large);
+
+  /**************** height & line-height *****************/
+  --nv-switch-height-mini: 16px;
+  --nv-switch-line-height-mini: 16px;
+  --nv-switch-height-small: 18px;
+  --nv-switch-line-height-small: 18px;
+  --nv-switch-height-medium: 20px;
+  --nv-switch-line-height-medium: 20px;
+  --nv-switch-height-large: 24px;
+  --nv-switch-line-height-large: 24px;
+  --nv-switch-height-huge: 28px;
+  --nv-switch-line-height-huge: 28px;
+
+  /**************** core *****************/
+  --nv-switch-core-min-width-mini: 34px;
+  --nv-switch-core-min-width-small: 38px;
+  --nv-switch-core-min-width-medium: 42px;
+  --nv-switch-core-min-width-large: 50px;
+  --nv-switch-core-min-width-huge: 58px;
+
+  /**************** border-radius *****************/
+  --nv-switch-core-border-radius-mini: calc(var(--nv-switch-height-mini) / 2);
+  --nv-switch-core-border-radius-small: calc(var(--nv-switch-height-small) / 2);
+  --nv-switch-core-border-radius-medium: calc(var(--nv-switch-height-medium) / 2);
+  --nv-switch-core-border-radius-large: calc(var(--nv-switch-height-large) / 2);
+  --nv-switch-core-border-radius-huge: calc(var(--nv-switch-height-huge) / 2);
+  --nv-switch-toggle-border-radius: 100%;
+
+  /**************** padding *****************/
+  --nv-switch-core-padding-mini: 0 var(--nv-padding-mini);
+  --nv-switch-core-padding-small: 0 var(--nv-padding-mini);
+  --nv-switch-core-padding-medium: 0 var(--nv-padding-mini);
+  --nv-switch-core-padding-large: 0 var(--nv-padding-small);
+  --nv-switch-core-padding-huge: 0 7px;
+  --nv-switch-inner-padding-mini: 0 var(--nv-padding-mini);
+  --nv-switch-inner-padding-small: 0 var(--nv-padding-mini);
+  --nv-switch-inner-padding-medium: 0 var(--nv-padding-mini);
+  --nv-switch-inner-padding-large: 0 var(--nv-padding-small);
+  --nv-switch-inner-padding-huge: 0 7px;
+
+  /**************** toggle (圆点) *****************/
+  --nv-switch-toggle-width-mini: 12px;
+  --nv-switch-toggle-height-mini: var(--nv-switch-toggle-width-mini);
+  --nv-switch-toggle-width-small: 14px;
+  --nv-switch-toggle-height-small: var(--nv-switch-toggle-width-small);
+  --nv-switch-toggle-width-medium: 16px;
+  --nv-switch-toggle-height-medium: var(--nv-switch-toggle-width-medium);
+  --nv-switch-toggle-width-large: 20px;
+  --nv-switch-toggle-height-large: var(--nv-switch-toggle-width-large);
+  --nv-switch-toggle-width-huge: 24px;
+  --nv-switch-toggle-height-huge: var(--nv-switch-toggle-width-huge);
+  --nv-switch-toggle-top: 1px;
+  --nv-switch-toggle-left: 1px;
+
+  /**************** inner (文字) *****************/
+  --nv-switch-inner-font-size-mini: var(--nv-font-size-mini);
+  --nv-switch-inner-font-size-small: var(--nv-font-size-small);
+  --nv-switch-inner-font-size-medium: var(--nv-font-size-small);
+  --nv-switch-inner-font-size-large: var(--nv-font-size-medium);
+  --nv-switch-inner-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** icon *****************/
+  --nv-switch-icon-font-size: var(--nv-font-size-small);
+  --nv-switch-icon-font-size-mini: 12px;
+  --nv-switch-icon-font-size-small: 14px;
+  --nv-switch-icon-font-size-medium: 16px;
+  --nv-switch-icon-font-size-large: 18px;
+  --nv-switch-icon-font-size-huge: 20px;
+  --nv-switch-icon-left-checked: 4px;
+  --nv-switch-icon-left-unchecked: calc(100% - 4px);
+
+  /**************** inner (文字) 位置 *****************/
+  --nv-switch-inner-left-checked-mini: 4px;
+  --nv-switch-inner-left-unchecked-mini: calc(100% - 4px);
+  --nv-switch-inner-left-checked-small: 4px;
+  --nv-switch-inner-left-unchecked-small: calc(100% - 4px);
+  --nv-switch-inner-left-checked-medium: 4px;
+  --nv-switch-inner-left-unchecked-medium: calc(100% - 4px);
+  --nv-switch-inner-left-checked-large: 4px;
+  --nv-switch-inner-left-unchecked-large: calc(100% - 4px);
+  --nv-switch-inner-left-checked-huge: 4px;
+  --nv-switch-inner-left-unchecked-huge: calc(100% - 4px);
+
+  /**************** label *****************/
+  --nv-switch-label-font-size-mini: var(--nv-font-size-mini);
+  --nv-switch-label-font-size-small: var(--nv-font-size-small);
+  --nv-switch-label-font-size-medium: var(--nv-font-size-medium);
+  --nv-switch-label-font-size-large: var(--nv-font-size-medium);
+  --nv-switch-label-font-size-huge: var(--nv-font-size-large);
+  --nv-switch-label-margin: var(--nv-padding-medium);
+
+  /**************** spacing (选中/未选中状态下的 padding) *****************/
+  --nv-switch-inner-padding-right-checked-mini: calc(var(--nv-padding-large) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-left-unchecked-mini: calc(var(--nv-padding-medium) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-right-checked-small: calc(var(--nv-padding-large) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-left-unchecked-small: calc(var(--nv-padding-large) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-right-checked-medium: calc(var(--nv-padding-large) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-left-unchecked-medium: calc(var(--nv-padding-large) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-right-checked-large: calc(var(--nv-padding-huge) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-left-unchecked-large: calc(var(--nv-padding-huge) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-right-checked-huge: calc(var(--nv-padding-huge) + var(--nv-padding-step-size) * 2);
+  --nv-switch-inner-padding-left-unchecked-huge: calc(var(--nv-padding-huge) + var(--nv-padding-step-size) * 2);
+
+  /**************** toggle position (选中状态下的 left) *****************/
+  --nv-switch-toggle-left-checked-mini: calc(100% - 13px);
+  --nv-switch-toggle-left-checked-small: calc(100% - 15px);
+  --nv-switch-toggle-left-checked-medium: calc(100% - 17px);
+  --nv-switch-toggle-left-checked-large: calc(100% - 21px);
+  --nv-switch-toggle-left-checked-huge: calc(100% - 25px);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** border & background *****************/
+  --nv-switch-core-border-color-unchecked: var(--nv-neutral-color-border-1);
+  --nv-switch-core-background-color-unchecked: var(--nv-neutral-color-border-1);
+  --nv-switch-core-border-color-checked: var(--nv-primary-color-1);
+  --nv-switch-core-background-color-checked: var(--nv-primary-color-1);
+
+  /**************** toggle (圆点) *****************/
+  --nv-switch-toggle-background-color: var(--nv-neutral-color-white);
+
+  /**************** inner (文字) *****************/
+  --nv-switch-inner-font-color: var(--nv-neutral-color-white);
+
+  /**************** icon *****************/
+  --nv-switch-icon-color: var(--nv-neutral-color-white);
+
+  /**************** label *****************/
+  --nv-switch-label-font-color-default: var(--nv-neutral-color-font-1);
+  --nv-switch-label-font-color-active: var(--nv-primary-color-1);
+
+  /**************** disabled *****************/
+  --nv-switch-disabled-opacity: 0.6;
+
+  /**************************************************** color end ********************************************************/
+}
+

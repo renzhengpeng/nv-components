@@ -1,0 +1,23 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: option组件变量
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+  --nv-option-height: 34px;
+  --nv-option-padding: 0 16px;
+  --nv-option-font-size: var(--nv-font-size-small);
+  /***************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+  --nv-option-font-color: var(--nv-neutral-color-font-1);
+  --nv-option-font-color-hover: var(--nv-primary-color-1);
+  --nv-option-background-color-hover: var(--nv-primary-color-10);
+  --nv-option-font-color-selected: var(--nv-primary-color-1);
+  --nv-option-background-color-selected: var(--nv-primary-color-10);
+  --nv-option-font-color-disabled: var(--nv-neutral-color-font-3);
+  /***************************************************** color end *********************************************************/
+}
+

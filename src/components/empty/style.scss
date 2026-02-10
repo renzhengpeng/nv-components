@@ -1,0 +1,132 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: empty style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(empty) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nv-empty-padding, 40px 0);
+  text-align: center;
+
+  &__image {
+    width: var(--nv-empty-image-width, 80px);
+    margin-bottom: var(--nv-empty-image-margin-bottom, 15px);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__image-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image-svg-ellipse {
+    fill: var(--nv-empty-svg-ellipse-fill, #f5f5f5);
+  }
+
+  &__image-svg-g {
+    fill: var(--nv-empty-svg-g-fill, #ffffff);
+    stroke: var(--nv-empty-svg-g-stroke, #eee);
+    stroke-width: var(--nv-empty-svg-g-stroke-width, 0.5);
+  }
+
+  &__image-svg-path {
+    fill: var(--nv-empty-svg-path-fill, #fafafa);
+  }
+
+  &__description {
+    color: var(--nv-empty-description-color, #909399);
+    font-size: var(--nv-empty-description-font-size, 14px);
+    line-height: var(--nv-empty-description-line-height, 1);
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // 迷你尺寸
+  &.is-mini {
+    padding: var(--nv-empty-padding-mini, 20px 0);
+
+    .nv-empty__image {
+      width: var(--nv-empty-image-width-mini, 48px);
+      margin-bottom: var(--nv-empty-image-margin-bottom-mini, 8px);
+    }
+
+    .nv-empty__description {
+      font-size: var(--nv-empty-description-font-size-mini, 12px);
+    }
+  }
+
+  // 小型尺寸
+  &.is-small {
+    padding: var(--nv-empty-padding-small, 30px 0);
+
+    .nv-empty__image {
+      width: var(--nv-empty-image-width-small, 64px);
+      margin-bottom: var(--nv-empty-image-margin-bottom-small, 12px);
+    }
+
+    .nv-empty__description {
+      font-size: var(--nv-empty-description-font-size-small, 13px);
+    }
+  }
+
+  // 中等尺寸（默认）
+  &.is-medium {
+    padding: var(--nv-empty-padding-medium, 40px 0);
+
+    .nv-empty__image {
+      width: var(--nv-empty-image-width-medium, 80px);
+      margin-bottom: var(--nv-empty-image-margin-bottom-medium, 15px);
+    }
+
+    .nv-empty__description {
+      font-size: var(--nv-empty-description-font-size-medium, 14px);
+    }
+  }
+
+  // 大型尺寸
+  &.is-large {
+    padding: var(--nv-empty-padding-large, 50px 0);
+
+    .nv-empty__image {
+      width: var(--nv-empty-image-width-large, 96px);
+      margin-bottom: var(--nv-empty-image-margin-bottom-large, 18px);
+    }
+
+    .nv-empty__description {
+      font-size: var(--nv-empty-description-font-size-large, 15px);
+    }
+  }
+
+  // 巨大尺寸
+  &.is-huge {
+    padding: var(--nv-empty-padding-huge, 60px 0);
+
+    .nv-empty__image {
+      width: var(--nv-empty-image-width-huge, 120px);
+      margin-bottom: var(--nv-empty-image-margin-bottom-huge, 20px);
+    }
+
+    .nv-empty__description {
+      font-size: var(--nv-empty-description-font-size-huge, 16px);
+    }
+  }
+}

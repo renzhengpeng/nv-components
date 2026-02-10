@@ -1,0 +1,90 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: badge组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+// .nv-badge
+@include b(badge) {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  // 徽章内容
+  &__content {
+    background-color: var(--nv-badge-background-color);
+    border-radius: var(--nv-badge-border-radius);
+    color: var(--nv-badge-font-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--nv-badge-font-size);
+    height: var(--nv-badge-height);
+    min-width: var(--nv-badge-height);
+    line-height: 1;
+    padding: var(--nv-badge-padding);
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid var(--nv-badge-border-color);
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: var(--nv-badge-fixed-right);
+    transform: translateY(-50%) translateX(50%);
+    z-index: 1;
+
+    // 点状徽章
+    &.is-dot {
+      width: var(--nv-badge-dot-width);
+      height: var(--nv-badge-dot-height);
+      min-width: var(--nv-badge-dot-width);
+      padding: var(--nv-badge-dot-padding);
+      border-radius: var(--nv-badge-dot-border-radius);
+    }
+
+    // 状态样式
+    &.is-success {
+      background-color: var(--nv-badge-status-success-background-color);
+      border-color: var(--nv-badge-status-success-border-color);
+    }
+
+    &.is-error {
+      background-color: var(--nv-badge-status-error-background-color);
+      border-color: var(--nv-badge-status-error-border-color);
+    }
+
+    &.is-warning {
+      background-color: var(--nv-badge-status-warning-background-color);
+      border-color: var(--nv-badge-status-warning-border-color);
+    }
+
+    &.is-processing {
+      background-color: var(--nv-badge-status-processing-background-color);
+      border-color: var(--nv-badge-status-processing-border-color);
+    }
+
+    &.is-info {
+      background-color: var(--nv-badge-status-info-background-color);
+      border-color: var(--nv-badge-status-info-border-color);
+    }
+  }
+
+  // 点状徽章
+  &.is-dot {
+    .nv-badge__content {
+      width: var(--nv-badge-dot-width);
+      height: var(--nv-badge-dot-height);
+      min-width: var(--nv-badge-dot-width);
+      padding: var(--nv-badge-dot-padding);
+      border-radius: var(--nv-badge-dot-border-radius);
+    }
+  }
+}
+

@@ -1,0 +1,56 @@
+/*
+ * @Descripttion: badge组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-badge-border-radius: 10px;
+  --nv-badge-dot-border-radius: 50%;
+
+  /**************** padding *****************/
+  --nv-badge-padding: 0 var(--nv-padding-small);
+  --nv-badge-dot-padding: 0;
+
+  /**************** font-size *****************/
+  --nv-badge-font-size: var(--nv-font-size-small);
+
+  /**************** size *****************/
+  --nv-badge-height: 18px;
+  --nv-badge-line-height: 18px;
+  --nv-badge-dot-width: 8px;
+  --nv-badge-dot-height: 8px;
+  --nv-badge-fixed-right: 0px;
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-badge-background-color: var(--nv-secondary-color-danger-1);
+
+  /**************** font *****************/
+  --nv-badge-font-color: var(--nv-neutral-color-white);
+
+  /**************** border *****************/
+  --nv-badge-border-color: var(--nv-neutral-color-white);
+
+  /**************** status colors *****************/
+  --nv-badge-status-success-background-color: var(--nv-secondary-color-success-1);
+  --nv-badge-status-success-border-color: var(--nv-secondary-color-success-1);
+  --nv-badge-status-error-background-color: var(--nv-secondary-color-danger-1);
+  --nv-badge-status-error-border-color: var(--nv-secondary-color-danger-1);
+  --nv-badge-status-warning-background-color: var(--nv-secondary-color-warning-1);
+  --nv-badge-status-warning-border-color: var(--nv-secondary-color-warning-1);
+  --nv-badge-status-processing-background-color: var(--nv-primary-color-1);
+  --nv-badge-status-processing-border-color: var(--nv-primary-color-1);
+  --nv-badge-status-info-background-color: var(--nv-secondary-color-info-1);
+  --nv-badge-status-info-border-color: var(--nv-secondary-color-info-1);
+
+  /**************************************************** color end ********************************************************/
+}
+

@@ -1,0 +1,20 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: timeline组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+// .nv-timeline
+@include b(timeline) {
+  margin: 0;
+  font-size: var(--nv-timeline-font-size);
+  padding: 0;
+  list-style: none;
+}
+

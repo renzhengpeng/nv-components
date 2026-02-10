@@ -1,0 +1,722 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: input style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+@include b(input) {
+  position: relative;
+  font-size: var(--nv-input-font-size-default);
+  display: inline-flex;
+  width: 100%;
+  vertical-align: middle;
+  align-items: center;
+
+  // 输入框包装器
+  &__wrapper {
+    display: inline-flex;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    background-color: var(--nv-input-background-color);
+    border-top: 1px solid var(--nv-input-border-color);
+    border-right: 1px solid var(--nv-input-border-color);
+    border-bottom: 1px solid var(--nv-input-border-color);
+    border-left: 1px solid var(--nv-input-border-color);
+    border-radius: var(--nv-input-border-radius-medium);
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    overflow: hidden; // 提升圆角抗锯齿
+    transition: border-top-color 0.3s ease, border-right-color 0.3s ease, border-bottom-color 0.3s ease, border-left-color 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100%;
+
+    // textarea 时调整对齐方式
+    &:has(textarea) {
+      align-items: flex-start;
+      overflow: visible; // textarea 需要允许内容溢出，但由 textarea 自身控制
+    }
+  }
+
+  // 输入框内部
+  &__inner {
+    width: 100%;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: inherit;
+    color: var(--nv-input-font-color);
+    background-color: transparent;
+    box-sizing: border-box;
+    line-height: 1.5;
+
+    &::placeholder {
+      color: var(--nv-input-font-color-placeholder);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    // number 类型的上下箭头样式 - 默认隐藏
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      opacity: 0;
+    }
+
+    // hover 时显示，但降低透明度以减轻颜色深度
+    &:hover::-webkit-inner-spin-button,
+    &:hover::-webkit-outer-spin-button {
+      opacity: var(--nv-input-number-spinner-opacity, 0.5);
+    }
+
+    // textarea 特殊样式
+    &:is(textarea) {
+      height: auto;
+      min-height: 100%;
+      resize: vertical;
+      padding: var(--nv-padding-small) var(--nv-padding-medium);
+      vertical-align: top;
+      overflow-y: auto;
+      line-height: 1.5;
+      // 确保占位符可见，调整 padding-top 和 padding-bottom
+      padding-top: calc(var(--nv-padding-small) - 1px);
+      padding-bottom: calc(var(--nv-padding-small) - 1px);
+    }
+  }
+
+  // 前置内容
+  &__prepend {
+    display: none;
+    position: relative;
+    padding: 0 12px;
+    white-space: nowrap;
+    background-color: var(--nv-neutral-color-border-4);
+    border-top: 1px solid var(--nv-input-border-color);
+    border-left: 1px solid var(--nv-input-border-color);
+    border-bottom: 1px solid var(--nv-input-border-color);
+    border-right: none;
+    border-radius: var(--nv-input-border-radius-medium) 0 0 var(--nv-input-border-radius-medium);
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    overflow: hidden;
+    transition: border-top-color 0.3s ease, border-left-color 0.3s ease, border-bottom-color 0.3s ease;
+
+    &:not(:empty) {
+      display: inline-flex;
+    }
+
+    slot[name="prepend"]::slotted(*) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // 后置内容
+  &__append {
+    display: none;
+    position: relative;
+    padding: 0 12px;
+    white-space: nowrap;
+    background-color: var(--nv-neutral-color-border-4);
+    border-top: 1px solid var(--nv-input-border-color);
+    border-right: 1px solid var(--nv-input-border-color);
+    border-bottom: 1px solid var(--nv-input-border-color);
+    border-left: none;
+    border-radius: 0 var(--nv-input-border-radius-medium) var(--nv-input-border-radius-medium) 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    overflow: hidden;
+    transition: border-top-color 0.3s ease, border-right-color 0.3s ease, border-bottom-color 0.3s ease;
+
+    &:not(:empty) {
+      display: inline-flex;
+    }
+
+    slot[name="append"]::slotted(*) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // 前置图标
+  &__prefix {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--nv-input-icon-color);
+    padding-left: var(--nv-padding-medium);
+    flex-shrink: 0;
+  }
+
+  // 后置图标区域
+  &__suffix {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--nv-input-icon-color);
+    padding-right: var(--nv-padding-medium);
+    flex-shrink: 0;
+    gap: 4px;
+  }
+
+  // 清除图标
+  &__clear {
+    position: absolute;
+    right: 8px; // 向内收一些，避免过于贴近右边
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--nv-input-icon-color);
+    transition: color 0.3s ease;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: var(--nv-input-icon-color-hover);
+    }
+
+    // 如果有密码图标，放在密码图标左侧
+    .nv-input__wrapper:has(.nv-input__password-icon) & {
+      right: 32px;
+    }
+
+    // 如果有 suffix 图标，放在 suffix 图标左侧
+    .nv-input__wrapper:has(.nv-input__suffix) & {
+      right: calc(var(--nv-padding-medium) + 24px + 8px); // padding + icon width + spacing
+    }
+  }
+
+  // 密码显示图标
+  &__password-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--nv-input-icon-color);
+    transition: color 0.3s ease;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: var(--nv-input-icon-color-hover);
+    }
+
+    // 如果有清除图标，放在清除图标左侧
+    .nv-input__wrapper:has(.nv-input__clear) & {
+      right: 32px;
+    }
+
+    // 如果有 suffix 图标，放在 suffix 图标左侧
+    .nv-input__wrapper:has(.nv-input__suffix) & {
+      right: calc(var(--nv-padding-medium) + 24px + 8px); // padding + icon width + spacing
+    }
+  }
+
+  // 图标
+  &__icon {
+    font-size: 14px;
+  }
+
+  // 字数统计
+  &__count {
+    height: 100%;
+    line-height: 1.5;
+    font-size: var(--nv-input-font-size-mini);
+    color: var(--nv-neutral-color-font-3);
+    position: absolute;
+    right: 8px;
+    bottom: -20px;
+    text-align: right;
+  }
+
+  // 禁用状态
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .nv-input__inner {
+      background-color: var(--nv-input-background-color-disabled);
+      color: var(--nv-input-font-color-disabled);
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: var(--nv-input-font-color-disabled);
+      }
+    }
+
+    .nv-input__wrapper {
+      border-color: var(--nv-input-border-color-disabled);
+      background-color: var(--nv-input-background-color-disabled);
+    }
+  }
+
+  // 只读状态
+  &.is-readonly {
+    .nv-input__inner {
+      cursor: default;
+    }
+  }
+
+  // 焦点状态
+  &:hover:not(.is-disabled) {
+    .nv-input__wrapper {
+      border-top-color: var(--nv-input-border-color-hover);
+      border-right-color: var(--nv-input-border-color-hover);
+      border-bottom-color: var(--nv-input-border-color-hover);
+      border-left-color: var(--nv-input-border-color-hover);
+    }
+  }
+
+  &.is-focus:not(.is-disabled) {
+    .nv-input__wrapper {
+      border-top: 1px solid var(--nv-input-border-color-focus) !important;
+      border-right: 1px solid var(--nv-input-border-color-focus) !important;
+      border-bottom: 1px solid var(--nv-input-border-color-focus) !important;
+      border-left: 1px solid var(--nv-input-border-color-focus) !important;
+    }
+  }
+
+  // 前置/后置内容时的样式调整
+  // 当有 prepend 时（非 button），wrapper 左边圆角去掉，但保持左边框显示
+  &:has(.nv-input__prepend:not(:empty)):not(.is-focus) {
+    .nv-input__wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      // 保持左边框显示
+      border-left: 1px solid var(--nv-input-border-color);
+    }
+  }
+
+  // 当有 append 时（非 button），wrapper 右边圆角去掉，但保持右边框显示
+  &:has(.nv-input__append:not(:empty)):not(.is-focus) {
+    .nv-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      // 保持右边框显示
+      border-right: 1px solid var(--nv-input-border-color);
+    }
+  }
+
+  // 当 prepend 是 button 时，wrapper 左边圆角去掉（所有状态下）
+  &.has-prepend-button {
+    .nv-input__wrapper {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+  }
+
+  // 当 append 是 button 时，wrapper 右边圆角去掉（所有状态下）
+  &.has-append-button {
+    .nv-input__wrapper {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+  
+  // 焦点状态下，即使有前置/后置内容，也要显示边框
+  &.is-focus:not(.is-disabled):has(.nv-input__prepend:not(:empty)) {
+    .nv-input__wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: 1px solid var(--nv-input-border-color-focus) !important;
+    }
+  }
+
+  &.is-focus:not(.is-disabled).has-prepend-button {
+    .nv-input__wrapper {
+      border-left: 1px solid var(--nv-input-border-color-focus) !important;
+    }
+  }
+  
+  &.is-focus:not(.is-disabled):has(.nv-input__append:not(:empty)) {
+    .nv-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 1px solid var(--nv-input-border-color-focus) !important;
+    }
+  }
+
+  &.is-focus:not(.is-disabled).has-append-button {
+    .nv-input__wrapper {
+      border-right: 1px solid var(--nv-input-border-color-focus) !important;
+    }
+  }
+  
+  // hover 状态时，prepend 和 append 的边框颜色也要变化
+  &:hover:not(.is-disabled):has(.nv-input__prepend:not(:empty)) {
+    .nv-input__prepend {
+      border-top-color: var(--nv-input-border-color-hover);
+      border-left-color: var(--nv-input-border-color-hover);
+      border-bottom-color: var(--nv-input-border-color-hover);
+    }
+    // wrapper 的右边框也要变化（如果没有 append）
+    &:not(:has(.nv-input__append:not(:empty))):not(:has(> nv-button[slot="append"])) {
+      .nv-input__wrapper {
+        border-right-color: var(--nv-input-border-color-hover);
+      }
+    }
+  }
+
+  &:hover:not(.is-disabled).has-prepend-button {
+    // wrapper 的右边框也要变化（如果没有 append）
+    &:not(:has(.nv-input__append:not(:empty))):not(.has-append-button) {
+      .nv-input__wrapper {
+        border-right-color: var(--nv-input-border-color-hover);
+      }
+    }
+  }
+
+  &:hover:not(.is-disabled):has(.nv-input__append:not(:empty)) {
+    .nv-input__append {
+      border-top-color: var(--nv-input-border-color-hover);
+      border-right-color: var(--nv-input-border-color-hover);
+      border-bottom-color: var(--nv-input-border-color-hover);
+    }
+    // wrapper 的左边框也要变化（如果没有 prepend）
+    &:not(:has(.nv-input__prepend:not(:empty))):not(.has-prepend-button) {
+      .nv-input__wrapper {
+        border-left-color: var(--nv-input-border-color-hover);
+      }
+    }
+  }
+
+  &:hover:not(.is-disabled).has-append-button {
+    // wrapper 的左边框也要变化（如果没有 prepend）
+    &:not(:has(.nv-input__prepend:not(:empty))):not(.has-prepend-button) {
+      .nv-input__wrapper {
+        border-left-color: var(--nv-input-border-color-hover);
+      }
+    }
+  }
+
+  // 焦点状态时，prepend 和 append 的边框颜色也要变化
+  &.is-focus:not(.is-disabled):has(.nv-input__prepend:not(:empty)) {
+    .nv-input__prepend {
+      border-top-color: var(--nv-input-border-color-focus) !important;
+      border-left-color: var(--nv-input-border-color-focus) !important;
+      border-bottom-color: var(--nv-input-border-color-focus) !important;
+    }
+  }
+
+  &.is-focus:not(.is-disabled):has(.nv-input__append:not(:empty)) {
+    .nv-input__append {
+      border-top-color: var(--nv-input-border-color-focus) !important;
+      border-right-color: var(--nv-input-border-color-focus) !important;
+      border-bottom-color: var(--nv-input-border-color-focus) !important;
+    }
+  }
+
+  // 当 prepend 是 button 时，修改 button 的样式以贴合 input
+  // 通过 CSS 变量覆盖 border-radius、border 和 height
+  slot[name="prepend"]::slotted(nv-button) {
+    --nv-button-border-radius-mini-top-right: 0;
+    --nv-button-border-radius-mini-bottom-right: 0;
+    --nv-button-border-radius-small-top-right: 0;
+    --nv-button-border-radius-small-bottom-right: 0;
+    --nv-button-border-radius-medium-top-right: 0;
+    --nv-button-border-radius-medium-bottom-right: 0;
+    --nv-button-border-radius-large-top-right: 0;
+    --nv-button-border-radius-large-bottom-right: 0;
+    --nv-button-border-radius-huge-top-right: 0;
+    --nv-button-border-radius-huge-bottom-right: 0;
+    --nv-button-border-width-right: 0;
+    --nv-button-height-mini: var(--nv-input-height-mini);
+    --nv-button-height-small: var(--nv-input-height-small);
+    --nv-button-height-medium: var(--nv-input-height-medium);
+    --nv-button-height-large: var(--nv-input-height-large);
+    --nv-button-height-huge: var(--nv-input-height-huge);
+  }
+
+  // 当 append 是 button 时，修改 button 的样式以贴合 input
+  // 通过 CSS 变量覆盖 border-radius、border 和 height
+  slot[name="append"]::slotted(nv-button) {
+    --nv-button-border-radius-mini-top-left: 0;
+    --nv-button-border-radius-mini-bottom-left: 0;
+    --nv-button-border-radius-small-top-left: 0;
+    --nv-button-border-radius-small-bottom-left: 0;
+    --nv-button-border-radius-medium-top-left: 0;
+    --nv-button-border-radius-medium-bottom-left: 0;
+    --nv-button-border-radius-large-top-left: 0;
+    --nv-button-border-radius-large-bottom-left: 0;
+    --nv-button-border-radius-huge-top-left: 0;
+    --nv-button-border-radius-huge-bottom-left: 0;
+    --nv-button-border-width-left: 0;
+    --nv-button-height-mini: var(--nv-input-height-mini);
+    --nv-button-height-small: var(--nv-input-height-small);
+    --nv-button-height-medium: var(--nv-input-height-medium);
+    --nv-button-height-large: var(--nv-input-height-large);
+    --nv-button-height-huge: var(--nv-input-height-huge);
+  }
+
+  // 有前置图标时的内边距调整（不再需要，因为图标已经作为 flex 项）
+  // &.is-prefix {
+  //   .nv-input__inner {
+  //     padding-left: 32px;
+  //   }
+  // }
+
+  // 有后置图标时的内边距调整（不再需要，因为图标已经作为 flex 项）
+  // &.is-suffix {
+  //   .nv-input__inner {
+  //     padding-right: 32px;
+  //   }
+  // }
+
+  // 尺寸变体
+  &.mini {
+    font-size: var(--nv-input-font-size-mini);
+    height: var(--nv-input-height-mini);
+    box-sizing: border-box;
+
+    .nv-input__wrapper {
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      border-radius: var(--nv-input-border-radius-mini);
+
+      &:has(textarea) {
+        height: auto;
+        min-height: 100%;
+      }
+    }
+
+    .nv-input__inner {
+      padding: 0 var(--nv-padding-mini);
+      font-size: var(--nv-input-font-size-mini);
+      height: 100%;
+
+      &:is(textarea) {
+        padding: var(--nv-padding-mini);
+        padding-top: calc(var(--nv-padding-mini) - 1px);
+        padding-bottom: calc(var(--nv-padding-mini) - 1px);
+        height: auto;
+        min-height: var(--nv-input-height-mini); // 设置绝对最小高度
+        overflow-y: auto;
+      }
+    }
+
+    .nv-input__prefix,
+    .nv-input__suffix {
+      font-size: 12px;
+    }
+
+    .nv-input__prepend,
+    .nv-input__append {
+      padding: 0 8px;
+      font-size: var(--nv-input-font-size-mini);
+      min-height: var(--nv-input-height-mini);
+      height: var(--nv-input-height-mini);
+    }
+  }
+
+  &.small {
+    font-size: var(--nv-input-font-size-small);
+    height: var(--nv-input-height-small);
+    box-sizing: border-box;
+
+    .nv-input__wrapper {
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      border-radius: var(--nv-input-border-radius-small);
+      box-sizing: border-box;
+
+      &:has(textarea) {
+        height: auto;
+        min-height: 100%;
+      }
+    }
+
+    .nv-input__inner {
+      padding: 0 var(--nv-padding-small);
+      font-size: var(--nv-input-font-size-small);
+      height: 100%;
+
+      &:is(textarea) {
+        padding: var(--nv-padding-small);
+        padding-top: calc(var(--nv-padding-small) - 1px);
+        padding-bottom: calc(var(--nv-padding-small) - 1px);
+        height: auto;
+        min-height: var(--nv-input-height-small); // 设置绝对最小高度
+        overflow-y: auto;
+      }
+    }
+
+    .nv-input__prefix,
+    .nv-input__suffix {
+      font-size: 13px;
+    }
+
+    .nv-input__prepend,
+    .nv-input__append {
+      padding: 0 10px;
+      font-size: var(--nv-input-font-size-small);
+      min-height: var(--nv-input-height-small);
+      height: var(--nv-input-height-small);
+    }
+  }
+
+  &.medium {
+    font-size: var(--nv-input-font-size-medium);
+    height: var(--nv-input-height-medium);
+    box-sizing: border-box;
+
+    .nv-input__wrapper {
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      border-radius: var(--nv-input-border-radius-medium);
+      box-sizing: border-box;
+
+      &:has(textarea) {
+        height: auto;
+        min-height: 100%;
+      }
+    }
+
+    .nv-input__inner {
+      padding: 0 var(--nv-padding-medium);
+      font-size: var(--nv-input-font-size-medium);
+      height: 100%;
+
+      &:is(textarea) {
+        padding: var(--nv-padding-small) var(--nv-padding-medium);
+        padding-top: calc(var(--nv-padding-small) - 1px);
+        padding-bottom: calc(var(--nv-padding-small) - 1px);
+        height: auto;
+        min-height: var(--nv-input-height-medium); // 设置绝对最小高度
+        overflow-y: auto;
+      }
+    }
+
+    .nv-input__prefix,
+    .nv-input__suffix {
+      font-size: 14px;
+    }
+
+    .nv-input__prepend,
+    .nv-input__append {
+      padding: 0 12px;
+      font-size: var(--nv-input-font-size-medium);
+      min-height: var(--nv-input-height-medium);
+      height: var(--nv-input-height-medium);
+    }
+  }
+
+  &.large {
+    font-size: var(--nv-input-font-size-large);
+    height: var(--nv-input-height-large);
+    box-sizing: border-box;
+
+    .nv-input__wrapper {
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      border-radius: var(--nv-input-border-radius-large);
+      box-sizing: border-box;
+
+      &:has(textarea) {
+        height: auto;
+        min-height: 100%;
+      }
+    }
+
+    .nv-input__inner {
+      padding: 0 var(--nv-padding-large);
+      font-size: var(--nv-input-font-size-large);
+      height: 100%;
+
+      &:is(textarea) {
+        padding: var(--nv-padding-medium) var(--nv-padding-large);
+        padding-top: calc(var(--nv-padding-medium) - 1px);
+        padding-bottom: calc(var(--nv-padding-medium) - 1px);
+        height: auto;
+        min-height: var(--nv-input-height-large); // 设置绝对最小高度
+        overflow-y: auto;
+      }
+    }
+
+    .nv-input__prefix,
+    .nv-input__suffix {
+      font-size: 15px;
+    }
+
+    .nv-input__prepend,
+    .nv-input__append {
+      padding: 0 14px;
+      font-size: var(--nv-input-font-size-large);
+      min-height: var(--nv-input-height-large);
+      height: var(--nv-input-height-large);
+    }
+  }
+
+  &.huge {
+    font-size: var(--nv-input-font-size-huge);
+    height: var(--nv-input-height-huge);
+    box-sizing: border-box;
+
+    .nv-input__wrapper {
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      border-radius: var(--nv-input-border-radius-huge);
+      box-sizing: border-box;
+
+      &:has(textarea) {
+        height: auto;
+        min-height: 100%;
+      }
+    }
+
+    .nv-input__inner {
+      padding: 0 var(--nv-padding-huge);
+      font-size: var(--nv-input-font-size-huge);
+      height: 100%;
+
+      &:is(textarea) {
+        padding: var(--nv-padding-medium) var(--nv-padding-huge);
+        padding-top: calc(var(--nv-padding-medium) - 1px);
+        padding-bottom: calc(var(--nv-padding-medium) - 1px);
+        height: auto;
+        min-height: var(--nv-input-height-huge); // 设置绝对最小高度
+        overflow-y: auto;
+      }
+    }
+
+    .nv-input__prefix,
+    .nv-input__suffix {
+      font-size: 16px;
+    }
+
+    .nv-input__prepend,
+    .nv-input__append {
+      padding: 0 16px;
+      font-size: var(--nv-input-font-size-huge);
+      min-height: var(--nv-input-height-huge);
+      height: var(--nv-input-height-huge);
+    }
+  }
+}
+

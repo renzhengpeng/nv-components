@@ -1,0 +1,176 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: upload style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+}
+
+@include b(upload) {
+  &__trigger {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  /* 视觉隐藏但可聚焦，供 delegatesFocus 与表单校验聚焦使用，避免 display:none 导致 "is not focusable" */
+  &__file-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  /* 禁用时：整块使用 not-allowed 光标，trigger 不响应指针避免 slot 内按钮出现手型与背景变化 */
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .nv-upload__trigger {
+      cursor: not-allowed;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .nv-upload__drag-area {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  &__drag-area {
+    border: var(--nv-upload-drag-area-border, 1px dashed #d9d9d9);
+    border-radius: var(--nv-upload-drag-area-border-radius, 6px);
+    background-color: var(--nv-upload-drag-area-background-color, #fafafa);
+    text-align: center;
+    cursor: pointer;
+    transition: border-color var(--nv-upload-drag-area-transition-duration, 0.3s);
+    padding: var(--nv-upload-drag-area-padding, 40px);
+
+    &:hover {
+      border-color: var(--nv-upload-drag-area-border-color-hover, #409EFF);
+    }
+  }
+
+  &.is-drag {
+    .nv-upload__drag-area {
+      display: block;
+    }
+  }
+
+  &__file-list {
+    list-style: none;
+    margin: var(--nv-upload-file-list-margin, 8px 0 0);
+    padding: 0;
+  }
+
+  &__file-item {
+    display: flex;
+    align-items: center;
+    padding: var(--nv-upload-file-item-padding, 4px 8px);
+    border-radius: var(--nv-upload-file-item-border-radius, 2px);
+    margin-bottom: var(--nv-upload-file-item-margin-bottom, 4px);
+    position: relative;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--nv-upload-file-item-background-color-hover, #eef1f6);
+    }
+  }
+
+  &__file-thumb {
+    width: var(--nv-upload-file-thumb-width, 40px);
+    height: var(--nv-upload-file-thumb-height, 40px);
+    margin-right: var(--nv-upload-file-thumb-margin-right, 8px);
+    border-radius: var(--nv-upload-file-thumb-border-radius, 2px);
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    background-color: var(--nv-upload-file-thumb-background-color, #f5f7fa);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__file-thumb-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: var(--nv-upload-file-thumb-mask-font-size, 12px);
+
+    nv-icon {
+      font-size: var(--nv-upload-file-thumb-mask-icon-size, 16px);
+    }
+  }
+
+  &__file-name {
+    flex: 1;
+    font-size: var(--nv-upload-file-name-font-size, 14px);
+    color: var(--nv-upload-file-name-color, #606266);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &--success {
+      color: var(--nv-upload-file-name-color-success, #67C23A);
+    }
+
+    &--fail {
+      color: var(--nv-upload-file-name-color-fail, #F56C6C);
+    }
+  }
+
+  &__file-status {
+    margin-left: var(--nv-upload-file-status-margin-left, 8px);
+    margin-right: var(--nv-upload-file-status-margin-right, 8px);
+    display: flex;
+    align-items: center;
+  }
+
+  &__file-remove {
+    display: inline-flex;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--nv-upload-file-remove-color, #909399);
+    transition: color var(--nv-upload-file-remove-transition-duration, 0.3s), opacity var(--nv-upload-file-remove-transition-duration, 0.3s);
+    opacity: 0;
+    visibility: hidden;
+
+    &:hover {
+      color: var(--nv-upload-file-remove-color-hover, #F56C6C);
+    }
+  }
+
+  // 鼠标移入文件项时显示删除按钮
+  &__file-item:hover &__file-remove {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // tip 提示文字样式
+  ::slotted([slot="tip"]) {
+    color: var(--nv-upload-tip-color, #909399);
+    font-size: var(--nv-upload-tip-font-size, 12px);
+    margin-top: var(--nv-upload-tip-margin-top, 4px);
+  }
+}

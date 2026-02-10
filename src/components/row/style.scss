@@ -1,0 +1,30 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: row组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+// .nv-row
+@include b(row) {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  // .nv-row.is-flex
+  &.is-flex {
+    display: flex;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+

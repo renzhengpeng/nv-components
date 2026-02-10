@@ -1,0 +1,75 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: cascader组件变量
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+  --nv-cascader-input-height: var(--nv-global-height-medium);
+  --nv-cascader-input-height-mini: var(--nv-global-height-mini);
+  --nv-cascader-input-height-small: var(--nv-global-height-small);
+  --nv-cascader-input-height-medium: var(--nv-global-height-medium);
+  --nv-cascader-input-height-large: var(--nv-global-height-large);
+  --nv-cascader-input-height-huge: var(--nv-global-height-huge);
+  
+  --nv-cascader-input-inner-font-size: 14px;
+  --nv-cascader-input-inner-font-size-mini: var(--nv-font-size-mini);
+  --nv-cascader-input-inner-font-size-small: var(--nv-font-size-mini);
+  --nv-cascader-input-inner-font-size-medium: var(--nv-font-size-small);
+  --nv-cascader-input-inner-font-size-large: var(--nv-font-size-medium);
+  --nv-cascader-input-inner-font-size-huge: var(--nv-font-size-medium);
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** common start *********************************************************/
+  --nv-cascader-input-width: 100%;
+  --nv-cascader-input-min-width: 200px;
+  --nv-cascader-input-padding: 0 30px 0 12px;
+  --nv-cascader-input-border: 1px solid #dcdfe6;
+  --nv-cascader-input-border-radius: 4px;
+  --nv-cascader-input-background-color: #fff;
+  --nv-cascader-input-transition-duration: 0.3s;
+  --nv-cascader-input-border-color-hover: #c0c4cc;
+  --nv-cascader-input-border-color-focus: #409EFF;
+  --nv-cascader-input-background-color-disabled: #f5f7fa;
+  --nv-cascader-input-inner-color: #606266;
+  /***************************************************** common end *********************************************************/
+  --nv-cascader-clear-right: 8px;
+  --nv-cascader-clear-color: #c0c4cc;
+  --nv-cascader-clear-transition-duration: 0.3s;
+  --nv-cascader-clear-color-hover: #909399;
+  --nv-cascader-suffix-right: 8px;
+  --nv-cascader-suffix-color: #c0c4cc;
+  --nv-cascader-suffix-transition-duration: 0.3s;
+  --nv-cascader-panel-z-index: 2000;
+  --nv-cascader-panel-background-color: #fff;
+  --nv-cascader-panel-border: 1px solid #e4e7ed;
+  --nv-cascader-panel-border-radius: 4px;
+  --nv-cascader-panel-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --nv-cascader-panel-min-width: 180px;
+  --nv-cascader-panel-max-height: 300px;
+  --nv-cascader-menu-padding: 6px 0;
+  --nv-cascader-menu-item-padding: 8px 20px;
+  --nv-cascader-menu-item-font-size: 14px;
+  --nv-cascader-menu-item-color: #606266;
+  --nv-cascader-menu-item-transition-duration: 0.3s;
+  --nv-cascader-menu-item-background-color-hover: #f5f7fa;
+  --nv-cascader-menu-item-color-selected: #409EFF;
+  --nv-cascader-menu-item-background-color-selected: #ecf5ff;
+  --nv-cascader-menu-item-icon-margin-left: 8px;
+  --nv-cascader-menu-item-icon-color: #c0c4cc;
+
+  // Menu item size variables
+  --nv-cascader-menu-item-padding-mini: 4px 12px;
+  --nv-cascader-menu-item-padding-small: 6px 16px;
+  --nv-cascader-menu-item-padding-medium: 8px 20px;
+  --nv-cascader-menu-item-padding-large: 10px 24px;
+  --nv-cascader-menu-item-padding-huge: 12px 28px;
+
+  --nv-cascader-menu-item-font-size-mini: var(--nv-font-size-mini);
+  --nv-cascader-menu-item-font-size-small: var(--nv-font-size-mini);
+  --nv-cascader-menu-item-font-size-medium: var(--nv-font-size-small);
+  --nv-cascader-menu-item-font-size-large: var(--nv-font-size-medium);
+  --nv-cascader-menu-item-font-size-huge: var(--nv-font-size-medium);
+}
+

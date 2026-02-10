@@ -1,0 +1,19 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: col组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  // width 由内联样式动态设置，不设置默认值，避免覆盖内联样式
+  flex: 0 0 auto;
+}
+
+// 响应式断点样式（作为备用，主要通过 JS 动态计算）
+// 响应式断点的宽度计算主要在 JS 中通过 _getColStyle 方法处理
+

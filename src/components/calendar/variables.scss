@@ -1,0 +1,86 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: calendar组件变量
+ */
+:root {
+  // 日历容器
+  --nv-calendar-background-color: #fff;
+  --nv-calendar-border: 1px solid #e4e7ed;
+  --nv-calendar-border-radius: 4px;
+  --nv-calendar-padding: 20px;
+  
+  // 头部
+  --nv-calendar-header-margin-bottom: 16px;
+  
+  // 按钮
+  --nv-calendar-btn-padding: 6px 12px;
+  --nv-calendar-btn-color: #606266;
+  --nv-calendar-btn-transition-duration: 0.3s;
+  --nv-calendar-btn-color-hover: #409EFF;
+  --nv-calendar-btn-background-hover: #f5f7fa;
+  --nv-calendar-btn-border-radius: 4px;
+  --nv-calendar-btn-font-size: 14px;
+  
+  // 标题
+  --nv-calendar-title-font-size: 16px;
+  --nv-calendar-title-font-weight: 500;
+  --nv-calendar-title-color: #303133;
+  --nv-calendar-title-gap: 8px;
+  
+  // 选择器
+  --nv-calendar-select-padding: 4px 8px;
+  --nv-calendar-select-border: 1px solid #dcdfe6;
+  --nv-calendar-select-border-radius: 4px;
+  --nv-calendar-select-background: #fff;
+  --nv-calendar-select-color: #606266;
+  --nv-calendar-select-font-size: 14px;
+  --nv-calendar-select-transition-duration: 0.3s;
+  --nv-calendar-select-border-color-hover: #c0c4cc;
+  --nv-calendar-select-border-color-focus: #409EFF;
+  
+  // 今天按钮
+  --nv-calendar-today-btn-margin-bottom: 12px;
+  
+  // 星期标题
+  --nv-calendar-weekdays-gap: 4px;
+  --nv-calendar-weekdays-margin-bottom: 8px;
+  --nv-calendar-weekday-font-size: 14px;
+  --nv-calendar-weekday-color: #909399;
+  --nv-calendar-weekday-padding: 8px;
+  
+  // 日期网格
+  --nv-calendar-days-gap: 4px;
+  
+  // 日期单元格
+  --nv-calendar-day-font-size: 14px;
+  --nv-calendar-day-color: #606266;
+  --nv-calendar-day-border-radius: 4px;
+  --nv-calendar-day-transition-duration: 0.3s;
+  --nv-calendar-day-background-color-hover: #f5f7fa;
+  
+  // 今天
+  --nv-calendar-day-color-today: #409EFF;
+  --nv-calendar-day-font-weight-today: 600;
+  --nv-calendar-day-today-dot-size: 4px;
+  --nv-calendar-day-today-dot-bottom: 4px;
+  
+  // 选中状态
+  --nv-calendar-day-background-color-selected: #409EFF;
+  --nv-calendar-day-color-selected: #fff;
+  --nv-calendar-day-background-color-selected-hover: #337ecc;
+  
+  // 范围内
+  --nv-calendar-day-background-color-in-range: #e6f2ff;
+  --nv-calendar-day-color-in-range: #409EFF;
+  --nv-calendar-day-background-color-in-range-hover: #d9ecff;
+  
+  // 其他月份
+  --nv-calendar-day-color-other-month: #c0c4cc;
+  
+  // 禁用状态
+  --nv-calendar-day-color-disabled: #c0c4cc;
+  --nv-calendar-day-background-color-disabled: #f5f7fa;
+}
+

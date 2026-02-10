@@ -1,0 +1,145 @@
+/*
+ * @Descripttion: step组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** icon *****************/
+  --nv-step-icon-width: 24px;
+  --nv-step-icon-height: 24px;
+  --nv-step-icon-font-size: var(--nv-font-size-medium);
+  --nv-step-icon-border-width: 2px;
+  --nv-step-icon-border-radius: 50%;
+
+  /**************** line *****************/
+  --nv-step-line-horizontal-top: 12px;
+  --nv-step-line-horizontal-height: 2px;
+  --nv-step-line-vertical-left: 11px;
+  --nv-step-line-vertical-top: 24px;
+  --nv-step-line-vertical-width: 2px;
+  --nv-step-line-vertical-bottom: -42px;
+
+  /**************** main *****************/
+  --nv-step-main-padding-right: var(--nv-padding-medium);
+  --nv-step-main-padding-top: var(--nv-padding-mini);
+  --nv-step-main-padding-left: var(--nv-padding-medium);
+
+  /**************** title *****************/
+  --nv-step-title-font-size: var(--nv-font-size-medium);
+
+  /**************** description *****************/
+  --nv-step-description-font-size: var(--nv-font-size-small);
+  --nv-step-description-margin-top: var(--nv-padding-mini);
+
+  /**************** vertical *****************/
+  --nv-step-vertical-padding-bottom: var(--nv-padding-huge);
+
+  // Size-specific variables
+  // mini
+  --nv-step-icon-width-mini: 20px;
+  --nv-step-icon-height-mini: 20px;
+  --nv-step-icon-font-size-mini: var(--nv-font-size-mini);
+  --nv-step-line-horizontal-top-mini: 10px;
+  --nv-step-line-vertical-left-mini: 9px;
+  --nv-step-line-vertical-top-mini: 20px;
+  --nv-step-line-vertical-bottom-mini: -36px;
+  --nv-step-title-font-size-mini: var(--nv-font-size-mini);
+  --nv-step-description-font-size-mini: var(--nv-font-size-mini);
+  --nv-step-main-padding-top-mini: var(--nv-padding-mini);
+  --nv-step-main-padding-left-mini: var(--nv-padding-small);
+  --nv-step-main-padding-right-mini: var(--nv-padding-small);
+
+  // small
+  --nv-step-icon-width-small: 22px;
+  --nv-step-icon-height-small: 22px;
+  --nv-step-icon-font-size-small: var(--nv-font-size-mini);
+  --nv-step-line-horizontal-top-small: 11px;
+  --nv-step-line-vertical-left-small: 10px;
+  --nv-step-line-vertical-top-small: 22px;
+  --nv-step-line-vertical-bottom-small: -38px;
+  --nv-step-title-font-size-small: var(--nv-font-size-mini);
+  --nv-step-description-font-size-small: var(--nv-font-size-mini);
+  --nv-step-main-padding-top-small: var(--nv-padding-mini);
+  --nv-step-main-padding-left-small: var(--nv-padding-small);
+  --nv-step-main-padding-right-small: var(--nv-padding-small);
+
+  // medium
+  --nv-step-icon-width-medium: 24px;
+  --nv-step-icon-height-medium: 24px;
+  --nv-step-icon-font-size-medium: var(--nv-font-size-medium);
+  --nv-step-line-horizontal-top-medium: 12px;
+  --nv-step-line-vertical-left-medium: 11px;
+  --nv-step-line-vertical-top-medium: 24px;
+  --nv-step-line-vertical-bottom-medium: -42px;
+  --nv-step-title-font-size-medium: var(--nv-font-size-medium);
+  --nv-step-description-font-size-medium: var(--nv-font-size-small);
+  --nv-step-main-padding-top-medium: var(--nv-padding-mini);
+  --nv-step-main-padding-left-medium: var(--nv-padding-medium);
+  --nv-step-main-padding-right-medium: var(--nv-padding-medium);
+
+  // large
+  --nv-step-icon-width-large: 28px;
+  --nv-step-icon-height-large: 28px;
+  --nv-step-icon-font-size-large: var(--nv-font-size-medium);
+  --nv-step-line-horizontal-top-large: 14px;
+  --nv-step-line-vertical-left-large: 13px;
+  --nv-step-line-vertical-top-large: 28px;
+  --nv-step-line-vertical-bottom-large: -48px;
+  --nv-step-title-font-size-large: var(--nv-font-size-medium);
+  --nv-step-description-font-size-large: var(--nv-font-size-small);
+  --nv-step-main-padding-top-large: var(--nv-padding-small);
+  --nv-step-main-padding-left-large: var(--nv-padding-medium);
+  --nv-step-main-padding-right-large: var(--nv-padding-medium);
+
+  // huge
+  --nv-step-icon-width-huge: 32px;
+  --nv-step-icon-height-huge: 32px;
+  --nv-step-icon-font-size-huge: var(--nv-font-size-medium);
+  --nv-step-line-horizontal-top-huge: 16px;
+  --nv-step-line-vertical-left-huge: 15px;
+  --nv-step-line-vertical-top-huge: 32px;
+  --nv-step-line-vertical-bottom-huge: -54px;
+  --nv-step-title-font-size-huge: var(--nv-font-size-medium);
+  --nv-step-description-font-size-huge: var(--nv-font-size-small);
+  --nv-step-main-padding-top-huge: var(--nv-padding-small);
+  --nv-step-main-padding-left-huge: var(--nv-padding-medium);
+  --nv-step-main-padding-right-huge: var(--nv-padding-medium);
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+
+  /**************** icon *****************/
+  --nv-step-icon-background-color: var(--nv-neutral-color-white);
+  --nv-step-icon-color-wait: var(--nv-neutral-color-font-4);
+  --nv-step-icon-border-color-wait: var(--nv-neutral-color-font-4);
+  --nv-step-icon-color-process: var(--nv-primary-color-1);
+  --nv-step-icon-border-color-process: var(--nv-primary-color-1);
+  --nv-step-icon-color-finish: var(--nv-primary-color-1);
+  --nv-step-icon-border-color-finish: var(--nv-primary-color-1);
+  --nv-step-icon-color-success: var(--nv-secondary-color-success-1);
+  --nv-step-icon-border-color-success: var(--nv-secondary-color-success-1);
+  --nv-step-icon-color-error: var(--nv-secondary-color-danger-1);
+  --nv-step-icon-border-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************** line *****************/
+  --nv-step-line-background-color: var(--nv-neutral-color-border-2);
+  --nv-step-line-border-color: var(--nv-neutral-color-border-2);
+  --nv-step-line-background-color-finish: var(--nv-primary-color-1);
+  --nv-step-line-border-color-finish: var(--nv-primary-color-1);
+  --nv-step-line-background-color-success: var(--nv-secondary-color-success-1);
+  --nv-step-line-border-color-success: var(--nv-secondary-color-success-1);
+
+  /**************** title *****************/
+  --nv-step-title-font-color: var(--nv-neutral-color-font-1);
+  --nv-step-title-font-color-success: var(--nv-secondary-color-success-1);
+  --nv-step-title-font-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************** description *****************/
+  --nv-step-description-font-color: var(--nv-neutral-color-font-2);
+
+  /***************************************************** color end ********************************************************/
+}
+

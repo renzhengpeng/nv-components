@@ -1,0 +1,670 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: tabs组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+@import '../../styles/extend-only/index.style.scss';
+
+$rootBlock: 'tabs';
+
+:host {
+  display: block;
+}
+
+// .nv-tabs
+@include b($rootBlock) {
+  position: relative;
+  display: flex;
+
+  // 垂直布局（left/right）
+  &.is-left,
+  &.is-right {
+    flex-direction: row;
+
+    // 垂直布局时改变 nav 方向
+    @include e(nav, $rootBlock) {
+      float: none;
+      white-space: normal;
+    }
+
+    // 垂直布局时改为块级元素
+    @include e(item, $rootBlock) {
+      display: flex !important;
+      width: 100%;
+    }
+  }
+
+  // 水平布局（top/bottom）
+  &.is-top,
+  &.is-bottom {
+    flex-direction: column;
+
+    // @include e(item, $rootBlock) {
+    //   border-right: none !important;
+    // }
+  }
+
+  // 头部
+  @include e(header) {
+    padding: 0;
+    position: relative;
+  }
+
+  // 顶部布局时的header margin
+  &.is-top {
+    @include e(header, $rootBlock) {
+      margin: 0 0 var(--nv-tabs-header-margin-bottom) 0;
+    }
+  }
+
+  // 右侧布局时调整 header margin
+  &.is-right {
+    @include e(header, $rootBlock) {
+      margin: 0 0 0 var(--nv-tabs-header-margin-bottom, 0);
+    }
+
+    @include e(nav-wrap, $rootBlock) {
+      &::after {
+        @extend %absolute-after;
+        top: 0;
+        left: 0;
+        width: var(--nv-tabs-nav-wrap-after-height);
+        height: 100%;
+      }
+    }
+
+    @include e(nav, $rootBlock) {
+      &::after {
+        @extend %absolute-after;
+        left: 0;
+        top: 0;
+        width: var(--nv-tabs-active-bar-height);
+        height: var(--active-bar-height, auto);
+      }
+    }
+
+    // 右侧布局时内容靠右对齐
+    @include e(content, $rootBlock) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  // 底部布局时调整 header margin
+  &.is-bottom {
+    @include e(header, $rootBlock) {
+      margin: var(--nv-tabs-header-margin-bottom, 0) 0 0 0;
+    }
+
+    // 底部布局时调整 nav-wrap 的 after 伪类
+    @include e(nav-wrap, $rootBlock) {
+      &::after {
+        @extend %absolute-after;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--nv-tabs-nav-wrap-after-height);
+      }
+    }
+
+    // 底部布局时改变 active-bar 方向
+    @include e(nav, $rootBlock) {
+      &::after {
+        @extend %absolute-after;
+        top: 0;
+        left: 0;
+        height: var(--nv-tabs-active-bar-height);
+      }
+    }
+  }
+
+  // 左侧布局时调整 header margin
+  &.is-left {
+    @include e(header, $rootBlock) {
+      margin: 0 var(--nv-tabs-header-margin-bottom, 0) 0 0;
+    }
+
+    // 垂直布局时调整 nav-wrap 的 after 伪类
+    @include e(nav-wrap, $rootBlock) {
+      &::after {
+        @extend %absolute-after;
+        top: 0;
+        right: 0;
+        width: var(--nv-tabs-nav-wrap-after-height);
+        height: 100%;
+      }
+    }
+
+    // 垂直布局时改变 active-bar 方向
+    @include e(nav, $rootBlock) {
+      &::after {
+        @extend %absolute-after;
+        top: 0;
+        right: 0;
+        width: var(--nv-tabs-active-bar-height);
+        height: var(--active-bar-height, auto);
+      }
+    }
+  }
+
+  // 导航包装器
+  @include e(nav-wrap, $rootBlock) {
+    overflow: hidden;
+    margin-bottom: var(--nv-tabs-nav-wrap-margin-bottom);
+    position: relative;
+
+    &::after {
+      @extend %absolute-after;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nv-tabs-nav-wrap-after-height);
+      background-color: var(--nv-tabs-nav-wrap-after-background-color);
+    }
+  }
+
+  // 导航滚动
+  @include e(nav-scroll, $rootBlock) {
+    overflow: hidden;
+  }
+
+  // 导航
+  @include e(nav, $rootBlock) {
+    white-space: nowrap;
+    position: relative;
+    transition: transform 0.3s;
+    float: left;
+    z-index: 2;
+    font-size: 0; // 避免 inline-flex 元素间的空白间隔
+  }
+
+  // 标签项
+  @include e(item, $rootBlock) {
+    padding: var(--nv-tabs-item-padding);
+    height: var(--nv-tabs-item-height);
+    box-sizing: border-box;
+    line-height: var(--nv-tabs-item-line-height);
+    display: inline-flex;
+    align-items: center;
+    list-style: none;
+    font-size: var(--nv-tabs-item-font-size);
+    font-weight: 500;
+    color: var(--nv-tabs-item-font-color);
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--nv-tabs-item-font-color-hover);
+    }
+
+    &.is-active {
+      color: var(--nv-tabs-item-font-color-active);
+    }
+
+    &.is-disabled {
+      color: var(--nv-tabs-item-font-color-disabled);
+      cursor: not-allowed;
+    }
+
+    &.is-editing {
+      padding: 0;
+    }
+  }
+
+  // 标签文本
+  @include e(item-label, $rootBlock) {
+    flex: 1;
+  }
+
+  // 关闭按钮
+  @include e(item-close, $rootBlock) {
+    margin-left: var(--nv-tabs-item-close-margin-left, 8px);
+    cursor: pointer;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--nv-tabs-item-close-width, 16px);
+    height: var(--nv-tabs-item-close-height, 16px);
+    font-size: var(--nv-tabs-item-close-font-size, 14px);
+    color: inherit;
+
+    &:hover {
+      color: var(--nv-tabs-item-font-color-hover);
+    }
+  }
+
+  // 编辑输入框
+  @include e(item-edit-input, $rootBlock) {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: var(--nv-tabs-item-padding);
+    height: var(--nv-tabs-item-height);
+    box-sizing: border-box;
+    font-size: var(--nv-tabs-item-font-size);
+    font-weight: 500;
+    color: var(--nv-tabs-item-font-color);
+    min-width: 60px;
+  }
+
+  // 添加按钮
+  @include e(item-add, $rootBlock) {
+    padding: var(--nv-tabs-item-padding);
+    height: var(--nv-tabs-item-height);
+    box-sizing: border-box;
+    line-height: var(--nv-tabs-item-line-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nv-tabs-item-font-color);
+    cursor: pointer;
+    transition: color 0.3s;
+    border: 1px solid transparent;
+
+    nv-icon {
+      font-size: var(--nv-tabs-item-add-font-size, 16px);
+    }
+
+    &:hover {
+      color: var(--nv-tabs-item-font-color-hover);
+    }
+  }
+
+  // 激活条
+  // active-bar 使用 ::after 伪类实现
+  @include e(nav, $rootBlock) {
+    &::after {
+      @extend %absolute-after;
+      bottom: 0;
+      left: 0;
+      height: var(--nv-tabs-active-bar-height);
+      width: var(--active-bar-width, auto);
+      background-color: var(--nv-tabs-active-bar-background-color);
+      transform: var(--active-bar-transform, none);
+      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+
+  // 内容
+  @include e(content, $rootBlock) {
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+  }
+
+  // 卡片类型
+  &.is-card {
+    // card 类型下隐藏 active-bar
+    @include e(nav, $rootBlock) {
+      &::after {
+        display: none !important;
+      }
+    }
+
+    @include e(item, $rootBlock) {  
+      border: 1px solid var(--nv-tabs-card-item-border-color);
+      margin: var(--nv-tabs-card-item-margin);
+      border-radius: 0;
+      background: var(--nv-tabs-card-item-background-color);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      box-sizing: border-box;
+      line-height: var(--nv-tabs-card-item-line-height);
+      height: var(--nv-tabs-card-item-height);
+    }
+
+    &.is-top,
+    &.is-bottom {
+      @include e(item, $rootBlock) {
+        border-right: none!important;
+
+        &:last-child {
+          border-right: 1px solid var(--nv-tabs-card-item-border-color)!important;
+        }
+      }
+    }
+
+    &.is-left,
+    &.is-right {
+      @include e(item, $rootBlock) {
+        border-bottom: none!important;
+
+        &:last-child {
+          border-bottom: 1px solid var(--nv-tabs-card-item-border-color)!important;
+        }
+      }
+    }
+
+    &.is-top {
+      @include e(header, $rootBlock) {
+        border-bottom: 1px solid var(--nv-tabs-card-header-border-color);
+      }
+      
+      @include e(nav-wrap, $rootBlock) {
+        margin-bottom: -1px;
+      }
+
+      @include e(item, $rootBlock) {
+        &:first-child {
+          border-radius: var(--nv-border-radius-small) 0 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 var(--nv-border-radius-small) 0 0;
+        }
+
+        &.is-active {
+          border-bottom-color: var(--nv-tabs-card-item-background-color);
+        }
+      }
+    }
+
+    // 左侧样式
+    &.is-left {
+      @include e(header, $rootBlock) {
+        border-right: 1px solid var(--nv-tabs-card-header-border-color);
+      }
+      
+      @include e(nav-wrap, $rootBlock) {
+        margin-right: -1px;
+      }
+
+      @include e(item, $rootBlock) {
+        &:first-child {
+          border-radius: var(--nv-border-radius-small) 0 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 0 var(--nv-border-radius-small);
+        }
+
+        &.is-active {
+          border-right-color: var(--nv-tabs-card-item-background-color);
+        }
+      }
+    }
+
+    // 右侧样式
+    &.is-right {
+      @include e(header, $rootBlock) {
+        border-left: 1px solid var(--nv-tabs-card-header-border-color);
+      }
+
+      @include e(nav-wrap, $rootBlock) {
+        margin-left: -1px;
+
+        &::after {
+          left: auto;
+          right: 0;
+        }
+      }
+
+      @include e(item, $rootBlock) {
+        &:first-child {
+          border-radius: 0 var(--nv-border-radius-small) 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 var(--nv-border-radius-small) 0;
+        }
+
+        &.is-active {
+          border-left-color: var(--nv-tabs-card-item-background-color);
+        }
+      }
+    }
+
+    // 卡片类型在底部布局时的特殊调整
+    &.is-bottom {
+      @include e(header, $rootBlock) {
+        border-top: 1px solid var(--nv-tabs-card-header-border-color);
+      }
+  
+      @include e(nav-wrap, $rootBlock) {
+        margin-top: -1px;
+      }
+
+      @include e(item, $rootBlock) {
+        &:first-child {
+          border-radius: 0 0 0 var(--nv-border-radius-small);
+        }
+
+        &:last-child {
+          border-radius: 0 0 var(--nv-border-radius-small) 0;
+        }
+
+        &.is-active {
+          border-top-color: var(--nv-tabs-card-item-background-color);
+        }
+      }
+    }
+
+    // 确保 ::after 伪元素在卡片类型中不可见
+    @include e(nav-wrap, $rootBlock) {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  // 边框卡片类型的样式
+  &.is-border-card {
+    background: var(--nv-tabs-border-card-background-color);
+    border: 1px solid var(--nv-tabs-border-card-border-color);
+    box-shadow: var(--nv-tabs-border-card-box-shadow);
+    border-radius: var(--nv-border-radius-small);
+
+    @include e(content, $rootBlock) {
+      padding: var(--nv-tabs-border-card-content-padding);
+    }
+
+    @include e(header, $rootBlock) {
+      background-color: var(--nv-tabs-border-card-header-background-color);
+      margin: 0;
+      border-bottom: 1px solid var(--nv-tabs-border-card-header-border-color);
+    }
+
+    @include e(nav-wrap, $rootBlock) {
+      margin-bottom: 0;
+    }
+
+    @include e(item, $rootBlock) {
+      border: 1px solid transparent;
+      margin: var(--nv-tabs-border-card-item-margin);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      background: transparent;
+      border-radius: 0;
+      box-sizing: border-box;
+      line-height: var(--nv-tabs-border-card-item-line-height);
+      height: var(--nv-tabs-border-card-item-height);
+    }
+
+    @include e(item-add, $rootBlock) {
+      margin: var(--nv-tabs-border-card-item-margin);
+      background: transparent;
+    }
+
+    // 顶部位置
+    &.is-top {
+      @include e(nav-wrap, $rootBlock) {
+        margin-bottom: -1px;
+      }
+
+      @include e(item, $rootBlock) {
+        border-right: none;
+
+        &:first-child {
+          border-radius: var(--nv-border-radius-small) 0 0 0;
+        }
+
+        &:last-child {
+          border-right: 1px solid transparent;
+          border-radius: 0 var(--nv-border-radius-small) 0 0;
+        }
+
+        &.is-active {
+          background-color: var(--nv-tabs-border-card-item-active-background-color);
+          border-right-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-left-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-bottom-color: var(--nv-tabs-border-card-item-active-background-color);
+
+          &:last-child {
+            border-right-color: var(--nv-tabs-border-card-item-active-border-color);
+          }
+        }
+      }
+
+      @include e(item-add, $rootBlock) {
+        border-right: 1px solid transparent;
+        border-radius: 0 var(--nv-border-radius-small) 0 0;
+      }
+    }
+
+    // 底部位置
+    &.is-bottom {
+      @include e(header, $rootBlock) {
+        border-bottom: none;
+        border-top: 1px solid var(--nv-tabs-border-card-header-border-color);
+      }
+
+      @include e(nav-wrap, $rootBlock) {
+        margin-top: -1px;
+        margin-bottom: 0;
+      }
+
+      @include e(item, $rootBlock) {
+        border-top: 1px solid transparent;
+        border-bottom: none;
+        border-right: none;
+
+        &:first-child {
+          border-radius: 0 0 0 var(--nv-border-radius-small);
+        }
+
+        &:last-child {
+          border-right: 1px solid transparent;
+          border-radius: 0 0 var(--nv-border-radius-small) 0;
+        }
+
+        &.is-active {
+          background-color: var(--nv-tabs-border-card-item-active-background-color);
+          border-right-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-left-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-top-color: var(--nv-tabs-border-card-item-active-background-color);
+
+          &:last-child {
+            border-right-color: var(--nv-tabs-border-card-item-active-border-color);
+          }
+        }
+      }
+
+      @include e(item-add, $rootBlock) {
+        border-top: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: none;
+        border-radius: 0 0 var(--nv-border-radius-small) 0;
+      }
+    }
+
+    // 左侧位置
+    &.is-left {
+      @include e(header, $rootBlock) {
+        border-bottom: none;
+        border-right: 1px solid var(--nv-tabs-border-card-header-border-color);
+      }
+
+      @include e(nav-wrap, $rootBlock) {
+        margin-right: -1px;
+        margin-bottom: 0;
+      }
+
+      @include e(item, $rootBlock) {
+        border-bottom: none;
+
+        &:first-child {
+          border-radius: var(--nv-border-radius-small) 0 0 0;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid transparent;
+          border-radius: 0 0 0 var(--nv-border-radius-small);
+        }
+
+        &.is-active {
+          background-color: var(--nv-tabs-border-card-item-active-background-color);
+          border-top-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-bottom-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-right-color: var(--nv-tabs-border-card-item-active-background-color);
+
+          &:last-child {
+            border-bottom-color: var(--nv-tabs-border-card-item-active-border-color);
+          }
+        }
+      }
+
+      @include e(item-add, $rootBlock) {
+        border-bottom: 1px solid transparent;
+        border-radius: 0 0 0 var(--nv-border-radius-small);
+      }
+    }
+
+    // 右侧位置
+    &.is-right {
+      @include e(header, $rootBlock) {
+        border-bottom: none;
+        border-left: 1px solid var(--nv-tabs-border-card-header-border-color);
+      }
+
+      @include e(nav-wrap, $rootBlock) {
+        margin-left: -1px;
+        margin-bottom: 0;
+      }
+
+      @include e(item, $rootBlock) {
+        border-bottom: none;
+
+        &:first-child {
+          border-radius: 0 var(--nv-border-radius-small) 0 0;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid transparent;
+          border-radius: 0 0 var(--nv-border-radius-small) 0;
+        }
+
+        &.is-active {
+          background-color: var(--nv-tabs-border-card-item-active-background-color);
+          border-top-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-bottom-color: var(--nv-tabs-border-card-item-active-border-color);
+          border-left-color: var(--nv-tabs-border-card-item-active-background-color);
+
+          &:last-child {
+            border-bottom-color: var(--nv-tabs-border-card-item-active-border-color);
+          }
+        }
+      }
+
+      @include e(item-add, $rootBlock) {
+        border-bottom: 1px solid transparent;
+        border-radius: 0 0 var(--nv-border-radius-small) 0;
+      }
+    }
+
+    // 确保 ::after 伪元素在卡片类型中不可见
+    @include e(nav-wrap, $rootBlock) {
+      &::after {
+        display: none;
+      }
+    }
+    
+    @include e(nav, $rootBlock) {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+

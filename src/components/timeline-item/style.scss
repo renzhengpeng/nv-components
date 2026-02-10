@@ -1,0 +1,100 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: timeline-item组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: list-item;
+}
+
+// .nv-timeline-item
+@include b(timeline-item) {
+  position: relative;
+  padding-bottom: var(--nv-timeline-item-padding-bottom);
+  list-style: none;
+
+  // 尾部线条
+  &__tail {
+    position: absolute;
+    left: var(--nv-timeline-item-tail-left);
+    top: 0;
+    height: 100%;
+    border-left: var(--nv-timeline-item-tail-border-width) solid var(--nv-timeline-item-tail-border-color);
+  }
+
+  // 节点；有自定义图标时使用更大尺寸避免图标超出圆形背景
+  &__node {
+    position: absolute;
+    background-color: var(--nv-timeline-item-node-background-color);
+    border-radius: var(--nv-timeline-item-node-border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: var(--nv-timeline-item-node-width);
+    height: var(--nv-timeline-item-node-height);
+    left: 0;
+    top: 0;
+
+    &--has-icon {
+      width: var(--nv-timeline-item-node-width-has-icon, 24px);
+      height: var(--nv-timeline-item-node-height-has-icon, 24px);
+      /* 圆心与竖线对齐：左移半宽差，使竖线仍从圆心穿过 */
+      left: calc(var(--nv-timeline-item-tail-left) - (var(--nv-timeline-item-node-width-has-icon, 24px) / 2));
+    }
+  }
+
+  // 包装器
+  &__wrapper {
+    position: relative;
+    top: var(--nv-timeline-item-wrapper-top);
+    padding-left: var(--nv-timeline-item-wrapper-padding-left);
+  }
+
+  // 内容
+  &__content {
+    color: var(--nv-timeline-item-content-font-color);
+  }
+
+  // 时间戳
+  &__timestamp {
+    color: var(--nv-timeline-item-timestamp-font-color);
+    font-size: var(--nv-timeline-item-timestamp-font-size);
+    line-height: 1;
+    padding-top: var(--nv-timeline-item-timestamp-padding-top);
+  }
+
+  // 待处理状态
+  &.is-pending {
+    .nv-timeline-item__tail {
+      border-left-style: dotted;
+    }
+  }
+
+  // 反向
+  &.is-reverse {
+    .nv-timeline-item__wrapper {
+      text-align: right;
+      padding-left: 0;
+      padding-right: var(--nv-timeline-item-wrapper-padding-right);
+    }
+
+    .nv-timeline-item__tail {
+      left: auto;
+      right: var(--nv-timeline-item-tail-right);
+    }
+
+    .nv-timeline-item__node {
+      left: auto;
+      right: 0;
+
+      &--has-icon {
+        left: auto;
+        right: calc(var(--nv-timeline-item-tail-right) - (var(--nv-timeline-item-node-width-has-icon, 24px) / 2));
+      }
+    }
+  }
+}

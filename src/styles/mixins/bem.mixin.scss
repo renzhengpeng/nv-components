@@ -1,0 +1,67 @@
+/*
+ * @Descripttion: 
+ * @creater: zhengpeng.ren
+ * @since: 2024-05-27 11:54:10
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-05-28 10:44:22
+ */
+$components_common_prefix: 'nv'; // 组件class公共前缀
+$word_separator: '-'; // class名单词连接符
+$element_separator: '__'; // 元素连接符
+$modifier_separator: '--'; // 修饰词连接符
+
+// mixin b可以嵌套使用
+// 嵌套使用时，会自动将&和指定的block使用$connector连接起来
+// 不指定$connector时，默认为' '，组合方式为：& + $connector + $b
+// 例如: 当&为.nv-tabs，$b为nav时，不同$connector的组合方式为：
+// $connector: ' ', 则表示组合方式为'.nv-tabs .nv-nav'
+// $connector: '+', 则表示组合方式为'.nv-tabs+.nv-nav'
+// $connector: '>', 则表示组合方式为'.nv-tabs>.nv-nav'
+@mixin b($b, $connector: ' ') {
+  @if & {
+    &#{$connector + '.' + $components_common_prefix + $word_separator + $b} {
+      @content;
+    }
+  } @else {
+    .#{$components_common_prefix + $word_separator + $b} {
+      @content;
+    }
+  }
+}
+
+// mixin e可以修改其block
+// 不指定$block时，默认为&中的block
+// 例如: 当&为.nv-tabs，$e为item时，$block为nav时， 生成的选择器为：.nv-nav__item
+@mixin e($e, $block: null, $connector: ' ') {
+  @at-root {
+    @if $block == null or $block == '' {
+      &#{$element_separator + $e} {
+        @content;
+      } 
+    } @else {
+      @include b($block, $connector) {
+        @include e($e) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+// modifier可以修改其修饰的element
+// 不指定$e时，默认为&中的element
+@mixin m($m, $e: null, $connector: ' ') {
+  @at-root {
+    @if $e {
+      @include e($e, null, $connector) {
+        @include m($m) {
+          @content;
+        }
+      }
+    } @else {
+      &#{$modifier_separator + $m} {
+        @content;
+      }
+    }
+  }
+}

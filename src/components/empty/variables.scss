@@ -1,0 +1,52 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: empty组件变量
+ */
+:root {
+  // 默认尺寸变量（兼容旧版本）
+  --nv-empty-padding: 40px 0;
+  --nv-empty-image-width: 80px;
+  --nv-empty-image-margin-bottom: 15px;
+  --nv-empty-description-color: var(--nv-neutral-color-font-3, #90939);
+  --nv-empty-description-font-size: 14px;
+  --nv-empty-description-line-height: 1;
+
+  // 迷你尺寸
+  --nv-empty-padding-mini: 20px 0;
+  --nv-empty-image-width-mini: 48px;
+  --nv-empty-image-margin-bottom-mini: 8px;
+  --nv-empty-description-font-size-mini: 12px;
+
+  // 小型尺寸
+  --nv-empty-padding-small: 30px 0;
+  --nv-empty-image-width-small: 64px;
+  --nv-empty-image-margin-bottom-small: 12px;
+  --nv-empty-description-font-size-small: 13px;
+
+  // 中等尺寸
+  --nv-empty-padding-medium: 40px 0;
+  --nv-empty-image-width-medium: 80px;
+  --nv-empty-image-margin-bottom-medium: 15px;
+  --nv-empty-description-font-size-medium: 14px;
+
+  // 大型尺寸
+  --nv-empty-padding-large: 50px 0;
+  --nv-empty-image-width-large: 96px;
+  --nv-empty-image-margin-bottom-large: 18px;
+  --nv-empty-description-font-size-large: 15px;
+
+  // 巨大尺寸
+  --nv-empty-padding-huge: 60px 0;
+  --nv-empty-image-width-huge: 120px;
+  --nv-empty-image-margin-bottom-huge: 20px;
+  --nv-empty-description-font-size-huge: 16px;
+
+  // SVG 颜色变量
+  --nv-empty-svg-ellipse-fill: #f5f5f5;
+  --nv-empty-svg-g-fill: var(--nv-neutral-color-white, #ffffff);
+  --nv-empty-svg-path-fill: #fafafa;
+  --nv-empty-svg-g-stroke: var(--nv-neutral-color-border-1, #eee);
+  --nv-empty-svg-g-stroke-width: 0.5;
+}

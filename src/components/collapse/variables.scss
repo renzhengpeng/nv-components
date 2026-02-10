@@ -1,0 +1,24 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: collapse组件变量
+ */
+:root {
+  --nv-collapse-border: 1px solid #dcdfe6;
+  --nv-collapse-border-radius: 4px;
+  --nv-collapse-background-color: #fff;
+  --nv-collapse-item-border-bottom: 1px solid #dcdfe6;
+  --nv-collapse-item-header-padding: 15px;
+  --nv-collapse-item-header-background-color: #fafafa;
+  --nv-collapse-item-header-color: #303133;
+  --nv-collapse-item-header-font-size: 13px;
+  --nv-collapse-item-header-background-color-hover: #e6e8eb;
+  --nv-collapse-item-icon-color: #909399;
+  --nv-collapse-item-content-padding: 15px;
+  --nv-collapse-item-content-color: #606266;
+  --nv-collapse-item-content-font-size: 13px;
+  --nv-collapse-item-content-line-height: 1.5;
+  --nv-collapse-item-content-background-color: #fff;
+  --nv-collapse-item-wrapper-transition-duration: 0.3s;
+}

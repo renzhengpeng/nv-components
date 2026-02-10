@@ -1,0 +1,48 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: transfer组件变量
+ */
+:root {
+  --nv-transfer-gap: 16px;
+  --nv-transfer-panel-border: 1px solid #dcdfe6;
+  --nv-transfer-panel-border-radius: 4px;
+  --nv-transfer-panel-background-color: #fff;
+  --nv-transfer-header-padding: 12px;
+  --nv-transfer-header-background-color: #f5f7fa;
+  --nv-transfer-header-border-bottom: 1px solid #dcdfe6;
+  --nv-transfer-title-font-size: 14px;
+  --nv-transfer-title-font-weight: 500;
+  --nv-transfer-title-color: #303133;
+  --nv-transfer-count-font-size: 12px;
+  --nv-transfer-count-color: #909399;
+  --nv-transfer-search-padding: 8px;
+  --nv-transfer-search-border-bottom: 1px solid #dcdfe6;
+  --nv-transfer-search-input-padding: 4px 8px;
+  --nv-transfer-search-input-border: 1px solid #dcdfe6;
+  --nv-transfer-search-input-border-radius: 4px;
+  --nv-transfer-search-input-font-size: 14px;
+  --nv-transfer-search-input-transition-duration: 0.3s;
+  --nv-transfer-search-input-border-color-focus: #409EFF;
+  --nv-transfer-body-height: 200px;
+  --nv-transfer-body-padding: 8px;
+  --nv-transfer-item-padding: 8px;
+  --nv-transfer-item-margin-bottom: 4px;
+  --nv-transfer-item-border-radius: 4px;
+  --nv-transfer-item-transition-duration: 0.3s;
+  --nv-transfer-item-background-color-hover: #f5f7fa;
+  --nv-transfer-item-label-font-size: 14px;
+  --nv-transfer-item-label-color: #606266;
+  --nv-transfer-buttons-gap: 8px;
+  --nv-transfer-button-width: 32px;
+  --nv-transfer-button-height: 32px;
+  --nv-transfer-button-border: 1px solid #dcdfe6;
+  --nv-transfer-button-border-radius: 4px;
+  --nv-transfer-button-background-color: #fff;
+  --nv-transfer-button-color: #606266;
+  --nv-transfer-button-transition-duration: 0.3s;
+  --nv-transfer-button-color-hover: #409EFF;
+  --nv-transfer-button-border-color-hover: #409EFF;
+}
+

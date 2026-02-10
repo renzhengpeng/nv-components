@@ -1,0 +1,33 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: modal组件变量
+ */
+:root {
+  --nv-modal-z-index: 2000;
+  --nv-modal-wrapper-padding: 20px;
+  --nv-modal-background-color: rgba(0, 0, 0, 0.5);
+  --nv-modal-dialog-background-color: #fff;
+  --nv-modal-dialog-border-radius: 4px;
+  --nv-modal-dialog-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --nv-modal-dialog-max-height: calc(100vh - 40px);
+  --nv-modal-transition-duration: 0.3s;
+  --nv-modal-header-padding: 20px 20px 10px;
+  --nv-modal-header-border-bottom: 1px solid #e4e7ed;
+  --nv-modal-header-font-size: 18px;
+  --nv-modal-header-font-weight: 500;
+  --nv-modal-header-color: #303133;
+  --nv-modal-close-color: #909399;
+  --nv-modal-close-font-size: 16px;
+  --nv-modal-close-transition-duration: 0.3s;
+  --nv-modal-close-color-hover: #303133;
+  --nv-modal-body-padding: 30px 20px;
+  --nv-modal-body-color: #606266;
+  --nv-modal-body-font-size: 14px;
+  --nv-modal-body-line-height: 1.5;
+  --nv-modal-footer-padding: 10px 20px 20px;
+  --nv-modal-footer-border-top: 1px solid #e4e7ed;
+  --nv-modal-footer-text-align: right;
+}
+

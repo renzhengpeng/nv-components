@@ -1,0 +1,40 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: back-top style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+  position: fixed;
+  right: var(--nv-back-top-right, 40px);
+  bottom: var(--nv-back-top-bottom, 40px);
+  z-index: var(--nv-back-top-z-index, 1000);
+}
+
+.nv-back-top {
+  transition: all var(--nv-back-top-transition-duration, 0.3s);
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+
+  &.is-visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+
+    nv-button::part(button) {
+      box-shadow: var(--nv-back-top-box-shadow, 0 2px 12px 0 rgba(0, 0, 0, 0.1));
+    }
+  }
+
+  nv-button {
+    nv-icon {
+      font-size: 20px;
+    }
+  }
+}
+

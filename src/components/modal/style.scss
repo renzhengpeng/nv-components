@@ -1,0 +1,115 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: modal style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  // 方案 B：关闭时让 host 完全不参与布局（display: none），从而不占文档流位置。
+  // 注意：为了不丢失过渡动画，JS 会在关闭动画结束后再移除 data-rendered。
+  display: none;
+}
+
+// 处于渲染态时才挂载到布局树中（此时内部 wrapper 通过 fixed 覆盖视口）
+:host([data-rendered]) {
+  display: block;
+}
+
+.nv-modal__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--nv-modal-z-index, 2000);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--nv-modal-wrapper-padding, 20px);
+  background-color: var(--nv-modal-background-color, rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  visibility: hidden;
+  overflow: auto;
+  transition: opacity var(--nv-modal-transition-duration, 0.3s), visibility var(--nv-modal-transition-duration, 0.3s);
+
+  &.is-center {
+    align-items: center;
+  }
+}
+
+:host([data-open]) .nv-modal__wrapper {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nv-modal__dialog {
+  position: relative;
+  background-color: var(--nv-modal-dialog-background-color, #fff);
+  border-radius: var(--nv-modal-dialog-border-radius, 4px);
+  box-shadow: var(--nv-modal-dialog-box-shadow, 0 2px 12px 0 rgba(0, 0, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  max-height: var(--nv-modal-dialog-max-height, calc(100vh - 40px));
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity var(--nv-modal-transition-duration, 0.3s), transform var(--nv-modal-transition-duration, 0.3s);
+}
+
+:host([data-open]) .nv-modal__dialog {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nv-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--nv-modal-header-padding, 20px 20px 10px);
+  border-bottom: var(--nv-modal-header-border-bottom, 1px solid #e4e7ed);
+}
+
+.nv-modal__header-content {
+  flex: 1;
+  font-size: var(--nv-modal-header-font-size, 18px);
+  font-weight: var(--nv-modal-header-font-weight, 500);
+  color: var(--nv-modal-header-color, #303133);
+}
+
+.nv-modal__close {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--nv-modal-close-color, #909399);
+  font-size: var(--nv-modal-close-font-size, 16px);
+  transition: color var(--nv-modal-close-transition-duration, 0.3s);
+
+  &:hover {
+    color: var(--nv-modal-close-color-hover, #303133);
+  }
+}
+
+.nv-modal__body {
+  padding: var(--nv-modal-body-padding, 30px 20px);
+  color: var(--nv-modal-body-color, #606266);
+  font-size: var(--nv-modal-body-font-size, 14px);
+  line-height: var(--nv-modal-body-line-height, 1.5);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.nv-modal__footer {
+  padding: var(--nv-modal-footer-padding, 10px 20px 20px);
+  border-top: var(--nv-modal-footer-border-top, 1px solid #e4e7ed);
+  text-align: var(--nv-modal-footer-text-align, right);
+
+  // 隐藏空的 footer
+  &:empty {
+    display: none;
+  }
+}
+

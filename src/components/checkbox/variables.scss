@@ -1,0 +1,94 @@
+/*
+ * @Descripttion: checkbox组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** input *****************/
+  --nv-checkbox-input-width: 14px;
+  --nv-checkbox-input-height: 14px;
+  --nv-checkbox-input-border-radius: var(--nv-border-radius-small);
+
+  /**************** after (选中状态的对勾) *****************/
+  --nv-checkbox-after-height: 7px;
+  --nv-checkbox-after-left: 4px;
+  --nv-checkbox-after-top: 1px;
+  --nv-checkbox-after-width: 3px;
+
+  /**************** indeterminate (半选状态) *****************/
+  --nv-checkbox-indeterminate-left: 2px;
+  --nv-checkbox-indeterminate-top: 5px;
+  --nv-checkbox-indeterminate-width: 6px;
+  --nv-checkbox-indeterminate-height: 1px;
+
+  /**************** label *****************/
+  --nv-checkbox-label-padding-left: var(--nv-padding-mini);
+
+  /**************** bordered *****************/
+  --nv-checkbox-bordered-padding: 0 var(--nv-padding-huge) 0 var(--nv-padding-medium);
+  --nv-checkbox-bordered-height: var(--nv-global-height-huge);
+
+  // bordered sizes
+  --nv-checkbox-bordered-height-mini: var(--nv-global-height-mini);
+  --nv-checkbox-bordered-padding-mini: 0 var(--nv-padding-medium) 0 var(--nv-padding-small);
+  --nv-checkbox-bordered-height-small: var(--nv-global-height-small);
+  --nv-checkbox-bordered-padding-small: 0 var(--nv-padding-medium) 0 var(--nv-padding-small);
+  --nv-checkbox-bordered-height-medium: var(--nv-global-height-medium);
+  --nv-checkbox-bordered-padding-medium: 0 var(--nv-padding-large) 0 var(--nv-padding-medium);
+  --nv-checkbox-bordered-height-large: var(--nv-global-height-large);
+  --nv-checkbox-bordered-padding-large: 0 var(--nv-padding-huge) 0 var(--nv-padding-medium);
+  --nv-checkbox-bordered-height-huge: var(--nv-global-height-huge);
+  --nv-checkbox-bordered-padding-huge: 0 var(--nv-padding-huge) 0 var(--nv-padding-large);
+
+  /**************** label font-size *****************/
+  --nv-checkbox-label-font-size-mini: var(--nv-font-size-mini);
+  --nv-checkbox-label-font-size-small: var(--nv-font-size-mini);
+  --nv-checkbox-label-font-size-medium: var(--nv-font-size-small);
+  --nv-checkbox-label-font-size-large: var(--nv-font-size-medium);
+  --nv-checkbox-label-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** focus *****************/
+  --nv-checkbox-focus-outline-width: 2px;
+  --nv-checkbox-focus-outline-offset: 2px;
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+
+  /**************** input *****************/
+  --nv-checkbox-input-border-color: var(--nv-neutral-color-border-1);
+  --nv-checkbox-input-background-color: var(--nv-neutral-color-white);
+  --nv-checkbox-input-border-color-checked: var(--nv-primary-color-1);
+  --nv-checkbox-input-background-color-checked: var(--nv-primary-color-1);
+  --nv-checkbox-input-border-color-disabled: var(--nv-neutral-color-border-2);
+  --nv-checkbox-input-background-color-disabled: var(--nv-neutral-color-white);
+  --nv-checkbox-input-background-color-disabled-checked: var(--nv-neutral-color-border-4);
+  --nv-checkbox-input-background-color-disabled-indeterminate: var(--nv-neutral-color-border-4);
+
+  /**************** after *****************/
+  --nv-checkbox-after-border-color: var(--nv-neutral-color-white);
+  --nv-checkbox-after-border-color-disabled: var(--nv-neutral-color-border-4);
+  --nv-checkbox-after-border-color-disabled-checked: var(--nv-neutral-color-font-4);
+
+  /**************** indeterminate *****************/
+  --nv-checkbox-indeterminate-background-color: var(--nv-neutral-color-white);
+  --nv-checkbox-indeterminate-background-color-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** label *****************/
+  --nv-checkbox-label-font-color: var(--nv-neutral-color-font-2);
+  --nv-checkbox-label-font-color-checked: var(--nv-primary-color-1);
+  --nv-checkbox-label-font-color-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** bordered *****************/
+  --nv-checkbox-bordered-border-color: var(--nv-neutral-color-border-1);
+  --nv-checkbox-bordered-border-color-checked: var(--nv-primary-color-1);
+  --nv-checkbox-bordered-border-color-disabled: var(--nv-neutral-color-border-2);
+
+  /**************** focus *****************/
+  --nv-checkbox-focus-outline-color: var(--nv-primary-color-8);
+
+  /***************************************************** color end ********************************************************/
+}
+

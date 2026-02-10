@@ -1,0 +1,190 @@
+/*
+ * @Descripttion: carousel style
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+@import './variables.scss';
+
+:host {
+  display: block;
+  position: relative;
+
+  // 定义 CSS 变量默认值
+  --nv-carousel-indicators-z-index: #{ $nv-carousel-indicators-z-index };
+  --nv-carousel-indicators-bottom: #{ $nv-carousel-indicators-bottom };
+  --nv-carousel-indicators-right: #{ $nv-carousel-indicators-right };
+  --nv-carousel-indicators-gap: #{ $nv-carousel-indicators-gap };
+  --nv-carousel-indicators-outside-margin-top: #{ $nv-carousel-indicators-outside-margin-top };
+
+  --nv-carousel-indicator-width: #{ $nv-carousel-indicator-width };
+  --nv-carousel-indicator-height: #{ $nv-carousel-indicator-height };
+  --nv-carousel-indicator-background-color: #{ $nv-carousel-indicator-background-color };
+  --nv-carousel-indicator-border-radius: #{ $nv-carousel-indicator-border-radius };
+  --nv-carousel-indicator-transition-duration: #{ $nv-carousel-indicator-transition-duration };
+  --nv-carousel-indicator-background-color-hover: #{ $nv-carousel-indicator-background-color-hover };
+  --nv-carousel-indicator-background-color-active: #{ $nv-carousel-indicator-background-color-active };
+
+  --nv-carousel-arrow-z-index: #{ $nv-carousel-arrow-z-index };
+  --nv-carousel-arrow-width: #{ $nv-carousel-arrow-width };
+  --nv-carousel-arrow-height: #{ $nv-carousel-arrow-height };
+  --nv-carousel-arrow-background-color: #{ $nv-carousel-arrow-background-color };
+  --nv-carousel-arrow-border-radius: #{ $nv-carousel-arrow-border-radius };
+  --nv-carousel-arrow-color: #{ $nv-carousel-arrow-color };
+  --nv-carousel-arrow-transition-duration: #{ $nv-carousel-arrow-transition-duration };
+  --nv-carousel-arrow-background-color-hover: #{ $nv-carousel-arrow-background-color-hover };
+  --nv-carousel-arrow-left: #{ $nv-carousel-arrow-left };
+  --nv-carousel-arrow-right: #{ $nv-carousel-arrow-right };
+
+  --nv-carousel-item-transition-duration: #{ $nv-carousel-item-transition-duration };
+}
+
+@include b(carousel) {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &__container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__track {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__indicators {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: var(--nv-carousel-indicators-z-index);
+    bottom: var(--nv-carousel-indicators-bottom);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--nv-carousel-indicators-gap);
+
+    &.indicator-position-outside {
+      position: static;
+      transform: none;
+      justify-content: center;
+      margin-top: var(--nv-carousel-indicators-outside-margin-top);
+    }
+
+    &.indicator-position-none {
+      display: none;
+    }
+  }
+
+  &__indicator {
+    width: var(--nv-carousel-indicator-width);
+    height: var(--nv-carousel-indicator-height);
+    background-color: var(--nv-carousel-indicator-background-color);
+    border-radius: var(--nv-carousel-indicator-border-radius);
+    cursor: pointer;
+    transition: background-color var(--nv-carousel-indicator-transition-duration);
+
+    &:hover {
+      background-color: var(--nv-carousel-indicator-background-color-hover);
+    }
+
+    &.is-active {
+      background-color: var(--nv-carousel-indicator-background-color-active);
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    z-index: var(--nv-carousel-arrow-z-index);
+    width: var(--nv-carousel-arrow-width);
+    height: var(--nv-carousel-arrow-height);
+    background-color: var(--nv-carousel-arrow-background-color);
+    border-radius: var(--nv-carousel-arrow-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--nv-carousel-arrow-color);
+    transition: all var(--nv-carousel-arrow-transition-duration);
+
+    &:hover {
+      background-color: var(--nv-carousel-arrow-background-color-hover);
+    }
+
+    &.nv-carousel__arrow-left {
+      left: var(--nv-carousel-arrow-left);
+    }
+
+    &.nv-carousel__arrow-right {
+      right: var(--nv-carousel-arrow-right);
+    }
+  }
+
+  // 水平模式（默认）
+  &:not(.is-vertical) {
+    .nv-carousel__arrow {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // 垂直模式
+  &.is-vertical {
+    .nv-carousel__container {
+      scroll-snap-type: y mandatory;
+    }
+
+    .nv-carousel__track {
+      flex-direction: column;
+    }
+
+    .nv-carousel__arrow {
+      left: 50%;
+      transform: translateX(-50%);
+
+      &.nv-carousel__arrow-left {
+        top: var(--nv-carousel-arrow-left);
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+      }
+
+      &.nv-carousel__arrow-right {
+        bottom: var(--nv-carousel-arrow-right);
+        top: auto;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+      }
+    }
+
+    .nv-carousel__indicators {
+      flex-direction: column;
+      left: auto;
+      right: var(--nv-carousel-indicators-right);
+      top: 50%;
+      transform: translateY(-50%);
+      bottom: auto;
+
+      &.indicator-position-outside {
+        flex-direction: row;
+        position: static;
+        transform: none;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,37 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: carousel variables
+ */
+
+// 指示器
+$nv-carousel-indicators-z-index: 10 !default;
+$nv-carousel-indicators-bottom: 16px !default;
+$nv-carousel-indicators-right: 16px !default;
+$nv-carousel-indicators-gap: 8px !default;
+$nv-carousel-indicators-outside-margin-top: 8px !default;
+
+// 指示器圆点
+$nv-carousel-indicator-width: 12px !default;
+$nv-carousel-indicator-height: 12px !default;
+$nv-carousel-indicator-background-color: rgba(255, 255, 255, 0.5) !default;
+$nv-carousel-indicator-border-radius: 50% !default;
+$nv-carousel-indicator-transition-duration: 0.3s !default;
+$nv-carousel-indicator-background-color-hover: rgba(255, 255, 255, 0.8) !default;
+$nv-carousel-indicator-background-color-active: #fff !default;
+
+// 箭头
+$nv-carousel-arrow-z-index: 10 !default;
+$nv-carousel-arrow-width: 36px !default;
+$nv-carousel-arrow-height: 36px !default;
+$nv-carousel-arrow-background-color: rgba(31, 45, 61, 0.11) !default;
+$nv-carousel-arrow-border-radius: 50% !default;
+$nv-carousel-arrow-color: #fff !default;
+$nv-carousel-arrow-transition-duration: 0.3s !default;
+$nv-carousel-arrow-background-color-hover: rgba(31, 45, 61, 0.23) !default;
+$nv-carousel-arrow-left: 16px !default;
+$nv-carousel-arrow-right: 16px !default;
+
+// Item 过渡
+$nv-carousel-item-transition-duration: 0.4s !default;
+

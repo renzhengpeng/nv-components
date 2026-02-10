@@ -1,0 +1,497 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: switch组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+}
+
+// .nv-switch
+@include b(switch) {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: var(--nv-switch-font-size-medium);
+  line-height: var(--nv-switch-line-height-medium);
+  height: var(--nv-switch-height-medium);
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+
+  // 核心部分
+  &__core {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: auto;
+    min-width: var(--nv-switch-core-min-width-medium);
+    height: var(--nv-switch-height-medium);
+    border: 1px solid var(--nv-switch-core-border-color-unchecked);
+    outline: none;
+    border-radius: var(--nv-switch-core-border-radius-medium);
+    box-sizing: border-box;
+    background: var(--nv-switch-core-background-color-unchecked);
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    vertical-align: middle;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: var(--nv-switch-toggle-top);
+      left: var(--nv-switch-toggle-left);
+      border-radius: var(--nv-switch-toggle-border-radius);
+      transition: all 0.3s;
+      width: var(--nv-switch-toggle-width-medium);
+      height: var(--nv-switch-toggle-height-medium);
+      background-color: var(--nv-switch-toggle-background-color);
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    &__inner {
+      display: block;
+      color: var(--nv-switch-inner-font-color);
+      font-size: var(--nv-switch-inner-font-size-medium);
+      transition: all 0.3s;
+      white-space: nowrap;
+      line-height: var(--nv-switch-line-height-medium);
+      flex-shrink: 0;
+      z-index: 1;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__icon {
+      display: block;
+      color: var(--nv-switch-icon-color);
+      font-size: var(--nv-switch-icon-font-size);
+      transition: all 0.3s;
+      z-index: 1;
+    }
+  }
+
+  // 标签
+  &__label {
+    transition: 0.2s;
+    height: var(--nv-switch-height-medium);
+    display: inline-block;
+    font-size: var(--nv-switch-label-font-size-medium);
+    font-weight: 500;
+    cursor: pointer;
+    vertical-align: middle;
+    color: var(--nv-switch-label-font-color-default);
+
+    &--left {
+      margin-right: var(--nv-switch-label-margin);
+    }
+
+    &--right {
+      margin-left: var(--nv-switch-label-margin);
+    }
+  }
+
+  // 隐藏的 input
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+  }
+
+  // 选中状态
+  &.is-checked {
+    .nv-switch__core {
+      border-color: var(--nv-switch-core-border-color-checked);
+      background-color: var(--nv-switch-core-background-color-checked);
+      padding-left: 8px;
+      padding-right: calc(var(--nv-switch-toggle-width-medium) + 4px);
+
+      &::after {
+        left: calc(100% - var(--nv-switch-toggle-width-medium) - 1px);
+      }
+
+      &__inner {
+        text-align: left;
+      }
+
+      &__icon {
+        text-align: left;
+      }
+    }
+
+    // 选中时，右侧文字高亮
+    .nv-switch__label--right {
+      color: var(--nv-switch-label-font-color-active);
+    }
+
+    // 选中时，左侧文字恢复默认颜色
+    .nv-switch__label--left {
+      color: var(--nv-switch-label-font-color-default);
+    }
+  }
+
+  // 未选中状态
+  &:not(.is-checked) {
+    .nv-switch__core {
+      padding-left: calc(var(--nv-switch-toggle-width-medium) + 4px);
+      padding-right: 8px;
+
+      &::after {
+        left: var(--nv-switch-toggle-left);
+      }
+
+      &__inner {
+        text-align: right;
+      }
+
+      &__icon {
+        text-align: right;
+      }
+    }
+
+    // 未选中时，左侧文字高亮
+    .nv-switch__label--left {
+      color: var(--nv-switch-label-font-color-active);
+    }
+
+    // 未选中时，右侧文字恢复默认颜色
+    .nv-switch__label--right {
+      color: var(--nv-switch-label-font-color-default);
+    }
+  }
+
+  // 禁用状态
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: var(--nv-switch-disabled-opacity);
+
+    .nv-switch__core {
+      cursor: not-allowed;
+    }
+
+    .nv-switch__label {
+      cursor: not-allowed;
+    }
+  }
+
+  // 尺寸变体
+  &.is-mini {
+    font-size: var(--nv-switch-font-size-mini);
+    line-height: var(--nv-switch-line-height-mini);
+    height: var(--nv-switch-height-mini);
+
+    .nv-switch__core {
+      min-width: var(--nv-switch-core-min-width-mini);
+      height: var(--nv-switch-height-mini);
+      border-radius: var(--nv-switch-core-border-radius-mini);
+      padding: var(--nv-switch-core-padding-mini);
+
+      &::after {
+        width: var(--nv-switch-toggle-width-mini);
+        height: var(--nv-switch-toggle-height-mini);
+      }
+
+      &__inner {
+        font-size: var(--nv-switch-inner-font-size-mini);
+        line-height: var(--nv-switch-line-height-mini);
+      }
+    }
+
+    .nv-switch__label {
+      font-size: var(--nv-switch-label-font-size-mini);
+      height: var(--nv-switch-height-mini);
+    }
+
+    .nv-switch__core {
+      &__icon {
+        font-size: var(--nv-switch-icon-font-size-mini);
+      }
+    }
+
+    // 选中状态下圆点位置和文字位置
+    &.is-checked {
+      .nv-switch__core {
+        padding-left: 6px;
+        padding-right: calc(var(--nv-switch-toggle-width-mini) + 4px);
+
+        &::after {
+          left: calc(100% - var(--nv-switch-toggle-width-mini) - 1px);
+        }
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+
+    // 未选中状态下文字位置
+    &:not(.is-checked) {
+      .nv-switch__core {
+        padding-left: calc(var(--nv-switch-toggle-width-mini) + 4px);
+        padding-right: 6px;
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &.is-small {
+    font-size: var(--nv-switch-font-size-small);
+    line-height: var(--nv-switch-line-height-small);
+    height: var(--nv-switch-height-small);
+
+    .nv-switch__core {
+      min-width: var(--nv-switch-core-min-width-small);
+      height: var(--nv-switch-height-small);
+      border-radius: var(--nv-switch-core-border-radius-small);
+      padding: var(--nv-switch-core-padding-small);
+
+      &::after {
+        width: var(--nv-switch-toggle-width-small);
+        height: var(--nv-switch-toggle-height-small);
+      }
+
+      &__inner {
+        font-size: var(--nv-switch-inner-font-size-small);
+        line-height: var(--nv-switch-line-height-small);
+      }
+    }
+
+    .nv-switch__label {
+      font-size: var(--nv-switch-label-font-size-small);
+      height: var(--nv-switch-height-small);
+    }
+
+    .nv-switch__core {
+      &__icon {
+        font-size: var(--nv-switch-icon-font-size-small);
+      }
+    }
+
+    // 选中状态下圆点位置和文字位置
+    &.is-checked {
+      .nv-switch__core {
+        padding-left: 6px;
+        padding-right: calc(var(--nv-switch-toggle-width-small) + 4px);
+
+        &::after {
+          left: calc(100% - var(--nv-switch-toggle-width-small) - 1px);
+        }
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+
+    // 未选中状态下文字位置
+    &:not(.is-checked) {
+      .nv-switch__core {
+        padding-left: calc(var(--nv-switch-toggle-width-small) + 4px);
+        padding-right: 6px;
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &.is-medium {
+    font-size: var(--nv-switch-font-size-medium);
+    line-height: var(--nv-switch-line-height-medium);
+    height: var(--nv-switch-height-medium);
+
+    .nv-switch__core {
+      min-width: var(--nv-switch-core-min-width-medium);
+      height: var(--nv-switch-height-medium);
+      border-radius: var(--nv-switch-core-border-radius-medium);
+      padding: var(--nv-switch-core-padding-medium);
+
+      &::after {
+        width: var(--nv-switch-toggle-width-medium);
+        height: var(--nv-switch-toggle-height-medium);
+      }
+
+      &__inner {
+        font-size: var(--nv-switch-inner-font-size-medium);
+        line-height: var(--nv-switch-line-height-medium);
+      }
+    }
+
+    .nv-switch__label {
+      font-size: var(--nv-switch-label-font-size-medium);
+      height: var(--nv-switch-height-medium);
+    }
+
+    .nv-switch__core {
+      &__icon {
+        font-size: var(--nv-switch-icon-font-size-medium);
+      }
+    }
+
+    // 选中状态下文字位置
+    &.is-checked {
+      .nv-switch__core {
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+
+    // 未选中状态下文字位置
+    &:not(.is-checked) {
+      .nv-switch__core {
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &.is-large {
+    font-size: var(--nv-switch-font-size-large);
+    line-height: var(--nv-switch-line-height-large);
+    height: var(--nv-switch-height-large);
+
+    .nv-switch__core {
+      min-width: var(--nv-switch-core-min-width-large);
+      height: var(--nv-switch-height-large);
+      border-radius: var(--nv-switch-core-border-radius-large);
+      padding: var(--nv-switch-core-padding-large);
+
+      &::after {
+        width: var(--nv-switch-toggle-width-large);
+        height: var(--nv-switch-toggle-height-large);
+      }
+
+      &__inner {
+        font-size: var(--nv-switch-inner-font-size-large);
+        line-height: var(--nv-switch-line-height-large);
+      }
+    }
+
+    .nv-switch__label {
+      font-size: var(--nv-switch-label-font-size-large);
+      height: var(--nv-switch-height-large);
+    }
+
+    .nv-switch__core {
+      &__icon {
+        font-size: var(--nv-switch-icon-font-size-large);
+      }
+    }
+
+    // 选中状态下圆点位置和文字位置
+    &.is-checked {
+      .nv-switch__core {
+        padding-left: 10px;
+        padding-right: calc(var(--nv-switch-toggle-width-large) + 4px);
+
+        &::after {
+          left: calc(100% - var(--nv-switch-toggle-width-large) - 1px);
+        }
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+
+    // 未选中状态下文字位置
+    &:not(.is-checked) {
+      .nv-switch__core {
+        padding-left: calc(var(--nv-switch-toggle-width-large) + 4px);
+        padding-right: 10px;
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &.is-huge {
+    font-size: var(--nv-switch-font-size-huge);
+    line-height: var(--nv-switch-line-height-huge);
+    height: var(--nv-switch-height-huge);
+
+    .nv-switch__core {
+      min-width: var(--nv-switch-core-min-width-huge);
+      height: var(--nv-switch-height-huge);
+      border-radius: var(--nv-switch-core-border-radius-huge);
+      padding: var(--nv-switch-core-padding-huge);
+
+      &::after {
+        width: var(--nv-switch-toggle-width-huge);
+        height: var(--nv-switch-toggle-height-huge);
+      }
+
+      &__inner {
+        font-size: var(--nv-switch-inner-font-size-huge);
+        line-height: var(--nv-switch-line-height-huge);
+      }
+    }
+
+    .nv-switch__label {
+      font-size: var(--nv-switch-label-font-size-huge);
+      height: var(--nv-switch-height-huge);
+    }
+
+    .nv-switch__core {
+      &__icon {
+        font-size: var(--nv-switch-icon-font-size-huge);
+      }
+    }
+
+    // 选中状态下圆点位置和文字位置
+    &.is-checked {
+      .nv-switch__core {
+        padding-left: 10px;
+        padding-right: calc(var(--nv-switch-toggle-width-huge) + 4px);
+
+        &::after {
+          left: calc(100% - var(--nv-switch-toggle-width-huge) - 1px);
+        }
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+
+    // 未选中状态下文字位置
+    &:not(.is-checked) {
+      .nv-switch__core {
+        padding-left: calc(var(--nv-switch-toggle-width-huge) + 4px);
+        padding-right: 10px;
+
+        &__inner {
+          left: auto;
+          transform: none;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,121 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: notification组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+  position: fixed;
+  width: var(--nv-notification-width);
+  z-index: 3000;
+}
+
+// .nv-notification
+@include b(notification) {
+  width: var(--nv-notification-width);
+  padding: var(--nv-notification-padding);
+  border-radius: var(--nv-notification-border-radius);
+  box-sizing: border-box;
+  border: 1px solid var(--nv-notification-border-color);
+  background-color: var(--nv-notification-background-color);
+  box-shadow: var(--nv-notification-box-shadow);
+  transition: opacity 0.3s, transform 0.3s, top 0.4s, bottom 0.4s;
+  overflow-wrap: anywhere;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  // 图标
+  &__icon {
+    font-size: var(--nv-notification-icon-font-size);
+    width: var(--nv-notification-icon-width);
+    height: var(--nv-notification-icon-height);
+    margin-right: var(--nv-notification-icon-margin-right);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  // 组
+  &__group {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  // 主内容
+  &__main {
+    flex: 1;
+    padding-right: var(--nv-notification-main-padding-right);
+  }
+
+  // 标题
+  &__title {
+    font-size: var(--nv-notification-title-font-size);
+    font-weight: 400;
+    color: var(--nv-notification-title-font-color);
+    margin: 0 0 var(--nv-notification-title-margin-bottom) 0;
+    padding: 0;
+    line-height: var(--nv-notification-title-line-height);
+  }
+
+  // 内容
+  &__content {
+    font-size: var(--nv-notification-content-font-size);
+    line-height: var(--nv-notification-content-line-height);
+    color: var(--nv-notification-content-font-color);
+    margin: 0;
+    padding: 0;
+  }
+
+  // 关闭按钮
+  &__closeBtn {
+    position: absolute;
+    top: var(--nv-notification-closebtn-top);
+    right: var(--nv-notification-closebtn-right);
+    cursor: pointer;
+    color: var(--nv-notification-closebtn-color);
+    font-size: var(--nv-notification-closebtn-font-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    flex-shrink: 0;
+    width: var(--nv-notification-closebtn-width);
+    height: var(--nv-notification-closebtn-height);
+
+    &:hover {
+      color: var(--nv-notification-closebtn-color-hover);
+    }
+  }
+
+
+  // 类型变体
+  &--success {
+    .nv-notification__icon {
+      color: var(--nv-notification-icon-color-success);
+    }
+  }
+
+  &--info {
+    .nv-notification__icon {
+      color: var(--nv-notification-icon-color-info);
+    }
+  }
+
+  &--warning {
+    .nv-notification__icon {
+      color: var(--nv-notification-icon-color-warning);
+    }
+  }
+
+  &--error {
+    .nv-notification__icon {
+      color: var(--nv-notification-icon-color-error);
+    }
+  }
+}
+

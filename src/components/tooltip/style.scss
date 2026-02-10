@@ -1,0 +1,48 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: tooltip style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+@import './variables.scss';
+
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+@include b(tooltip) {
+  &__trigger {
+    display: inline-flex;
+    flex: 1;
+    cursor: pointer;
+
+    &.is-disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__content {
+    color: inherit;
+  }
+}
+
+// 通过 CSS 变量覆盖 popup 的样式以保持 tooltip 的外观
+// 在 tooltip 的 shadow DOM 中，popup 元素可以读取这些变量
+// popup 的 shadow DOM 会从 popup 元素上读取这些变量
+nv-popup {
+  --nv-popup-background-color: var(--nv-tooltip-background-color, #303133);
+  --nv-popup-border-color: transparent;
+  --nv-popup-box-shadow: none;
+  --nv-popup-border-radius: var(--nv-tooltip-border-radius, 4px);
+  --nv-popup-padding: var(--nv-tooltip-padding, 8px 12px);
+  --nv-popup-z-index: 2000;
+}
+
+// 由于 popup 面板在 popup 的 shadow DOM 中，我们需要通过 CSS 变量来覆盖样式
+// 但是，popup 的样式定义中已经使用了这些变量，所以设置变量就足够了
+// 对于额外的样式（如 font-size, line-height, max-width），我们需要在 popup 的内容上设置
+// 但是，由于 popup 的内容是在 tooltip 的 shadow DOM 中的，我们可以直接设置样式

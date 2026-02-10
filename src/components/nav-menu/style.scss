@@ -1,0 +1,81 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: nav-menu style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(nav-menu) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: var(--nv-nav-menu-background-color, #fff);
+  border-bottom: var(--nv-nav-menu-border-bottom, 1px solid #e4e7ed);
+
+  &.is-horizontal {
+    display: flex;
+    align-items: center;
+    border-bottom: var(--nv-nav-menu-border-bottom, 1px solid #e4e7ed);
+    border-right: none;
+  }
+
+  &.is-vertical {
+    display: flex;
+    flex-direction: column;
+    border-right: var(--nv-nav-menu-border-right, 1px solid #e4e7ed);
+    border-bottom: none;
+  }
+
+  &.is-collapse {
+    width: var(--nv-nav-menu-collapse-width, 64px);
+  }
+
+  // 尺寸样式
+  &.mini {
+    font-size: var(--nv-nav-menu-font-size-mini, 12px);
+    --nv-menu-item-height: var(--nv-nav-menu-item-height-mini, 36px);
+    --nv-menu-item-padding: var(--nv-nav-menu-item-padding-mini, 0 12px);
+    --nv-submenu-title-height: var(--nv-nav-menu-item-height-mini, 36px);
+    --nv-submenu-title-padding: var(--nv-nav-menu-item-padding-mini, 0 12px);
+  }
+
+  &.small {
+    font-size: var(--nv-nav-menu-font-size-small, 13px);
+    --nv-menu-item-height: var(--nv-nav-menu-item-height-small, 44px);
+    --nv-menu-item-padding: var(--nv-nav-menu-item-padding-small, 0 16px);
+    --nv-submenu-title-height: var(--nv-nav-menu-item-height-small, 44px);
+    --nv-submenu-title-padding: var(--nv-nav-menu-item-padding-small, 0 16px);
+  }
+
+  &.medium {
+    font-size: var(--nv-nav-menu-font-size-medium, 14px);
+    --nv-menu-item-height: var(--nv-nav-menu-item-height-medium, 56px);
+    --nv-menu-item-padding: var(--nv-nav-menu-item-padding-medium, 0 20px);
+    --nv-submenu-title-height: var(--nv-nav-menu-item-height-medium, 56px);
+    --nv-submenu-title-padding: var(--nv-nav-menu-item-padding-medium, 0 20px);
+  }
+
+  &.large {
+    font-size: var(--nv-nav-menu-font-size-large, 16px);
+    --nv-menu-item-height: var(--nv-nav-menu-item-height-large, 64px);
+    --nv-menu-item-padding: var(--nv-nav-menu-item-padding-large, 0 24px);
+    --nv-submenu-title-height: var(--nv-nav-menu-item-height-large, 64px);
+    --nv-submenu-title-padding: var(--nv-nav-menu-item-padding-large, 0 24px);
+  }
+
+  &.huge {
+    font-size: var(--nv-nav-menu-font-size-huge, 18px);
+    --nv-menu-item-height: var(--nv-nav-menu-item-height-huge, 72px);
+    --nv-menu-item-padding: var(--nv-nav-menu-item-padding-huge, 0 28px);
+    --nv-submenu-title-height: var(--nv-nav-menu-item-height-huge, 72px);
+    --nv-submenu-title-padding: var(--nv-nav-menu-item-padding-huge, 0 28px);
+  }
+}
+

@@ -1,0 +1,402 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024/8/28 11:01
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: html template
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+@mixin stylesOfType($type) {
+  @at-root {
+    @include m($type) {
+      color: var(--nv-button-color-#{ $type });
+      background-color: var(--nv-button-background-color-#{ $type });
+      //@include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }));
+      @include borderEach(
+        var(--nv-button-border-width-top), solid, var(--nv-button-border-color-#{ $type }),
+        var(--nv-button-border-width-right), solid, var(--nv-button-border-color-#{ $type }),
+        var(--nv-button-border-width-bottom), solid, var(--nv-button-border-color-#{ $type }),
+        var(--nv-button-border-width-left), solid, var(--nv-button-border-color-#{ $type })
+      );
+
+      // .nv-button--#{ $type }:hover
+      &:hover {
+        color: var(--nv-button-color-#{ $type }-hover);
+        background-color: var(--nv-button-background-color-#{ $type }-hover);
+        //@include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-hover));
+        @include borderEach(
+          var(--nv-button-border-width-top), solid, var(--nv-button-border-color-#{ $type }-hover),
+          var(--nv-button-border-width-right), solid, var(--nv-button-border-color-#{ $type }-hover),
+          var(--nv-button-border-width-bottom), solid, var(--nv-button-border-color-#{ $type }-hover),
+          var(--nv-button-border-width-left), solid, var(--nv-button-border-color-#{ $type }-hover)
+        );
+      }
+
+      // .nv-button--#{ $type }:active（点击按下状态）
+      &:active {
+        color: var(--nv-button-color-#{ $type }-active);
+        background-color: var(--nv-button-background-color-#{ $type }-active);
+        @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-active));
+      }
+
+      // .nv-button--#{ $type }.is-active（激活状态，与 hover 样式一致）
+      &.is-active {
+        color: var(--nv-button-color-#{ $type }-hover);
+        background-color: var(--nv-button-background-color-#{ $type }-hover);
+        @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-hover));
+      }
+
+        // .nv-button--#{ $type }.is-plain
+        &.is-plain {
+          color: var(--nv-button-color-#{ $type }-plain);
+          background-color: var(--nv-button-background-color-#{ $type }-plain);
+          @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-plain));
+          // @include borderEach(
+          //   var(--nv-button-border-width-top), solid, var(--nv-button-border-color-#{ $type }-plain),
+          //   var(--nv-button-border-width-right), solid, var(--nv-button-border-color-#{ $type }-plain),
+          //   var(--nv-button-border-width-bottom), solid, var(--nv-button-border-color-#{ $type }-plain),
+          //   var(--nv-button-border-width-left), solid, var(--nv-button-border-color-#{ $type }-plain)
+          // );
+
+          // .nv-button--#{ $type }.is-plain:hover
+          &:hover {
+            color: var(--nv-button-color-#{ $type }-plain-hover);
+            background-color: var(--nv-button-background-color-#{ $type }-plain-hover);
+            @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-plain-hover));
+            // @include borderEach(
+            //   var(--nv-button-border-width-top), solid, var(--nv-button-border-color-#{ $type }-plain-hover),
+            //   var(--nv-button-border-width-right), solid, var(--nv-button-border-color-#{ $type }-plain-hover),
+            //   var(--nv-button-border-width-bottom), solid, var(--nv-button-border-color-#{ $type }-plain-hover),
+            //   var(--nv-button-border-width-left), solid, var(--nv-button-border-color-#{ $type }-plain-hover)
+            // );
+          }
+
+          // .nv-button--#{ $type }.is-plain:active（点击按下状态）
+          &:active {
+            color: var(--nv-button-color-#{ $type }-plain-active);
+            background-color: var(--nv-button-background-color-#{ $type }-plain-active);
+            @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-plain-active));
+          }
+
+          // .nv-button--#{ $type }.is-plain.is-active（激活状态，与 hover 样式一致）
+          &.is-active {
+            color: var(--nv-button-color-#{ $type }-plain-hover);
+            background-color: var(--nv-button-background-color-#{ $type }-plain-hover);
+            @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-plain-hover));
+          }
+
+        // .nv-button---#{ $type }.is-plain.is-disabled
+        &.is-disabled {
+          color: var(--nv-button-color-#{ $type }-plain-disabled);
+          background-color: var(--nv-button-background-color-#{ $type }-plain-disabled);
+          @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-plain-disabled));
+          cursor: not-allowed;
+        }
+      }
+
+      // .nv-button--#{ $type }.is-disabled
+      &.is-disabled {
+        color: var(--nv-button-color-#{ $type }-disabled);
+        background-color: var(--nv-button-background-color-#{ $type }-disabled);
+        @include borderAll(1px, solid, var(--nv-button-border-color-#{ $type }-disabled));
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// 固定按钮尺寸
+@mixin fixedSize($size) {
+  @at-root {
+    &.#{ $size } {
+      width: var(--nv-button-length-of-side-#{ $size });
+      height: var(--nv-button-length-of-side-#{ $size });
+    }
+  }
+}
+
+
+:host {
+    display: inline-flex;
+    & + nv-button {
+    margin-left: 5px;
+  }
+}
+
+// 处于分组(nv-button-group)中的样式 - 水平模式
+:host-context(nv-button-group:not([vertical])) {
+  // 处于分组中且不是第一个的按钮，使用负 margin 让边框重叠
+  &:host(:not(:first-child)) {
+    .nv-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -1px;
+    }
+  }
+
+  // 处于分组中且不是最后一个的按钮，右边上下圆角为 0
+  &:host(:not(:last-child)) {
+    .nv-button {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  // 根据交互状态设置不同的 z-index 层级，确保边框显示优先级正确
+  // 排除禁用状态，禁用按钮不应该有层级提升
+
+  // is-active 状态：选中状态，基础层级
+  .nv-button.is-active:not(.is-disabled) {
+    position: relative;
+    z-index: 1;
+  }
+
+  // hover 状态：悬停状态，中等层级
+  .nv-button:hover:not(.is-disabled) {
+    position: relative;
+    z-index: 2;
+  }
+
+  // active 状态：点击按下状态，最高层级
+  .nv-button:active:not(.is-disabled) {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+// 处于分组(nv-button-group)中的样式 - 垂直模式
+:host-context(nv-button-group[vertical]) {
+  // 处于垂直分组中且不是第一个的按钮，使用负 margin 让边框重叠
+  &:host(:not(:first-child)) {
+    .nv-button {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin-top: -1px;
+    }
+  }
+
+  // 处于垂直分组中且不是最后一个的按钮，下边左右圆角为 0
+  &:host(:not(:last-child)) {
+    .nv-button {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  // 根据交互状态设置不同的 z-index 层级，确保边框显示优先级正确
+  // 排除禁用状态，禁用按钮不应该有层级提升
+
+  // is-active 状态：选中状态，基础层级
+  .nv-button.is-active:not(.is-disabled) {
+    position: relative;
+    z-index: 1;
+  }
+
+  // hover 状态：悬停状态，中等层级
+  .nv-button:hover:not(.is-disabled) {
+    position: relative;
+    z-index: 2;
+  }
+
+  // active 状态：点击按下状态，最高层级
+  .nv-button:active:not(.is-disabled) {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+// .nv-button
+@include b(button) {
+  width: 100%;
+
+  // common styles
+  box-sizing: border-box;
+  font-size: var(--nv-button-font-size-default);
+  padding: var(--nv-padding-small) var(--nv-padding-medium);
+  cursor: pointer;
+  @include borderRadiusEach(
+    var(--nv-button-border-radius-small-top-left),
+    var(--nv-button-border-radius-small-top-right),
+    var(--nv-button-border-radius-small-bottom-right),
+    var(--nv-button-border-radius-small-bottom-left)
+  );
+  line-height: 1;
+  transition: .1s;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  outline: none;
+  margin: 0;
+
+  // .nv-button.is-round
+  &.is-round {
+    @include borderRadiusAll(var(--nv-button-border-radius-round));
+  }
+  // .nv-button.is-circle
+  &.is-circle {
+    border-radius: 50%;
+    padding: 0;
+    @include inlineFlexCenter();
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &.is-loading {
+      @include b(button-slot-wrapper) {
+        display: none;
+      }
+
+      & nv-icon {
+        display: none;
+
+        &[name="loading"] {
+          display: inline-block;
+        }
+      }
+    }
+
+    @include fixedSize(mini);
+    @include fixedSize(small);
+    @include fixedSize(medium);
+    @include fixedSize(large);
+    @include fixedSize(huge);
+
+  }
+
+  // .nv-button.is-loading
+  &.is-loading {
+    pointer-events: none;
+  }
+
+  // .nv-button.mini
+  &.mini {
+    padding: var(--nv-button-padding-mini);
+    font-size: var(--nv-button-font-size-mini);
+    height: var(--nv-button-height-mini);
+    min-height: var(--nv-button-height-mini);
+
+    // 非圆形和非圆角按钮才应用圆角样式
+    &:not(.is-circle):not(.is-round) {
+      @include borderRadiusEach(
+        var(--nv-button-border-radius-mini-top-left),
+        var(--nv-button-border-radius-mini-top-right),
+        var(--nv-button-border-radius-mini-bottom-right),
+        var(--nv-button-border-radius-mini-bottom-left)
+      );
+    }
+  }
+
+  // .nv-button.small
+  &.small {
+    padding: var(--nv-button-padding-small);
+    font-size: var(--nv-button-font-size-small);
+    height: var(--nv-button-height-small);
+    min-height: var(--nv-button-height-small);
+  }
+
+  // .nv-button.medium
+  &.medium {
+    padding: var(--nv-button-padding-medium);
+    font-size: var(--nv-button-font-size-medium);
+    height: var(--nv-button-height-medium);
+    min-height: var(--nv-button-height-medium);
+  }
+
+  // .nv-button.large
+  &.large {
+    padding: var(--nv-button-padding-large);
+    font-size: var(--nv-button-font-size-large);
+    height: var(--nv-button-height-large);
+    min-height: var(--nv-button-height-large);
+  }
+
+  // .nv-button.huge
+  &.huge {
+    padding: var(--nv-button-padding-huge);
+    font-size: var(--nv-button-font-size-huge);
+    height: var(--nv-button-height-huge);
+    min-height: var(--nv-button-height-huge);
+  }
+
+
+
+  /*****************************************************default*********************************************************/
+  // .nv-button--default
+  @include stylesOfType(default);
+
+  /*****************************************************primary*********************************************************/
+  // .nv-button--primary
+  @include stylesOfType(primary);
+
+  /*****************************************************success*********************************************************/
+  // .nv-button--success
+  @include stylesOfType(success);
+
+  /*****************************************************info*********************************************************/
+  // .nv-button--info
+  @include stylesOfType(info);
+
+  /*****************************************************warning*********************************************************/
+  // .nv-button--warning
+  @include stylesOfType(warning);
+
+  /*****************************************************error*********************************************************/
+  // .nv-button--error
+  @include stylesOfType(error);
+
+  /*****************************************************danger*********************************************************/
+  // .nv-button--danger (与 error 表现完全一致)
+  @include stylesOfType(danger);
+
+  /*****************************************************text*********************************************************/
+  // .nv-button--text
+  @include stylesOfType(text);
+  // text 类型特殊处理：无边框、无背景色，只有文字颜色变化
+  &--text {
+    border: none !important;
+    background-color: transparent !important;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:hover {
+      border: none !important;
+      background-color: transparent !important;
+    }
+
+    &:active {
+      border: none !important;
+      background-color: transparent !important;
+    }
+
+    &.is-plain {
+      border: none !important;
+      background-color: transparent !important;
+
+      &:hover {
+        border: none !important;
+        background-color: transparent !important;
+      }
+
+      &:active {
+        border: none !important;
+        background-color: transparent !important;
+      }
+    }
+
+    &.is-disabled {
+      border: none !important;
+      background-color: transparent !important;
+
+      &:hover,
+      &:active {
+        border: none !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+
+  & nv-icon + span {
+    margin-left: 5px;
+  }
+}

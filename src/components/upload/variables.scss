@@ -1,0 +1,37 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: upload组件变量
+ */
+:root {
+  --nv-upload-drag-area-border: 1px dashed #d9d9d9;
+  --nv-upload-drag-area-border-radius: 6px;
+  --nv-upload-drag-area-background-color: #fafafa;
+  --nv-upload-drag-area-transition-duration: 0.3s;
+  --nv-upload-drag-area-padding: 40px;
+  --nv-upload-drag-area-border-color-hover: #409EFF;
+  --nv-upload-file-list-margin: 8px 0 0;
+  --nv-upload-file-item-padding: 4px 8px;
+  --nv-upload-file-item-border-radius: 2px;
+  --nv-upload-file-item-margin-bottom: 4px;
+  --nv-upload-file-item-background-color-hover: #eef1f6;
+  --nv-upload-file-thumb-width: 40px;
+  --nv-upload-file-thumb-height: 40px;
+  --nv-upload-file-thumb-margin-right: 8px;
+  --nv-upload-file-thumb-border-radius: 2px;
+  --nv-upload-file-thumb-background-color: #f5f7fa;
+  --nv-upload-file-thumb-mask-font-size: 12px;
+  --nv-upload-file-thumb-mask-icon-size: 16px;
+  --nv-upload-file-name-font-size: 14px;
+  --nv-upload-file-name-color: #606266;
+  --nv-upload-file-status-margin-left: 8px;
+  --nv-upload-file-status-margin-right: 8px;
+  --nv-upload-file-remove-color: #909399;
+  --nv-upload-file-remove-transition-duration: 0.3s;
+  --nv-upload-file-remove-color-hover: #F56C6C;
+  --nv-upload-tip-color: #909399;
+  --nv-upload-tip-font-size: 12px;
+  --nv-upload-tip-margin-top: 4px;
+}
+

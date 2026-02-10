@@ -1,0 +1,109 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: select组件变量
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** padding *****************/
+  --nv-select-padding-mini: 0 var(--nv-padding-mini);
+  --nv-select-padding-small: 0 var(--nv-padding-small);
+  --nv-select-padding-medium: 0 var(--nv-padding-medium);
+  --nv-select-padding-large: 0 var(--nv-padding-medium);
+  --nv-select-padding-huge: 0 var(--nv-padding-large);
+
+  /**************** font-size *****************/
+  --nv-select-font-size-default: var(--nv-font-size-default);
+  --nv-select-font-size-mini: var(--nv-font-size-mini);
+  --nv-select-font-size-small: var(--nv-font-size-mini);
+  --nv-select-font-size-medium: var(--nv-font-size-small);
+  --nv-select-font-size-large: var(--nv-font-size-medium);
+  --nv-select-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** height *****************/
+  --nv-select-height-mini: var(--nv-global-height-mini);
+  --nv-select-height-small: var(--nv-global-height-small);
+  --nv-select-height-medium: var(--nv-global-height-medium);
+  --nv-select-height-large: var(--nv-global-height-large);
+  --nv-select-height-huge: var(--nv-global-height-huge);
+
+  /************** border-radius ***************/
+  --nv-select-border-radius-mini: var(--nv-border-radius-mini);
+  --nv-select-border-radius-small: var(--nv-border-radius-small);
+  --nv-select-border-radius-medium: var(--nv-border-radius-medium);
+  --nv-select-border-radius-large: var(--nv-border-radius-large);
+  --nv-select-border-radius-huge: var(--nv-border-radius-huge);
+
+  /**************** dropdown *****************/
+  --nv-select-dropdown-max-height: 274px;
+  --nv-select-dropdown-padding: 6px 0;
+  --nv-select-dropdown-border-radius: var(--nv-border-radius-small);
+  --nv-select-dropdown-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+  /**************** option *****************/
+  --nv-select-option-height: 34px;
+  --nv-select-option-padding: 0 var(--nv-padding-large);
+  --nv-select-option-font-size: var(--nv-font-size-small);
+
+  /**************** tag *****************/
+  --nv-select-tag-height-mini: 20px;
+  --nv-select-tag-height-small: 22px;
+  --nv-select-tag-height-medium: 24px;
+  --nv-select-tag-height-large: 26px;
+  --nv-select-tag-height-huge: 28px;
+  --nv-select-tag-padding: 0 8px;
+  --nv-select-tag-margin: 2px 0 2px 6px;
+  --nv-select-tag-font-size: var(--nv-font-size-mini);
+  --nv-select-tag-border-radius: var(--nv-border-radius-small);
+  --nv-select-tag-close-size: 14px;
+  --nv-select-tag-close-margin-left: 4px;
+
+  /**************** icon *****************/
+  --nv-select-icon-size: 14px;
+  --nv-select-icon-margin-left: 8px;
+
+  /***************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+  --nv-select-border-color: var(--nv-neutral-color-border-1);
+  --nv-select-border-color-hover: var(--nv-neutral-color-font-4);
+  --nv-select-border-color-focus: var(--nv-primary-color-1);
+  --nv-select-border-color-disabled: var(--nv-neutral-color-border-2);
+  
+  --nv-select-background-color: var(--nv-neutral-color-white);
+  --nv-select-background-color-disabled: var(--nv-neutral-color-border-4);
+  
+  --nv-select-font-color: var(--nv-neutral-color-font-1);
+  --nv-select-font-color-disabled: var(--nv-neutral-color-font-3);
+  --nv-select-font-color-placeholder: var(--nv-neutral-color-font-4);
+  
+  --nv-select-icon-color: var(--nv-neutral-color-font-3);
+  --nv-select-icon-color-hover: var(--nv-neutral-color-font-2);
+
+  /**************** dropdown *****************/
+  --nv-select-dropdown-background-color: var(--nv-neutral-color-white);
+  --nv-select-dropdown-border-color: var(--nv-neutral-color-border-3);
+
+  /**************** option *****************/
+  --nv-select-option-font-color: var(--nv-neutral-color-font-1);
+  --nv-select-option-font-color-hover: var(--nv-primary-color-1);
+  --nv-select-option-background-color-hover: var(--nv-primary-color-10);
+  --nv-select-option-font-color-selected: var(--nv-primary-color-1);
+  --nv-select-option-background-color-selected: var(--nv-primary-color-10);
+  --nv-select-option-font-color-disabled: var(--nv-neutral-color-font-3);
+
+  /**************** tag *****************/
+  --nv-select-tag-background-color: var(--nv-primary-color-10);
+  --nv-select-tag-font-color: var(--nv-primary-color-1);
+  --nv-select-tag-border-color: var(--nv-primary-color-9);
+  --nv-select-tag-close-color: var(--nv-neutral-color-font-3);
+  --nv-select-tag-close-color-hover: var(--nv-primary-color-1);
+
+  /**************** empty *****************/
+  --nv-select-empty-font-color: var(--nv-neutral-color-font-3);
+  --nv-select-empty-padding: var(--nv-padding-large);
+  /***************************************************** color end *********************************************************/
+}
+

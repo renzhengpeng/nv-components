@@ -1,0 +1,76 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: steps组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+// .nv-steps
+@include b(steps) {
+  display: flex;
+  width: 100%;
+
+  // 水平方向
+  &.is-horizontal {
+    flex-direction: row;
+
+    ::slotted(nv-step) {
+      flex: 1;
+      position: relative;
+    }
+  }
+
+  // 垂直方向
+  &.is-vertical {
+    display: block;
+
+    ::slotted(nv-step) {
+      display: flex !important;
+      padding-bottom: var(--nv-steps-vertical-padding-bottom) !important;
+    }
+  }
+
+  // 简洁风格
+  &.is-simple {
+    padding: var(--nv-steps-simple-padding-medium);
+    background: var(--nv-steps-simple-background-color);
+    border-radius: var(--nv-steps-simple-border-radius);
+  }
+
+  // Size modifiers
+  &.is-mini {
+    &.is-simple {
+      padding: var(--nv-steps-simple-padding-mini);
+    }
+  }
+
+  &.is-small {
+    &.is-simple {
+      padding: var(--nv-steps-simple-padding-small);
+    }
+  }
+
+  &.is-medium {
+    &.is-simple {
+      padding: var(--nv-steps-simple-padding-medium);
+    }
+  }
+
+  &.is-large {
+    &.is-simple {
+      padding: var(--nv-steps-simple-padding-large);
+    }
+  }
+
+  &.is-huge {
+    &.is-simple {
+      padding: var(--nv-steps-simple-padding-huge);
+    }
+  }
+}
+

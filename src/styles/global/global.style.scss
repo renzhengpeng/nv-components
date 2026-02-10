@@ -1,0 +1,35 @@
+/*
+ * @Descripttion: 全局样式
+ * @creater: zhengpeng.ren
+ * @since: 2024-05-27 16:44:39
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-06-11 09:55:18
+ */
+
+// 定义字体路径变量，默认为源码相对路径
+$nv-font-path: "../../assets/fonts" !default;
+
+/* 全局引入nv-icons字体 */
+@font-face {
+  font-family: 'nv-icons';
+  src: url("#{$nv-font-path}/nv-icons.woff") format("woff"),
+       url("#{$nv-font-path}/nv-icons.ttf") format("truetype");
+  font-weight: normal;
+  font-display: auto;
+  font-style: normal;
+}
+
+[class^="nv-icon-"], [class*=" nv-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'nv-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

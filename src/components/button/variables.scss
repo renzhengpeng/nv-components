@@ -1,0 +1,358 @@
+/*
+ * @Descripttion: button组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-05-27 11:53:24
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-08-23 17:40:40
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** padding *****************/
+  --nv-button-padding-mini: var(--nv-padding-mini) var(--nv-padding-mini);
+  --nv-button-padding-small: var(--nv-padding-small) var(--nv-padding-small);
+  --nv-button-padding-medium: var(--nv-padding-medium) var(--nv-padding-medium);
+  --nv-button-padding-large: var(--nv-padding-medium) var(--nv-padding-large);
+  --nv-button-padding-huge: var(--nv-padding-large) var(--nv-padding-huge);
+
+  /**************** font-size *****************/
+  --nv-button-font-size-default: var(--nv-font-size-default);
+  --nv-button-font-size-mini: var(--nv-font-size-mini);
+  --nv-button-font-size-small: var(--nv-font-size-mini);
+  --nv-button-font-size-medium: var(--nv-font-size-small);
+  --nv-button-font-size-large: var(--nv-font-size-medium);
+  --nv-button-font-size-huge: var(--nv-font-size-medium);
+
+  /*********** circle-width/height ************/
+  --nv-button-length-of-side-mini: var(--nv-global-height-mini);
+  --nv-button-length-of-side-small: var(--nv-global-height-small);
+  --nv-button-length-of-side-medium: var(--nv-global-height-medium);
+  --nv-button-length-of-side-large: var(--nv-global-height-large);
+  --nv-button-length-of-side-huge: var(--nv-global-height-huge);
+
+  /**************** height *****************/
+  --nv-button-height-mini: var(--nv-global-height-mini);
+  --nv-button-height-small: var(--nv-global-height-small);
+  --nv-button-height-medium: var(--nv-global-height-medium);
+  --nv-button-height-large: var(--nv-global-height-large);
+  --nv-button-height-huge: var(--nv-global-height-huge);
+
+  /************** border-radius ***************/
+  --nv-button-border-radius-round: 20px;
+  --nv-button-border-radius-mini: var(--nv-border-radius-mini);
+  --nv-button-border-radius-small: var(--nv-border-radius-small);
+  --nv-button-border-radius-medium: var(--nv-border-radius-medium);
+  --nv-button-border-radius-large: var(--nv-border-radius-large);
+  --nv-button-border-radius-huge: var(--nv-border-radius-huge);
+  // mini
+  --nv-button-border-radius-mini-top-left: var(--nv-button-border-radius-mini);
+  --nv-button-border-radius-mini-top-right: var(--nv-button-border-radius-mini);
+  --nv-button-border-radius-mini-bottom-right: var(--nv-button-border-radius-mini);
+  --nv-button-border-radius-mini-bottom-left: var(--nv-button-border-radius-mini);
+  // small
+  --nv-button-border-radius-small-top-left: var(--nv-button-border-radius-small);
+  --nv-button-border-radius-small-top-right: var(--nv-button-border-radius-small);
+  --nv-button-border-radius-small-bottom-right: var(--nv-button-border-radius-small);
+  --nv-button-border-radius-small-bottom-left: var(--nv-button-border-radius-small);
+  // medium
+  --nv-button-border-radius-medium-top-left: var(--nv-button-border-radius-medium);
+  --nv-button-border-radius-medium-top-right: var(--nv-button-border-radius-medium);
+  --nv-button-border-radius-medium-bottom-right: var(--nv-button-border-radius-medium);
+  --nv-button-border-radius-medium-bottom-left: var(--nv-button-border-radius-medium);
+  // large
+  --nv-button-border-radius-large-top-left: var(--nv-button-border-radius-large);
+  --nv-button-border-radius-large-top-right: var(--nv-button-border-radius-large);
+  --nv-button-border-radius-large-bottom-right: var(--nv-button-border-radius-large);
+  --nv-button-border-radius-large-bottom-left: var(--nv-button-border-radius-large);
+  // huge
+  --nv-button-border-radius-huge-top-left: var(--nv-button-border-radius-huge);
+  --nv-button-border-radius-huge-top-right: var(--nv-button-border-radius-huge);
+  --nv-button-border-radius-huge-bottom-right: var(--nv-button-border-radius-huge);
+  --nv-button-border-radius-huge-bottom-left: var(--nv-button-border-radius-huge);
+
+  /**************** border width (用于控制单独边的 border) *****************/
+  --nv-button-border-width-top: 1px;
+  --nv-button-border-width-right: 1px;
+  --nv-button-border-width-bottom: 1px;
+  --nv-button-border-width-left: 1px;
+
+  /***************************************************** size end *********************************************************/
+
+
+
+  /**************************************************** color start ********************************************************/
+  /**************** type:default ****************/
+  --nv-button-border-color-default: var(--nv-neutral-color-border-1);
+  --nv-button-color-default: var(--nv-neutral-color-font-2);
+  --nv-button-background-color-default: var(--nv-neutral-color-white);
+  // default.hover
+  --nv-button-border-color-default-hover: var(--nv-primary-color-8);
+  --nv-button-color-default-hover: var(--nv-primary-color-1);
+  --nv-button-background-color-default-hover: var(--nv-primary-color-10);
+  // default.active
+  --nv-button-border-color-default-active: var(--nv-primary-color-1-active);
+  --nv-button-color-default-active: var(--nv-primary-color-1-active);
+  --nv-button-background-color-default-active: var(--nv-primary-color-10);
+  // default.disabled
+  --nv-button-border-color-default-disabled: var(--nv-neutral-color-border-3);
+  --nv-button-color-default-disabled: var(--nv-neutral-color-font-4);
+  --nv-button-background-color-default-disabled: var(--nv-primary-color-white);
+  // default.disabled.hover
+  --nv-button-border-color-default-disabled-hover: var(--nv-neutral-color-border-3);
+  --nv-button-color-default-disabled-hover: var(--nv-neutral-color-font-4); 
+  --nv-button-background-color-default-disabled-hover: var(--nv-primary-color-white);
+  /*** type:default.plain ***/
+  --nv-button-border-color-default-plain: var(--nv-neutral-color-border-1);
+  --nv-button-color-default-plain: var(--nv-neutral-color-font-2);
+  --nv-button-background-color-default-plain: var(--nv-neutral-color-white);
+  // default.plain.hover
+  --nv-button-border-color-default-plain-hover: var(--nv-primary-color-1);
+  --nv-button-color-default-plain-hover: var(--nv-primary-color-1);
+  --nv-button-background-color-default-plain-hover: var(--nv-primary-color-white);
+  // default.plain.active
+  --nv-button-border-color-default-plain-active: var(--nv-primary-color-1-active);
+  --nv-button-color-default-plain-active: var(--nv-primary-color-1-active);
+  --nv-button-background-color-default-plain-active: var(--nv-primary-color-white);
+  // default.plain.disabled
+  --nv-button-border-color-default-plain-disabled: var(--nv-neutral-color-border-3);
+  --nv-button-color-default-plain-disabled: var(--nv-neutral-color-font-4);
+  --nv-button-background-color-default-plain-disabled: var(--nv-primary-color-white);
+
+
+  /**************** type:primary ****************/
+  --nv-button-border-color-primary: var(--nv-primary-color-1);
+  --nv-button-color-primary: var(--nv-neutral-color-white);
+  --nv-button-background-color-primary: var(--nv-primary-color-1);
+  // primary.hover
+  --nv-button-border-color-primary-hover: var(--nv-primary-color-3);
+  --nv-button-color-primary-hover: var(--nv-neutral-color-white);
+  --nv-button-background-color-primary-hover: var(--nv-primary-color-3);
+  // primary.active
+  --nv-button-border-color-primary-active: var(--nv-primary-color-1-active);
+  --nv-button-color-primary-active: var(--nv-neutral-color-white);
+  --nv-button-background-color-primary-active: var(--nv-primary-color-1-active);
+  // primary.disabled
+  --nv-button-border-color-primary-disabled: var(--nv-primary-color-6);
+  --nv-button-color-primary-disabled: var(--nv-neutral-color-white);
+  --nv-button-background-color-primary-disabled: var(--nv-primary-color-6);
+  /*** type:primary.plain ***/
+  --nv-button-border-color-primary-plain: var(--nv-primary-color-7);
+  --nv-button-color-primary-plain: var(--nv-primary-color-1);
+  --nv-button-background-color-primary-plain: var(--nv-primary-color-10);
+  // primary.plain.hover
+  --nv-button-border-color-primary-plain-hover: var(--nv-primary-color-1);
+  --nv-button-color-primary-plain-hover: var(--nv-primary-color-white);
+  --nv-button-background-color-primary-plain-hover: var(--nv-primary-color-1);
+  // primary.plain.active
+  --nv-button-border-color-primary-plain-active: var(--nv-primary-color-1-active);
+  --nv-button-color-primary-plain-active: var(--nv-primary-color-white);
+  --nv-button-background-color-primary-plain-active: var(--nv-primary-color-1-active);
+  // primary.plain.disabled
+  --nv-button-border-color-primary-plain-disabled: var(--nv-primary-color-9);
+  --nv-button-color-primary-plain-disabled: var(--nv-primary-color-5);
+  --nv-button-background-color-primary-plain-disabled: var(--nv-primary-color-10);
+
+
+  
+  /**************** type:success ****************/
+  --nv-button-border-color-success: var(--nv-secondary-color-success-1);
+  --nv-button-color-success: var(--nv-neutral-color-white);
+  --nv-button-background-color-success: var(--nv-secondary-color-success-1);
+  // success.hover
+  --nv-button-border-color-success-hover: var(--nv-secondary-color-success-1-hover);
+  --nv-button-color-success-hover: var(--nv-neutral-color-white);
+  --nv-button-background-color-success-hover: var(--nv-secondary-color-success-1-hover);
+  // success.active
+  --nv-button-border-color-success-active: var(--nv-secondary-color-success-1-active);
+  --nv-button-color-success-active: var(--nv-neutral-color-white);
+  --nv-button-background-color-success-active: var(--nv-secondary-color-success-1-active);
+  // success.disabled
+  --nv-button-border-color-success-disabled: var(--nv-secondary-color-success-1-disabled);
+  --nv-button-color-success-disabled: var(--nv-neutral-color-white);
+  --nv-button-background-color-success-disabled: var(--nv-secondary-color-success-1-disabled);
+  /*** type:success.plain ***/
+  --nv-button-border-color-success-plain: var(--nv-secondary-color-success-2);
+  --nv-button-color-success-plain: var(--nv-secondary-color-success-1);
+  --nv-button-background-color-success-plain: var(--nv-secondary-color-success-4);
+  // success.plain.hover
+  --nv-button-border-color-success-plain-hover: var(--nv-secondary-color-success-1);
+  --nv-button-color-success-plain-hover: var(--nv-primary-color-white);
+  --nv-button-background-color-success-plain-hover: var(--nv-secondary-color-success-1);
+  // success.plain.active
+  --nv-button-border-color-success-plain-active: var(--nv-secondary-color-success-1-active);
+  --nv-button-color-success-plain-active: var(--nv-primary-color-white);
+  --nv-button-background-color-success-plain-active: var(--nv-secondary-color-success-1-active);
+  // success.plain.disabled
+  --nv-button-border-color-success-plain-disabled: var(--nv-secondary-color-success-3);
+  --nv-button-color-success-plain-disabled: var(--nv-secondary-color-success-2-disabled);
+  --nv-button-background-color-success-plain-disabled: var(--nv-secondary-color-success-4);
+
+
+
+  /**************** type:info ****************/
+  --nv-button-border-color-info: var(--nv-secondary-color-info-1);
+  --nv-button-color-info: var(--nv-neutral-color-white);
+  --nv-button-background-color-info: var(--nv-secondary-color-info-1);
+  // info.hover
+  --nv-button-border-color-info-hover: var(--nv-secondary-color-info-1-hover);
+  --nv-button-color-info-hover: var(--nv-neutral-color-white);
+  --nv-button-background-color-info-hover: var(--nv-secondary-color-info-1-hover);
+  // info.active
+  --nv-button-border-color-info-active: var(--nv-secondary-color-info-1-active);
+  --nv-button-color-info-active: var(--nv-neutral-color-white);
+  --nv-button-background-color-info-active: var(--nv-secondary-color-info-1-active);
+  // info.disabled
+  --nv-button-border-color-info-disabled: var(--nv-secondary-color-info-1-disabled);
+  --nv-button-color-info-disabled: var(--nv-neutral-color-white);
+  --nv-button-background-color-info-disabled: var(--nv-secondary-color-info-1-disabled);
+  /*** type:info.plain ***/
+  --nv-button-border-color-info-plain: var(--nv-secondary-color-info-2);
+  --nv-button-color-info-plain: var(--nv-secondary-color-info-1);
+  --nv-button-background-color-info-plain: var(--nv-secondary-color-info-4);
+  // info.plain.hover
+  --nv-button-border-color-info-plain-hover: var(--nv-secondary-color-info-1);
+  --nv-button-color-info-plain-hover: var(--nv-primary-color-white);
+  --nv-button-background-color-info-plain-hover: var(--nv-secondary-color-info-1);
+  // info.plain.active
+  --nv-button-border-color-info-plain-active: var(--nv-secondary-color-info-1-active);
+  --nv-button-color-info-plain-active: var(--nv-primary-color-white);
+  --nv-button-background-color-info-plain-active: var(--nv-secondary-color-info-1-active);
+  // info.plain.disabled
+  --nv-button-border-color-info-plain-disabled: var(--nv-secondary-color-info-3);
+  --nv-button-color-info-plain-disabled: var(--nv-secondary-color-info-2-disabled);
+  --nv-button-background-color-info-plain-disabled: var(--nv-secondary-color-info-4);
+
+
+  /**************** type:warning ****************/
+  --nv-button-border-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-button-color-warning: var(--nv-neutral-color-white);
+  --nv-button-background-color-warning: var(--nv-secondary-color-warning-1);
+  // warning.hover
+  --nv-button-border-color-warning-hover: var(--nv-secondary-color-warning-1-hover);
+  --nv-button-color-warning-hover: var(--nv-neutral-color-white);
+  --nv-button-background-color-warning-hover: var(--nv-secondary-color-warning-1-hover);
+  // warning.active
+  --nv-button-border-color-warning-active: var(--nv-secondary-color-warning-1-active);
+  --nv-button-color-warning-active: var(--nv-neutral-color-white);
+  --nv-button-background-color-warning-active: var(--nv-secondary-color-warning-1-active);
+  // warning.disabled
+  --nv-button-border-color-warning-disabled: var(--nv-secondary-color-warning-1-disabled);
+  --nv-button-color-warning-disabled: var(--nv-neutral-color-white);
+  --nv-button-background-color-warning-disabled: var(--nv-secondary-color-warning-1-disabled);
+  /*** type:warning.plain ***/
+  --nv-button-border-color-warning-plain: var(--nv-secondary-color-warning-2);
+  --nv-button-color-warning-plain: var(--nv-secondary-color-warning-1);
+  --nv-button-background-color-warning-plain: var(--nv-secondary-color-warning-4);
+  // warning.plain.hover
+  --nv-button-border-color-warning-plain-hover: var(--nv-secondary-color-warning-1);
+  --nv-button-color-warning-plain-hover: var(--nv-primary-color-white);
+  --nv-button-background-color-warning-plain-hover: var(--nv-secondary-color-warning-1);
+  // warning.plain.active
+  --nv-button-border-color-warning-plain-active: var(--nv-secondary-color-warning-1-active);
+  --nv-button-color-warning-plain-active: var(--nv-primary-color-white);
+  --nv-button-background-color-warning-plain-active: var(--nv-secondary-color-warning-1-active);
+  // warning.plain.disabled
+  --nv-button-border-color-warning-plain-disabled: var(--nv-secondary-color-warning-3);
+  --nv-button-color-warning-plain-disabled: var(--nv-secondary-color-warning-2-disabled);
+  --nv-button-background-color-warning-plain-disabled: var(--nv-secondary-color-warning-4);
+
+  
+  /**************** type:error ****************/
+  --nv-button-border-color-error: var(--nv-secondary-color-danger-1);
+  --nv-button-color-error: var(--nv-neutral-color-white);
+  --nv-button-background-color-error: var(--nv-secondary-color-danger-1);
+  // error.hover
+  --nv-button-border-color-error-hover: var(--nv-secondary-color-danger-1-hover);
+  --nv-button-color-error-hover: var(--nv-neutral-color-white);
+  --nv-button-background-color-error-hover: var(--nv-secondary-color-danger-1-hover);
+  // error.active
+  --nv-button-border-color-error-active: var(--nv-secondary-color-danger-1-active);
+  --nv-button-color-error-active: var(--nv-neutral-color-white);
+  --nv-button-background-color-error-active: var(--nv-secondary-color-danger-1-active);
+  // error.disabled
+  --nv-button-border-color-error-disabled: var(--nv-secondary-color-danger-1-disabled);
+  --nv-button-color-error-disabled: var(--nv-neutral-color-white);
+  --nv-button-background-color-error-disabled: var(--nv-secondary-color-danger-1-disabled);
+  /*** type:error.plain ***/
+  --nv-button-border-color-error-plain: var(--nv-secondary-color-danger-2);
+  --nv-button-color-error-plain: var(--nv-secondary-color-danger-1);
+  --nv-button-background-color-error-plain: var(--nv-secondary-color-danger-4);
+  // error.plain.hover
+  --nv-button-border-color-error-plain-hover: var(--nv-secondary-color-danger-1);
+  --nv-button-color-error-plain-hover: var(--nv-primary-color-white);
+  --nv-button-background-color-error-plain-hover: var(--nv-secondary-color-danger-1);
+  // error.plain.active
+  --nv-button-border-color-error-plain-active: var(--nv-secondary-color-danger-1-active);
+  --nv-button-color-error-plain-active: var(--nv-primary-color-white);
+  --nv-button-background-color-error-plain-active: var(--nv-secondary-color-danger-1-active);
+  // error.plain.disabled
+  --nv-button-border-color-error-plain-disabled: var(--nv-secondary-color-danger-3);
+  --nv-button-color-error-plain-disabled: var(--nv-secondary-color-danger-2-disabled);
+  --nv-button-background-color-error-plain-disabled: var(--nv-secondary-color-danger-4);
+  /**************** type:danger ****************/
+  // danger 与 error 表现完全一致，使用相同的变量
+  --nv-button-border-color-danger: var(--nv-button-border-color-error);
+  --nv-button-color-danger: var(--nv-button-color-error);
+  --nv-button-background-color-danger: var(--nv-button-background-color-error);
+  // danger.hover
+  --nv-button-border-color-danger-hover: var(--nv-button-border-color-error-hover);
+  --nv-button-color-danger-hover: var(--nv-button-color-error-hover);
+  --nv-button-background-color-danger-hover: var(--nv-button-background-color-error-hover);
+  // danger.active
+  --nv-button-border-color-danger-active: var(--nv-button-border-color-error-active);
+  --nv-button-color-danger-active: var(--nv-button-color-error-active);
+  --nv-button-background-color-danger-active: var(--nv-button-background-color-error-active);
+  // danger.disabled
+  --nv-button-border-color-danger-disabled: var(--nv-button-border-color-error-disabled);
+  --nv-button-color-danger-disabled: var(--nv-button-color-error-disabled);
+  --nv-button-background-color-danger-disabled: var(--nv-button-background-color-error-disabled);
+  /*** type:danger.plain ***/
+  --nv-button-border-color-danger-plain: var(--nv-button-border-color-error-plain);
+  --nv-button-color-danger-plain: var(--nv-button-color-error-plain);
+  --nv-button-background-color-danger-plain: var(--nv-button-background-color-error-plain);
+  // danger.plain.hover
+  --nv-button-border-color-danger-plain-hover: var(--nv-button-border-color-error-plain-hover);
+  --nv-button-color-danger-plain-hover: var(--nv-button-color-error-plain-hover);
+  --nv-button-background-color-danger-plain-hover: var(--nv-button-background-color-error-plain-hover);
+  // danger.plain.active
+  --nv-button-border-color-danger-plain-active: var(--nv-button-border-color-error-plain-active);
+  --nv-button-color-danger-plain-active: var(--nv-button-color-error-plain-active);
+  --nv-button-background-color-danger-plain-active: var(--nv-button-background-color-error-plain-active);
+  // danger.plain.disabled
+  --nv-button-border-color-danger-plain-disabled: var(--nv-button-border-color-error-plain-disabled);
+  --nv-button-color-danger-plain-disabled: var(--nv-button-color-error-plain-disabled);
+  --nv-button-background-color-danger-plain-disabled: var(--nv-button-background-color-error-plain-disabled);
+  /**************** type:text ****************/
+  --nv-button-border-color-text: transparent;
+  --nv-button-color-text: var(--nv-primary-color-1);
+  --nv-button-background-color-text: transparent;
+  // text.hover
+  --nv-button-border-color-text-hover: transparent;
+  --nv-button-color-text-hover: var(--nv-primary-color-1);
+  --nv-button-background-color-text-hover: transparent;
+  // text.active
+  --nv-button-border-color-text-active: transparent;
+  --nv-button-color-text-active: var(--nv-primary-color-1-active);
+  --nv-button-background-color-text-active: transparent;
+  // text.disabled
+  --nv-button-border-color-text-disabled: transparent;
+  --nv-button-color-text-disabled: var(--nv-neutral-color-font-4);
+  --nv-button-background-color-text-disabled: transparent;
+  /*** type:text.plain ***/
+  --nv-button-border-color-text-plain: transparent;
+  --nv-button-color-text-plain: var(--nv-primary-color-1);
+  --nv-button-background-color-text-plain: transparent;
+  // text.plain.hover
+  --nv-button-border-color-text-plain-hover: transparent;
+  --nv-button-color-text-plain-hover: var(--nv-primary-color-1);
+  --nv-button-background-color-text-plain-hover: transparent;
+  // text.plain.active
+  --nv-button-border-color-text-plain-active: transparent;
+  --nv-button-color-text-plain-active: var(--nv-primary-color-1-active);
+  --nv-button-background-color-text-plain-active: transparent;
+  // text.plain.disabled
+  --nv-button-border-color-text-plain-disabled: transparent;
+  --nv-button-color-text-plain-disabled: var(--nv-neutral-color-font-4);
+  --nv-button-background-color-text-plain-disabled: transparent;
+}
+/**************************************************** color end ********************************************************/

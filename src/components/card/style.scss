@@ -1,0 +1,57 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: card组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+// .nv-card
+@include b(card) {
+  border-radius: var(--nv-card-border-radius);
+  border: 1px solid var(--nv-card-border-color);
+  background-color: var(--nv-card-background-color);
+  // overflow: hidden;
+  color: var(--nv-card-font-color);
+  transition: 0.3s;
+  box-sizing: border-box;
+
+  // 头部
+  &__header {
+    padding: var(--nv-card-header-padding);
+    border-bottom: 1px solid var(--nv-card-header-border-color);
+    box-sizing: border-box;
+  }
+
+  // 主体
+  &__body {
+    padding: var(--nv-card-body-padding);
+  }
+
+  // 底部
+  &__footer {
+    padding: var(--nv-card-footer-padding);
+    border-top: 1px solid var(--nv-card-footer-border-color);
+    box-sizing: border-box;
+  }
+
+  // 阴影变体
+  &.is-always-shadow {
+    box-shadow: var(--nv-card-shadow);
+  }
+
+  &.is-hover-shadow {
+    &:hover {
+      box-shadow: var(--nv-card-shadow);
+    }
+  }
+
+  &.is-never-shadow {
+    box-shadow: none;
+  }
+}
+

@@ -1,0 +1,48 @@
+/*
+ * @Descripttion: 公共尺寸变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-06-11 18:07:18
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-08-23 10:31:14
+ */
+ @import '../functions/compute.function.scss';
+
+// border-radius各个尺寸变量及步进值
+$border_radius_step_value: 1px; // 圆角大小步进值
+$border_radius_mini: 2px; // mini圆角大小
+
+// padding各个尺寸变量及步进值
+$padding_size_step_value: 2px; // padding大小步进值
+$padding_size_mini: 5px;
+
+// height各个尺寸变量及步进值
+$height_step_value: 4px; // 高度步进值
+$height_mini: 24px; // mini高度
+
+:root {
+  // border-radius全局尺寸变量
+  --nv-border-radius-step-size: #{ $border_radius_step_value };
+  --nv-border-radius-mini: #{ $border_radius_mini };
+  --nv-border-radius-small: calc(var(--nv-border-radius-mini) + var(--nv-border-radius-step-size));
+  --nv-border-radius-medium: calc(var(--nv-border-radius-small) + var(--nv-border-radius-step-size));
+  --nv-border-radius-large: calc(var(--nv-border-radius-medium) + var(--nv-border-radius-step-size));
+  --nv-border-radius-huge: calc(var(--nv-border-radius-large) + var(--nv-border-radius-step-size));
+
+  // padding全局尺寸变量
+  // 以--nv-padding-mini为基准，逐渐递增，每次增加值为--nv-padding-step-size的值
+  --nv-padding-step-size: #{ $padding_size_step_value };
+  --nv-padding-mini: #{ $padding_size_mini };
+  --nv-padding-small: calc(var(--nv-padding-mini) + var(--nv-padding-step-size));
+  --nv-padding-medium: calc(var(--nv-padding-small) + var(--nv-padding-step-size));
+  --nv-padding-large: calc(var(--nv-padding-medium) + var(--nv-padding-step-size));
+  --nv-padding-huge: calc(var(--nv-padding-large) + var(--nv-padding-step-size));
+
+  // height全局尺寸变量
+  // 以--nv-global-height-mini为基准，逐渐递增，每次增加值为--nv-global-height-step的值
+  --nv-global-height-step: #{ $height_step_value };
+  --nv-global-height-mini: #{ $height_mini };
+  --nv-global-height-small: calc(var(--nv-global-height-mini) + var(--nv-global-height-step));
+  --nv-global-height-medium: calc(var(--nv-global-height-small) + var(--nv-global-height-step));
+  --nv-global-height-large: calc(var(--nv-global-height-medium) + var(--nv-global-height-step));
+  --nv-global-height-huge: calc(var(--nv-global-height-large) + var(--nv-global-height-step));
+}

@@ -1,0 +1,148 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: rate style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+}
+
+@include b(rate) {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nv-rate-gap, 8px);
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &__items {
+    display: inline-flex;
+    gap: var(--nv-rate-item-gap, 4px);
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform var(--nv-rate-item-transition-duration, 0.2s);
+
+    &:hover {
+      transform: scale(var(--nv-rate-item-hover-scale, 1.1));
+    }
+  }
+
+  &__half {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &__full {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+
+    // 确保绝对定位的图标完全覆盖
+    > nv-icon {
+      display: block;
+      line-height: 1;
+    }
+  }
+
+  &__icon {
+    font-size: var(--nv-rate-icon-size-medium);
+    color: var(--nv-rate-icon-color, #c0c4cc);
+    transition: color var(--nv-rate-icon-transition-duration, 0.2s);
+    display: block;
+    line-height: 1;
+
+    &.is-active {
+      color: var(--nv-rate-icon-color-active, #f7ba2a);
+    }
+  }
+
+  &__text {
+    font-size: var(--nv-rate-text-font-size-medium);
+    color: var(--nv-rate-text-color, #606266);
+    margin-left: var(--nv-rate-text-margin-left, 8px);
+  }
+
+  &__score {
+    font-size: var(--nv-rate-score-font-size-medium);
+    color: var(--nv-rate-score-color, #606266);
+    margin-left: var(--nv-rate-score-margin-left, 8px);
+  }
+
+  // Size modifiers
+  &.is-mini {
+    .nv-rate__icon {
+      font-size: var(--nv-rate-icon-size-mini);
+    }
+    .nv-rate__text {
+      font-size: var(--nv-rate-text-font-size-mini);
+    }
+    .nv-rate__score {
+      font-size: var(--nv-rate-score-font-size-mini);
+    }
+  }
+
+  &.is-small {
+    .nv-rate__icon {
+      font-size: var(--nv-rate-icon-size-small);
+    }
+    .nv-rate__text {
+      font-size: var(--nv-rate-text-font-size-small);
+    }
+    .nv-rate__score {
+      font-size: var(--nv-rate-score-font-size-small);
+    }
+  }
+
+  &.is-medium {
+    .nv-rate__icon {
+      font-size: var(--nv-rate-icon-size-medium);
+    }
+    .nv-rate__text {
+      font-size: var(--nv-rate-text-font-size-medium);
+    }
+    .nv-rate__score {
+      font-size: var(--nv-rate-score-font-size-medium);
+    }
+  }
+
+  &.is-large {
+    .nv-rate__icon {
+      font-size: var(--nv-rate-icon-size-large);
+    }
+    .nv-rate__text {
+      font-size: var(--nv-rate-text-font-size-large);
+    }
+    .nv-rate__score {
+      font-size: var(--nv-rate-score-font-size-large);
+    }
+  }
+
+  &.is-huge {
+    .nv-rate__icon {
+      font-size: var(--nv-rate-icon-size-huge);
+    }
+    .nv-rate__text {
+      font-size: var(--nv-rate-text-font-size-huge);
+    }
+    .nv-rate__score {
+      font-size: var(--nv-rate-score-font-size-huge);
+    }
+  }
+}
+

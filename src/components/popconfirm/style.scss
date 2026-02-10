@@ -1,0 +1,35 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: popconfirm style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+@import './variables.scss';
+
+:host {
+  display: inline-block;
+  
+  // 通过 CSS 变量配置内部 popup 组件的样式
+  --nv-popup-padding: var(--nv-popconfirm-padding, 12px);
+  --nv-popup-min-width: var(--nv-popconfirm-min-width, 150px);
+}
+
+@include b(popconfirm) {
+  // 不需要容器样式，直接使用 popup 提供的背景、边框、阴影等
+  // 只定义内部元素的样式
+  
+  &__title {
+    margin-bottom: var(--nv-popconfirm-title-margin-bottom, 12px);
+    color: var(--nv-popconfirm-title-color, #606266);
+    font-size: var(--nv-popconfirm-title-font-size, 14px);
+    line-height: var(--nv-popconfirm-title-line-height, 1.5);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--nv-popconfirm-actions-gap, 8px);
+  }
+}

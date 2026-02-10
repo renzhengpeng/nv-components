@@ -1,0 +1,36 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: checkbox-group组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+:host([disabled]) {
+  cursor: not-allowed;
+}
+
+// .nv-checkbox-group
+@include b(checkbox-group) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0;
+  line-height: 0;
+}
+
+// checkbox-group 内的 checkbox 间距
+::slotted(nv-checkbox) {
+  margin-right: var(--nv-checkbox-group-spacing);
+}
+
+::slotted(nv-checkbox:last-child) {
+  margin-right: 0;
+}
+

@@ -1,0 +1,92 @@
+/*
+ * @Descripttion: radio组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** input *****************/
+  --nv-radio-input-width: 14px;
+  --nv-radio-input-height: 14px;
+  --nv-radio-input-border-radius: 100%;
+
+  /**************** after (选中状态的点) *****************/
+  --nv-radio-after-width: 4px;
+  --nv-radio-after-height: 4px;
+  --nv-radio-after-border-radius: 100%;
+
+  /**************** label *****************/
+  --nv-radio-label-padding-left: var(--nv-padding-mini);
+
+  /**************** bordered *****************/
+  --nv-radio-bordered-height: var(--nv-global-height-medium);
+  --nv-radio-bordered-height-mini: var(--nv-global-height-mini);
+  --nv-radio-bordered-height-small: var(--nv-global-height-small);
+  --nv-radio-bordered-height-medium: var(--nv-global-height-medium);
+  --nv-radio-bordered-height-large: var(--nv-global-height-large);
+  --nv-radio-bordered-height-huge: var(--nv-global-height-huge);
+
+  /**************** button *****************/
+  --nv-radio-button-height-mini: var(--nv-global-height-mini);
+  --nv-radio-button-height-small: var(--nv-global-height-small);
+  --nv-radio-button-height-medium: var(--nv-global-height-medium);
+  --nv-radio-button-height-large: var(--nv-global-height-large);
+  --nv-radio-button-height-huge: var(--nv-global-height-huge);
+
+
+  /**************** focus *****************/
+  --nv-radio-focus-outline-width: 2px;
+  --nv-radio-focus-outline-offset: 2px;
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+
+  /**************** input *****************/
+  --nv-radio-input-border-color: var(--nv-neutral-color-border-1);
+  --nv-radio-input-background-color: var(--nv-neutral-color-white);
+  --nv-radio-input-border-color-checked: var(--nv-primary-color-1);
+  --nv-radio-input-background-color-checked: var(--nv-primary-color-1);
+
+  /**************** after *****************/
+  --nv-radio-after-background-color: var(--nv-primary-color-1);
+  --nv-radio-after-background-color-checked: var(--nv-neutral-color-white);
+  --nv-radio-after-background-color-disabled: var(--nv-neutral-color-border-4);
+  --nv-radio-after-background-color-disabled-checked: var(--nv-neutral-color-font-4);
+
+  /**************** label *****************/
+  --nv-radio-label-font-color: var(--nv-neutral-color-font-2);
+  --nv-radio-label-font-color-checked: var(--nv-primary-color-1);
+  --nv-radio-label-font-color-disabled: var(--nv-neutral-color-font-4);
+
+  /**************** bordered *****************/
+  --nv-radio-bordered-border-color: var(--nv-neutral-color-border-1);
+  --nv-radio-bordered-border-color-checked: var(--nv-primary-color-1);
+  --nv-radio-bordered-border-color-disabled: var(--nv-neutral-color-border-2);
+
+  /**************** button *****************/
+  --nv-radio-button-background-color: var(--nv-neutral-color-white);
+  --nv-radio-button-font-color: var(--nv-neutral-color-font-2);
+  --nv-radio-button-border-color: var(--nv-neutral-color-border-1);
+  --nv-radio-button-background-color-checked: var(--nv-primary-color-1);
+  --nv-radio-button-font-color-checked: var(--nv-neutral-color-white);
+  --nv-radio-button-border-color-checked: var(--nv-primary-color-1);
+  --nv-radio-button-font-color-disabled: var(--nv-neutral-color-font-4);
+  --nv-radio-button-background-color-disabled: var(--nv-neutral-color-white);
+  --nv-radio-button-border-color-disabled: var(--nv-neutral-color-border-2);
+  --nv-radio-button-background-color-disabled-checked: var(--nv-neutral-color-border-4);
+  --nv-radio-button-font-color-hover: var(--nv-primary-color-1);
+  --nv-radio-button-font-color-active: var(--nv-primary-color-1-active);
+  --nv-radio-button-border-color-active: var(--nv-primary-color-1-active);
+
+  /**************** focus *****************/
+  --nv-radio-focus-outline-color: var(--nv-primary-color-8);
+
+  /**************** disabled *****************/
+  --nv-radio-input-background-color-disabled: var(--nv-neutral-color-border-4);
+  --nv-radio-input-border-color-disabled: var(--nv-neutral-color-border-2);
+
+  /***************************************************** color end ********************************************************/
+}
+

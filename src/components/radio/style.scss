@@ -1,0 +1,367 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: radio组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  vertical-align: middle;
+}
+
+// .nv-radio
+@include b(radio) {
+  color: var(--nv-neutral-color-font-2);
+  font-weight: 500;
+  line-height: 1;
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  font-size: var(--nv-font-size-small);
+  vertical-align: middle;
+
+  // .nv-radio__original
+  &__original {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  // .nv-radio__input
+  &__input {
+    border: 1px solid var(--nv-radio-input-border-color);
+    border-radius: var(--nv-radio-input-border-radius);
+    width: var(--nv-radio-input-width);
+    height: var(--nv-radio-input-height);
+    background-color: var(--nv-radio-input-background-color);
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    // 选中状态
+    &::after {
+      width: var(--nv-radio-after-width);
+      height: var(--nv-radio-after-height);
+      border-radius: var(--nv-radio-after-border-radius);
+      background-color: var(--nv-radio-after-background-color);
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.15s ease-in;
+    }
+  }
+
+  // .nv-radio__label
+  &__label {
+    font-size: var(--nv-font-size-small);
+    padding-left: var(--nv-radio-label-padding-left);
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  // .nv-radio.is-checked
+  &.is-checked {
+    .nv-radio__input {
+      border-color: var(--nv-radio-input-border-color-checked);
+      background: var(--nv-radio-input-background-color-checked);
+
+      &::after {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: var(--nv-radio-after-background-color-checked);
+      }
+    }
+
+    .nv-radio__label {
+      color: var(--nv-radio-label-font-color-checked);
+    }
+  }
+
+  // .nv-radio.is-disabled
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .nv-radio__input {
+      background-color: var(--nv-radio-input-background-color-disabled);
+      border-color: var(--nv-radio-input-border-color-disabled);
+      cursor: not-allowed;
+
+      &::after {
+        cursor: not-allowed;
+        background-color: var(--nv-radio-after-background-color-disabled);
+      }
+    }
+
+    .nv-radio__label {
+      color: var(--nv-radio-label-font-color-disabled);
+      cursor: not-allowed;
+    }
+
+    &.is-checked {
+      .nv-radio__input {
+        background-color: var(--nv-radio-input-background-color-disabled);
+        border-color: var(--nv-radio-input-border-color-disabled);
+
+        &::after {
+          background-color: var(--nv-radio-after-background-color-disabled-checked);
+        }
+      }
+    }
+  }
+
+  // .nv-radio.is-bordered
+  &.is-bordered {
+    padding: 0 var(--nv-padding-huge) 0 var(--nv-padding-medium);
+    border-radius: var(--nv-border-radius-medium);
+    border: 1px solid var(--nv-radio-bordered-border-color);
+    box-sizing: border-box;
+    height: var(--nv-radio-bordered-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--nv-font-size-small);
+
+    &.is-checked {
+      border-color: var(--nv-radio-bordered-border-color-checked);
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+      border-color: var(--nv-radio-bordered-border-color-disabled);
+    }
+
+    // 尺寸变体
+    &.mini {
+      padding: 0 var(--nv-padding-medium) 0 var(--nv-padding-mini);
+      font-size: var(--nv-button-font-size-mini);
+      height: var(--nv-radio-bordered-height-mini);
+      border-radius: var(--nv-button-border-radius-mini);
+    }
+
+    &.small {
+      padding: 0 var(--nv-padding-large) 0 var(--nv-padding-small);
+      font-size: var(--nv-button-font-size-small);
+      height: var(--nv-radio-bordered-height-small);
+      border-radius: var(--nv-button-border-radius-small);
+    }
+
+    &.medium {
+      padding: 0 var(--nv-padding-huge) 0 var(--nv-padding-medium);
+      font-size: var(--nv-button-font-size-medium);
+      height: var(--nv-radio-bordered-height-medium);
+      border-radius: var(--nv-button-border-radius-medium);
+    }
+
+    &.large {
+      padding: 0 var(--nv-padding-huge) 0 var(--nv-padding-large);
+      font-size: var(--nv-button-font-size-large);
+      height: var(--nv-radio-bordered-height-large);
+      border-radius: var(--nv-button-border-radius-large);
+    }
+
+    &.huge {
+      padding: 0 var(--nv-padding-huge) 0 var(--nv-padding-large);
+      font-size: var(--nv-button-font-size-huge);
+      height: var(--nv-radio-bordered-height-huge);
+      border-radius: var(--nv-button-border-radius-huge);
+    }
+  }
+
+  // 聚焦状态
+  &:focus {
+    .nv-radio__input {
+      outline: var(--nv-radio-focus-outline-width) solid var(--nv-radio-focus-outline-color);
+      outline-offset: var(--nv-radio-focus-outline-offset);
+    }
+  }
+
+  // .nv-radio.is-button（按钮样式）
+  &.is-button {
+    margin-right: 0;
+    border: 1px solid var(--nv-radio-button-border-color);
+    border-radius: 0;
+    padding: var(--nv-button-padding-medium);
+    background-color: var(--nv-radio-button-background-color);
+    color: var(--nv-radio-button-font-color);
+    transition: all 0.3s;
+    box-sizing: border-box;
+    height: var(--nv-radio-button-height-medium);
+    line-height: 1;
+    vertical-align: middle;
+    position: relative;
+    font-size: var(--nv-button-font-size-medium);
+
+    .nv-radio__input {
+      display: none;
+    }
+
+    .nv-radio__label {
+      padding-left: 0;
+      color: inherit;
+    }
+
+    // 第一个按钮：左边有圆角，右边没有圆角
+    &.is-button-first {
+      border-top-left-radius: var(--nv-button-border-radius-medium) !important;
+      border-bottom-left-radius: var(--nv-button-border-radius-medium) !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+
+      &.mini {
+        border-top-left-radius: var(--nv-button-border-radius-mini) !important;
+        border-bottom-left-radius: var(--nv-button-border-radius-mini) !important;
+      }
+
+      &.small {
+        border-top-left-radius: var(--nv-button-border-radius-small) !important;
+        border-bottom-left-radius: var(--nv-button-border-radius-small) !important;
+      }
+
+      &.large {
+        border-top-left-radius: var(--nv-button-border-radius-large) !important;
+        border-bottom-left-radius: var(--nv-button-border-radius-large) !important;
+      }
+
+      &.huge {
+        border-top-left-radius: var(--nv-button-border-radius-huge) !important;
+        border-bottom-left-radius: var(--nv-button-border-radius-huge) !important;
+      }
+    }
+
+    // 中间的按钮：没有圆角，移除左边框
+    &.is-button-middle {
+      border-radius: 0 !important;
+      border-left: none !important;
+    }
+
+    // 最后一个按钮：右边有圆角，左边没有圆角，移除左边框
+    &.is-button-last {
+      border-top-right-radius: var(--nv-button-border-radius-medium) !important;
+      border-bottom-right-radius: var(--nv-button-border-radius-medium) !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-left: none !important;
+
+      &.mini {
+        border-top-right-radius: var(--nv-button-border-radius-mini) !important;
+        border-bottom-right-radius: var(--nv-button-border-radius-mini) !important;
+      }
+
+      &.small {
+        border-top-right-radius: var(--nv-button-border-radius-small) !important;
+        border-bottom-right-radius: var(--nv-button-border-radius-small) !important;
+      }
+
+      &.large {
+        border-top-right-radius: var(--nv-button-border-radius-large) !important;
+        border-bottom-right-radius: var(--nv-button-border-radius-large) !important;
+      }
+
+      &.huge {
+        border-top-right-radius: var(--nv-button-border-radius-huge) !important;
+        border-bottom-right-radius: var(--nv-button-border-radius-huge) !important;
+      }
+    }
+
+    // 选中状态
+    &.is-checked {
+      color: var(--nv-radio-button-font-color-checked);
+      background-color: var(--nv-radio-button-background-color-checked);
+      border-color: var(--nv-radio-button-border-color-checked);
+      z-index: 1;
+
+      // 选中时，文字颜色继承父元素的白色
+      .nv-radio__label {
+        color: var(--nv-radio-button-font-color-checked);
+      }
+    }
+
+    // 禁用状态
+    &.is-disabled {
+      color: var(--nv-radio-button-font-color-disabled);
+      cursor: not-allowed;
+      background-color: var(--nv-radio-button-background-color-disabled);
+      border-color: var(--nv-radio-button-border-color-disabled);
+
+      .nv-radio__label {
+        color: var(--nv-radio-button-font-color-disabled);
+      }
+
+      // 禁用且选中时，背景色为浅灰色，文字颜色与其他禁用按钮一致
+      &.is-checked {
+        color: var(--nv-radio-button-font-color-disabled);
+        background-color: var(--nv-radio-button-background-color-disabled-checked);
+        border-color: var(--nv-radio-button-border-color-disabled);
+
+        .nv-radio__label {
+          color: var(--nv-radio-button-font-color-disabled);
+        }
+      }
+    }
+
+    // hover 状态
+    &:hover:not(.is-disabled) {
+      color: var(--nv-radio-button-font-color-hover);
+    }
+
+    // active 状态
+    &:active:not(.is-disabled) {
+      color: var(--nv-radio-button-font-color-active);
+      border-color: var(--nv-radio-button-border-color-active);
+    }
+
+    // 尺寸变体
+    &.mini {
+      padding: var(--nv-button-padding-mini);
+      font-size: var(--nv-button-font-size-mini);
+      height: var(--nv-radio-button-height-mini);
+    }
+
+    &.small {
+      padding: var(--nv-button-padding-small);
+      font-size: var(--nv-button-font-size-small);
+      height: var(--nv-radio-button-height-small);
+    }
+
+    &.medium {
+      padding: var(--nv-button-padding-medium);
+      font-size: var(--nv-button-font-size-medium);
+      height: var(--nv-radio-button-height-medium);
+    }
+
+    &.large {
+      padding: var(--nv-button-padding-large);
+      font-size: var(--nv-button-font-size-large);
+      height: var(--nv-radio-button-height-large);
+    }
+
+    &.huge {
+      padding: var(--nv-button-padding-huge);
+      font-size: var(--nv-button-font-size-huge);
+      height: var(--nv-radio-button-height-huge);
+    }
+  }
+}
+

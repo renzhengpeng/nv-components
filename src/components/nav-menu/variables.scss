@@ -1,0 +1,24 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: nav-menu组件变量
+ */
+:root {
+  --nv-nav-menu-background-color: #fff;
+  --nv-nav-menu-border-bottom: 1px solid #e4e7ed;
+  --nv-nav-menu-border-right: 1px solid #e4e7ed;
+  --nv-nav-menu-collapse-width: 64px;
+  --nv-menu-item-padding: 0 20px;
+  --nv-menu-item-height: 56px;
+  --nv-menu-item-font-size: 14px;
+  --nv-menu-item-color: #303133;
+  --nv-menu-item-transition-duration: 0.3s;
+  --nv-menu-item-background-color-hover: #ecf5ff;
+  --nv-menu-item-color-hover: #409EFF;
+  --nv-menu-item-color-active: #409EFF;
+  --nv-menu-item-background-color-active: #ecf5ff;
+  --nv-menu-item-active-indicator-height: 2px;
+  --nv-menu-item-active-indicator-color: #409EFF;
+}
+

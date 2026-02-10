@@ -1,0 +1,29 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: pagination组件变量
+ */
+:root {
+  /***************************************************** layout start *********************************************************/
+  // 组件间距
+  --nv-pagination-gap: 4px;
+  --nv-pagination-pager-gap: 4px;
+  --nv-pagination-sizes-margin-right: 8px;
+  
+  // 跳转器布局
+  --nv-pagination-jumper-margin-left: 8px;
+  --nv-pagination-jumper-gap: 8px;
+  --nv-pagination-jumper-input-width: 60px;
+  /***************************************************** layout end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+  // 省略号颜色
+  --nv-pagination-more-color: #606266;
+  
+  // 跳转器颜色
+  --nv-pagination-jumper-text-color: #606266;
+  --nv-pagination-jumper-text-font-size: 14px;
+  /***************************************************** color end *********************************************************/
+}
+

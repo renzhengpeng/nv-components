@@ -1,0 +1,68 @@
+/*
+ * @Descripttion: notification组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-notification-border-radius: var(--nv-border-radius-medium);
+
+  /**************** width *****************/
+  --nv-notification-width: 330px;
+
+  /**************** padding *****************/
+  --nv-notification-padding: var(--nv-padding-small) var(--nv-padding-huge) var(--nv-padding-small) var(--nv-padding-medium);
+  --nv-notification-main-padding-right: var(--nv-padding-medium);
+
+  /**************** font-size *****************/
+  --nv-notification-icon-font-size: var(--nv-font-size-large);
+  --nv-notification-title-font-size: var(--nv-font-size-medium);
+  --nv-notification-content-font-size: var(--nv-font-size-small);
+  --nv-notification-closebtn-font-size: var(--nv-font-size-medium);
+
+  /**************** spacing *****************/
+  --nv-notification-icon-width: var(--nv-font-size-large);
+  --nv-notification-icon-height: var(--nv-font-size-large);
+  --nv-notification-icon-margin-right: var(--nv-padding-medium);
+  --nv-notification-title-margin-bottom: 6px;
+  --nv-notification-title-line-height: var(--nv-font-size-large);
+  --nv-notification-content-line-height: 21px;
+  --nv-notification-closebtn-top: var(--nv-padding-medium);
+  --nv-notification-closebtn-right: var(--nv-padding-medium);
+  --nv-notification-closebtn-width: var(--nv-padding-huge);
+  --nv-notification-closebtn-height: var(--nv-padding-huge);
+
+  /**************** shadow *****************/
+  --nv-notification-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-notification-background-color: var(--nv-neutral-color-white);
+
+  /**************** border *****************/
+  --nv-notification-border-color: var(--nv-neutral-color-border-3);
+
+  /**************** font *****************/
+  --nv-notification-title-font-color: var(--nv-neutral-color-font-1);
+  --nv-notification-content-font-color: var(--nv-neutral-color-font-2);
+
+  /**************** icon *****************/
+  --nv-notification-icon-color-success: var(--nv-secondary-color-success-1);
+  --nv-notification-icon-color-info: var(--nv-secondary-color-info-1);
+  --nv-notification-icon-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-notification-icon-color-error: var(--nv-secondary-color-danger-1);
+
+  /**************** closeBtn *****************/
+  --nv-notification-closebtn-color: var(--nv-secondary-color-info-1);
+  --nv-notification-closebtn-color-hover: var(--nv-neutral-color-font-2);
+
+  /**************************************************** color end ********************************************************/
+}
+

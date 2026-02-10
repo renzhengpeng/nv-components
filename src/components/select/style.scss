@@ -1,0 +1,591 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: select style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  // 选项来源 slot 仅用于 _updateOptions 读取，不参与浮层展示
+  .nv-select__options-slot {
+    display: none !important;
+  }
+}
+
+// 根据实际弹出位置（actual-placement）调整 transform-origin 和初始 transform
+// 浮层默认与组件同宽：宿主 → popup → part(base) → part(anchor) 均占满宽度；part(popup) 由 Popup 的 sync 设宽，不在此设 width:100%（否则绝对定位会以视口为包含块变宽）；part(content) 仅填满 part(popup)
+nv-popup {
+  width: 100%;
+
+  &::part(base) {
+    width: 100%;
+  }
+
+  &::part(anchor) {
+    width: 100%;
+  }
+
+  &::part(content) {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  // 顶部/底部位置 (ScaleY)
+  &[actual-placement^="top"]::part(content),
+  &[actual-placement^="bottom"]::part(content) {
+    transform: scaleY(0.5);
+  }
+
+  // 左侧/右侧位置 (ScaleX)
+  &[actual-placement^="left"]::part(content),
+  &[actual-placement^="right"]::part(content) {
+    transform: scaleX(0.5);
+  }
+}
+
+// 2. 设置激活状态样式
+nv-popup[active] {
+  // 顶部/底部位置 (ScaleY 展开)
+  &[actual-placement^="top"]::part(content),
+  &[actual-placement^="bottom"]::part(content) {
+    transform: scaleY(1);
+    transition: transform 0.2s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
+  // 左右位置 (ScaleX 展开)
+  &[actual-placement^="left"]::part(content),
+  &[actual-placement^="right"]::part(content) {
+    transform: scaleX(1);
+    transition: transform 0.2s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+}
+
+// 3. 补充 Starting Style (让 Active 时的 Transition 生效,display从none变为flex时)
+@starting-style {
+  nv-popup[active] {
+    // 顶部/底部位置
+    &[actual-placement^="top"]::part(content),
+    &[actual-placement^="bottom"]::part(content) {
+      transform: scaleY(0.5);
+    }
+
+    // 左侧/右侧位置
+    &[actual-placement^="left"]::part(content),
+    &[actual-placement^="right"]::part(content) {
+      transform: scaleX(0.5);
+    }
+  }
+}
+
+@include b(select) {
+  position: relative;
+  font-size: var(--nv-select-font-size-default);
+  display: inline-flex;
+  width: 100%;
+  vertical-align: middle;
+  align-items: center;
+
+  // 包装器
+  &__wrapper {
+    display: inline-flex;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    background-color: var(--nv-select-background-color);
+    border: 1px solid var(--nv-select-border-color);
+    border-radius: var(--nv-select-border-radius-medium);
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+  }
+
+  // 输入框
+  &__input {
+    flex: 1;
+    width: 100%;
+    padding: var(--nv-select-padding-medium);
+    font-size: inherit;
+    color: var(--nv-select-font-color);
+    background-color: transparent;
+    box-sizing: border-box;
+    line-height: 1.5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  // 输入框内部
+  &__input-inner {
+    width: 100%;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: inherit;
+    color: var(--nv-select-font-color);
+    background-color: transparent;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+
+  // 占位符
+  &__placeholder {
+    color: var(--nv-select-font-color-placeholder);
+  }
+
+  // 选中文本
+  &__selected {
+    color: var(--nv-select-font-color);
+  }
+
+  // 标签容器（多选），左侧内边距减半使第一个 tag 更靠左
+  &__tags {
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    padding: var(--nv-select-padding-medium);
+    padding-left: calc(var(--nv-padding-medium) / 2);
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+
+    /* 隐藏滚动条 */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+  }
+
+  // 标签（多选）
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    height: var(--nv-select-tag-height-medium);
+    padding: var(--nv-select-tag-padding);
+    margin: 0;
+    line-height: var(--nv-select-tag-height-medium);
+    font-size: var(--nv-select-tag-font-size);
+    color: var(--nv-select-tag-font-color);
+    background-color: var(--nv-select-tag-background-color);
+    border: 1px solid var(--nv-select-tag-border-color);
+    border-radius: var(--nv-select-tag-border-radius);
+    box-sizing: border-box;
+    white-space: nowrap;
+    animation: tagFadeIn 0.3s ease;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  // 标签文本
+  &__tag-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+  }
+
+  // 标签关闭按钮
+  &__tag-close {
+    margin-left: var(--nv-select-tag-close-margin-left);
+    font-size: var(--nv-select-tag-close-size);
+    color: var(--nv-select-tag-close-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: var(--nv-select-tag-close-color-hover);
+    }
+  }
+
+  // 多选折叠时显示的「+N」数量标识
+  &__tag-count {
+    display: inline-flex;
+    align-items: center;
+    height: var(--nv-select-tag-height-medium);
+    padding: 0 var(--nv-select-tag-count-padding-horizontal, 6px);
+    line-height: var(--nv-select-tag-height-medium);
+    font-size: var(--nv-select-tag-font-size);
+    color: var(--nv-select-tag-count-color, var(--nv-select-tag-font-color));
+    background-color: var(--nv-select-tag-count-background-color, var(--nv-select-tag-background-color));
+    border: 1px solid var(--nv-select-tag-count-border-color, var(--nv-select-tag-border-color));
+    border-radius: var(--nv-select-tag-border-radius);
+    box-sizing: border-box;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  // 搜索输入框
+  &__search-input {
+    flex: 1;
+    width: 100%;
+    padding: var(--nv-select-padding-medium);
+    font-size: inherit;
+    color: var(--nv-select-font-color);
+    background-color: transparent;
+    box-sizing: border-box;
+    line-height: 1.5;
+    border: none;
+    outline: none;
+    cursor: text;
+
+    &::placeholder {
+      color: var(--nv-select-font-color-placeholder);
+    }
+  }
+
+  // 后缀图标容器
+  &__suffix {
+    display: flex;
+    align-items: center;
+    padding-right: var(--nv-padding-small);
+    flex-shrink: 0;
+  }
+
+  // 后缀图标
+  &__suffix-icon {
+    font-size: var(--nv-select-icon-size);
+    color: var(--nv-select-icon-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: var(--nv-select-icon-margin-left);
+  }
+
+  // 清除图标
+  &__clear {
+    font-size: var(--nv-select-icon-size);
+    color: var(--nv-select-icon-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: var(--nv-select-icon-margin-left);
+
+    &:hover {
+      color: var(--nv-select-icon-color-hover);
+    }
+  }
+
+  // 下拉菜单（由 Popup 负责定位与显隐，此处仅保留内容区样式）
+  &__dropdown {
+    background-color: var(--nv-select-dropdown-background-color);
+    // border: 1px solid var(--nv-select-dropdown-border-color);
+    // border-radius: var(--nv-select-dropdown-border-radius);
+    // box-shadow: var(--nv-select-dropdown-box-shadow);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  // 下拉菜单包装器
+  &__dropdown-wrapper {
+    max-height: var(--nv-select-dropdown-max-height);
+    overflow-y: auto;
+    padding: var(--nv-select-dropdown-padding);
+
+    // 虚拟滚动时由选项容器作为滚动容器，此处不滚动避免双重滚动条
+    &--virtual {
+      overflow: visible;
+    }
+
+    // 美化滚动条样式
+    // WebKit 浏览器（Chrome, Safari, Edge）
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+
+  // 选项列表（虚拟滚动时作为 virtualizer 宿主，需占满宽度；子项为绝对定位，需保证宽度）
+  &__options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 0;
+    display: block;
+    box-sizing: border-box;
+
+    // 虚拟滚动时作为滚动容器（scroller: true），限制可见高度与下拉一致，由 virtualizer 内部 sizer 撑开滚动高度
+    &--virtual {
+      max-height: var(--nv-select-dropdown-max-height);
+    }
+
+    // 虚拟滚动时 virtualizer 子项为绝对定位，需占满宽度避免选项未铺满浮层（!important 覆盖 virtualizer 可能的内联样式）
+    & > * {
+      width: 100% !important;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  // 空状态
+  &__empty {
+    padding: var(--nv-select-empty-padding);
+    text-align: center;
+    color: var(--nv-select-empty-font-color);
+    font-size: var(--nv-select-option-font-size);
+  }
+
+
+  // 禁用状态
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .nv-select__wrapper {
+      border-color: var(--nv-select-border-color-disabled);
+      background-color: var(--nv-select-background-color-disabled);
+      cursor: not-allowed;
+    }
+
+    .nv-select__input,
+    .nv-select__selected,
+    .nv-select__placeholder {
+      color: var(--nv-select-font-color-disabled);
+      cursor: not-allowed;
+    }
+
+    .nv-select__suffix-icon {
+      color: var(--nv-select-font-color-disabled);
+    }
+  }
+
+  // 焦点状态
+  &:hover:not(.is-disabled) {
+    .nv-select__wrapper {
+      border-color: var(--nv-select-border-color-hover);
+    }
+  }
+
+  &.is-focus:not(.is-disabled) {
+    .nv-select__wrapper {
+      border-color: var(--nv-select-border-color-focus) !important;
+    }
+
+    .nv-select__suffix-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  // 尺寸变体
+  &.is-mini {
+    font-size: var(--nv-select-font-size-mini);
+
+    .nv-select__wrapper {
+      height: var(--nv-select-height-mini);
+      border-radius: var(--nv-select-border-radius-mini);
+    }
+
+    .nv-select__input,
+    .nv-select__search-input {
+      padding: var(--nv-select-padding-mini);
+    }
+
+    .nv-select__tags {
+      padding: var(--nv-select-padding-mini);
+      padding-left: calc(var(--nv-padding-mini) / 2);
+    }
+
+    .nv-select__tag,
+    .nv-select__tag-count {
+      height: var(--nv-select-tag-height-mini);
+      line-height: var(--nv-select-tag-height-mini);
+    }
+  }
+
+  &.is-small {
+    font-size: var(--nv-select-font-size-small);
+
+    .nv-select__wrapper {
+      height: var(--nv-select-height-small);
+      border-radius: var(--nv-select-border-radius-small);
+    }
+
+    .nv-select__input,
+    .nv-select__search-input {
+      padding: var(--nv-select-padding-small);
+    }
+
+    .nv-select__tags {
+      padding: var(--nv-select-padding-small);
+      padding-left: calc(var(--nv-padding-small) / 2);
+    }
+
+    .nv-select__tag,
+    .nv-select__tag-count {
+      height: var(--nv-select-tag-height-small);
+      line-height: var(--nv-select-tag-height-small);
+    }
+  }
+
+  &.is-medium {
+    font-size: var(--nv-select-font-size-medium);
+
+    .nv-select__wrapper {
+      height: var(--nv-select-height-medium);
+      border-radius: var(--nv-select-border-radius-medium);
+    }
+
+    .nv-select__input,
+    .nv-select__search-input {
+      padding: var(--nv-select-padding-medium);
+    }
+
+    .nv-select__tags {
+      padding: var(--nv-select-padding-medium);
+      padding-left: calc(var(--nv-padding-medium) / 2);
+    }
+
+    .nv-select__tag,
+    .nv-select__tag-count {
+      height: var(--nv-select-tag-height-medium);
+      line-height: var(--nv-select-tag-height-medium);
+    }
+  }
+
+  &.is-large {
+    font-size: var(--nv-select-font-size-large);
+
+    .nv-select__wrapper {
+      height: var(--nv-select-height-large);
+      border-radius: var(--nv-select-border-radius-large);
+    }
+
+    .nv-select__input,
+    .nv-select__search-input {
+      padding: var(--nv-select-padding-large);
+    }
+
+    .nv-select__tags {
+      padding: var(--nv-select-padding-large);
+      padding-left: calc(var(--nv-padding-medium) / 2);
+    }
+
+    .nv-select__tag,
+    .nv-select__tag-count {
+      height: var(--nv-select-tag-height-large);
+      line-height: var(--nv-select-tag-height-large);
+    }
+  }
+
+  &.is-huge {
+    font-size: var(--nv-select-font-size-huge);
+
+    .nv-select__wrapper {
+      height: var(--nv-select-height-huge);
+      border-radius: var(--nv-select-border-radius-huge);
+    }
+
+    .nv-select__input,
+    .nv-select__search-input {
+      padding: var(--nv-select-padding-huge);
+    }
+
+    .nv-select__tags {
+      padding: var(--nv-select-padding-huge);
+      padding-left: calc(var(--nv-padding-large) / 2);
+    }
+
+    .nv-select__tag,
+    .nv-select__tag-count {
+      height: var(--nv-select-tag-height-huge);
+      line-height: var(--nv-select-tag-height-huge);
+    }
+  }
+}
+
+// 标签淡入动画
+@keyframes tagFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// 选项样式（在 select 外部定义，因为 option 是独立组件）
+.nv-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  height: var(--nv-select-option-height);
+  padding: var(--nv-select-option-padding);
+  font-size: var(--nv-select-option-font-size);
+  color: var(--nv-select-option-font-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+
+  &:hover:not(.is-disabled) {
+    background-color: var(--nv-select-option-background-color-hover);
+    color: var(--nv-select-option-font-color-hover);
+  }
+
+  &.is-selected {
+    color: var(--nv-select-option-font-color-selected);
+    font-weight: 500;
+  }
+
+  &.is-highlighted:not(.is-disabled) {
+    background-color: var(--nv-select-option-background-color-hover);
+    color: var(--nv-select-option-font-color-hover);
+  }
+
+  &.is-disabled {
+    color: var(--nv-select-option-font-color-disabled);
+    cursor: not-allowed;
+  }
+
+  &__check {
+    margin-left: var(--nv-padding-small);
+    font-size: var(--nv-select-icon-size);
+    color: var(--nv-primary-color-1);
+    flex-shrink: 0;
+  }
+
+  &__label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

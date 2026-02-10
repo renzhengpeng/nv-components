@@ -1,0 +1,69 @@
+/*
+ * @Descripttion: loading组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** font-size *****************/
+  --nv-loading-text-font-size: var(--nv-font-size-small);
+
+  /**************** spacing *****************/
+  --nv-loading-text-margin: var(--nv-padding-mini) 0;
+  
+  /**************** circular spinner *****************/
+  --nv-loading-circular-width: 42px;
+  --nv-loading-circular-height: 42px;
+  --nv-loading-path-stroke-width: 2;
+
+  /**************** multi-blade spinner *****************/
+  --nv-loading-spinner-width: 42px;
+  --nv-loading-spinner-height: 42px;
+  --nv-loading-spinner-blade-width: 3px;
+  --nv-loading-spinner-blade-height: 12px;
+  --nv-loading-spinner-blade-radius: 2px;
+
+  /**************** dots spinner *****************/
+  --nv-loading-dot-size: 12px;
+  --nv-loading-dots-gap: 8px;
+
+  /**************** bars spinner *****************/
+  --nv-loading-bar-width: 4px;
+  --nv-loading-bar-height: 30px;
+  --nv-loading-bar-radius: 2px;
+  --nv-loading-bars-gap: 4px;
+
+  /**************** custom icon *****************/
+  --nv-loading-custom-icon-size: 42px;
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** background *****************/
+  --nv-loading-mask-background-color: rgba(255, 255, 255, 0.9);
+
+  /**************** font *****************/
+  --nv-loading-text-font-color: var(--nv-primary-color-1);
+
+  /**************** circular spinner *****************/
+  --nv-loading-path-stroke-color: var(--nv-primary-color-1);
+
+  /**************** multi-blade spinner *****************/
+  --nv-loading-spinner-color: var(--nv-primary-color-1);
+
+  /**************** dots spinner *****************/
+  --nv-loading-dots-color: var(--nv-primary-color-1);
+
+  /**************** bars spinner *****************/
+  --nv-loading-bars-color: var(--nv-primary-color-1);
+
+  /**************** custom icon *****************/
+  --nv-loading-custom-icon-color: var(--nv-primary-color-1);
+
+  /**************************************************** color end ********************************************************/
+}
+

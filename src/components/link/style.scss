@@ -1,0 +1,176 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: link组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+// .nv-link
+@include b(link) {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: var(--nv-link-font-size-medium);
+  font-weight: 500;
+  color: var(--nv-link-font-color);
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  white-space: nowrap;
+  transition: color 0.2s;
+
+  // Size modifiers
+  &.is-mini {
+    font-size: var(--nv-link-font-size-mini);
+  }
+
+  &.is-small {
+    font-size: var(--nv-link-font-size-small);
+  }
+
+  &.is-medium {
+    font-size: var(--nv-link-font-size-medium);
+  }
+
+  &.is-large {
+    font-size: var(--nv-link-font-size-large);
+  }
+
+  &.is-huge {
+    font-size: var(--nv-link-font-size-huge);
+  }
+
+  // 图标样式
+  nv-icon {
+    margin-right: var(--nv-link-icon-margin-right);
+  }
+
+  // .nv-link.is-underline（默认，hover时显示下划线）
+  &.is-underline {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // .nv-link.is-underline-always（总是显示下划线）
+  &.is-underline-always {
+    text-decoration: underline;
+  }
+
+  // .nv-link.is-underline-hover（hover时显示下划线）
+  &.is-underline-hover {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // .nv-link.is-underline-none（不显示下划线）
+  &.is-underline-none {
+    text-decoration: none;
+  }
+
+  // .nv-link.is-disabled（禁用状态）
+  &.is-disabled {
+    color: var(--nv-link-font-color-disabled);
+    cursor: not-allowed;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // .nv-link--primary
+  &.nv-link--primary {
+    color: var(--nv-link-font-color-primary);
+
+    &:hover {
+      color: var(--nv-link-font-color-primary-hover);
+    }
+
+    &:active {
+      color: var(--nv-link-font-color-primary-active);
+    }
+
+    &.is-disabled {
+      color: var(--nv-link-font-color-primary-disabled);
+    }
+  }
+
+  // .nv-link--success
+  &.nv-link--success {
+    color: var(--nv-link-font-color-success);
+
+    &:hover {
+      color: var(--nv-link-font-color-success-hover);
+    }
+
+    &:active {
+      color: var(--nv-link-font-color-success-active);
+    }
+
+    &.is-disabled {
+      color: var(--nv-link-font-color-success-disabled);
+    }
+  }
+
+  // .nv-link--warning
+  &.nv-link--warning {
+    color: var(--nv-link-font-color-warning);
+
+    &:hover {
+      color: var(--nv-link-font-color-warning-hover);
+    }
+
+    &:active {
+      color: var(--nv-link-font-color-warning-active);
+    }
+
+    &.is-disabled {
+      color: var(--nv-link-font-color-warning-disabled);
+    }
+  }
+
+  // .nv-link--error
+  &.nv-link--error {
+    color: var(--nv-link-font-color-error);
+
+    &:hover {
+      color: var(--nv-link-font-color-error-hover);
+    }
+
+    &:active {
+      color: var(--nv-link-font-color-error-active);
+    }
+
+    &.is-disabled {
+      color: var(--nv-link-font-color-error-disabled);
+    }
+  }
+
+  // .nv-link--info
+  &.nv-link--info {
+    color: var(--nv-link-font-color-info);
+
+    &:hover {
+      color: var(--nv-link-font-color-info-hover);
+    }
+
+    &:active {
+      color: var(--nv-link-font-color-info-active);
+    }
+
+    &.is-disabled {
+      color: var(--nv-link-font-color-info-disabled);
+    }
+  }
+}
+

@@ -1,0 +1,58 @@
+/*
+ * @Descripttion: 字体相关变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-05-29 10:06:08
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-06-11 18:23:31
+ */
+@import '../functions/compute.function.scss';
+@import './color.variables.scss';
+
+// 字体大小
+$font_size_mini: 12px;
+$font_size_small: add($font_size_mini, 2px);
+$font_size_normal: add($font_size_small, 2px);
+$font_size_large: add($font_size_normal, 2px);
+$font_size_huge: add($font_size_large, 2px);
+
+// 字体颜色
+$font_color_dark: #303133;
+$font_color_regular: #606266;
+$font_color_info: #909399;
+$font_color_info_secondary: #BCBEC2;
+$font_color_placeholder: #C0C4CC;
+$font_color_white: $base_color_white;
+$font_color_primary: $primary_color_1;
+$font_color_primary_secondary: #8CC5FF;
+$font_color_success: $secondary_color_success_1;
+$font_color_success_secondary: #A4DA89;
+$font_color_warning: $secondary_color_warning_1;
+$font_color_warning_secondary: #F0C78A;
+$font_color_danger: $secondary_color_danger_1;
+$font_color_danger_secondary: #F9A7A7;
+
+:root {
+  // 字体大小
+  --nv-font-size-default: #{ $font_size_small };
+  --nv-font-size-mini: #{ $font_size_mini };
+  --nv-font-size-small: #{ $font_size_small };
+  --nv-font-size-medium: #{ $font_size_normal };
+  --nv-font-size-large: #{ $font_size_large };
+  --nv-font-size-huge: #{ $font_size_huge };
+
+  // 字体颜色
+  --nv-font-color-dark: #{ $font_color_dark };
+  --nv-font-color-regular: #{ $font_color_regular };
+  --nv-font-color-info: #{ $font_color_info };
+  --nv-font-color-info-secondary: #{ $font_color_info_secondary };
+  --nv-font-color-placeholder: #{ $font_color_placeholder };
+  --nv-font-color-white: #{ $font_color_white };
+  --nv-font-color-primary: #{ $font_color_primary };
+  --nv-font-color-primary-secondary: #{ $font_color_primary_secondary };
+  --nv-font-color-success: #{ $font_color_success };
+  --nv-font-color-success-secondary: #{ $font_color_success_secondary };
+  --nv-font-color-warning: #{ $font_color_warning };
+  --nv-font-color-warning-secondary: #{ $font_color_warning_secondary };
+  --nv-font-color-danger: #{ $font_color_danger };
+  --nv-font-color-danger-secondary: #{ $font_color_danger_secondary };
+}

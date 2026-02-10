@@ -1,0 +1,39 @@
+/*
+ * @Descripttion: card组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-card-border-radius: var(--nv-border-radius-small);
+
+  /**************** padding *****************/
+  --nv-card-header-padding: var(--nv-padding-medium) var(--nv-padding-large);
+  --nv-card-body-padding: var(--nv-padding-large);
+  --nv-card-footer-padding: var(--nv-padding-medium) var(--nv-padding-large);
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** border *****************/
+  --nv-card-border-color: var(--nv-neutral-color-border-3);
+  --nv-card-header-border-color: var(--nv-neutral-color-border-3);
+  --nv-card-footer-border-color: var(--nv-neutral-color-border-3);
+
+  /**************** background *****************/
+  --nv-card-background-color: var(--nv-neutral-color-white);
+
+  /**************** font *****************/
+  --nv-card-font-color: var(--nv-neutral-color-font-1);
+
+  /**************** shadow *****************/
+  --nv-card-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+  /**************************************************** color end ********************************************************/
+}
+

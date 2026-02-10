@@ -1,0 +1,214 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024/8/30 15:11
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: dropdown style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  // display: inline-block;
+  position: relative;
+}
+
+// 根据实际弹出位置（actual-placement）调整 transform-origin 和初始 transform
+// 1. 设置默认/退出状态样式
+nv-popup {
+  // 顶部/底部位置 (ScaleY)
+  &[actual-placement^="top"]::part(content),
+  &[actual-placement^="bottom"]::part(content) {
+    transform: scaleY(0.5);
+  }
+
+  // 左侧/右侧位置 (ScaleX)
+  &[actual-placement^="left"]::part(content),
+  &[actual-placement^="right"]::part(content) {
+    transform: scaleX(0.5);
+  }
+}
+
+// 2. 设置激活状态样式
+nv-popup[active] {
+  // 顶部/底部位置 (ScaleY 展开)
+  &[actual-placement^="top"]::part(content),
+  &[actual-placement^="bottom"]::part(content) {
+    transform: scaleY(1);
+    transition: transform 0.2s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
+  // 左右位置 (ScaleX 展开)
+  &[actual-placement^="left"]::part(content),
+  &[actual-placement^="right"]::part(content) {
+    transform: scaleX(1);
+    transition: transform 0.2s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+}
+
+// 3. 补充 Starting Style (让 Active 时的 Transition 生效,display从none变为flex时)
+@starting-style {
+  nv-popup[active] {
+    // 顶部/底部位置
+    &[actual-placement^="top"]::part(content),
+    &[actual-placement^="bottom"]::part(content) {
+      transform: scaleY(0.5);
+    }
+
+    // 左侧/右侧位置
+    &[actual-placement^="left"]::part(content),
+    &[actual-placement^="right"]::part(content) {
+      transform: scaleX(0.5);
+    }
+  }
+}
+
+@include b(dropdown) {
+
+  // 触发器样式
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // 只有当没有trigger slot内容时，才应用边框和交互样式
+    &:not(.has-trigger-slot) {
+      border: 1px solid var(--nv-dropdown-border-color);
+      cursor: pointer;
+      padding: var(--nv-dropdown-padding);
+      line-height: 1.5;
+      font-size: var(--nv-dropdown-font-size);
+      border-radius: var(--nv-dropdown-border-radius);
+      background-color: var(--nv-dropdown-background);
+      transition: all var(--nv-dropdown-transition-duration);
+      user-select: none;
+      min-width: var(--nv-dropdown-min-width);
+
+      &:hover:not(.is-disabled) {
+        border-color: var(--nv-dropdown-border-color-hover);
+      }
+
+      &.is-active:not(.is-disabled) {
+        border-color: var(--nv-dropdown-border-color-active);
+      }
+
+      &.is-disabled {
+        cursor: not-allowed;
+        opacity: var(--nv-dropdown-disabled-opacity);
+        background-color: var(--nv-dropdown-disabled-background);
+      }
+    }
+
+    // 有trigger slot内容时，只作为事件容器，不应用样式
+    &.has-trigger-slot {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    // 尺寸变体（仅在没有trigger slot内容时应用）
+  }
+
+  &__trigger-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+  }
+
+  &__trigger-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform var(--nv-dropdown-transition-duration);
+  }
+
+  &__arrow-icon {
+    font-size: var(--nv-dropdown-arrow-size);
+    transition: transform var(--nv-dropdown-transition-duration);
+  }
+
+  &__trigger.is-active &__arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  // 菜单样式
+  &__menu {
+    // position: absolute;
+    // top: calc(100% + 4px);
+    // left: 0;
+
+    min-width: var(--nv-dropdown-menu-min-width);
+    background-color: var(--nv-dropdown-menu-background);
+    border-radius: var(--nv-dropdown-border-radius);
+    // box-shadow: var(--nv-dropdown-menu-shadow);
+    padding: var(--nv-dropdown-menu-padding);
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    z-index: var(--nv-dropdown-menu-z-index);
+
+    // 过渡初始状态（隐藏）
+    opacity: 0;
+    transform: scaleY(0.98) translateY(-2px);
+    transform-origin: top;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+
+    &.is-active {
+      opacity: 1;
+      transform: scaleY(1) translateY(0);
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+
+  // 菜单项样式
+  &__menu-item {
+    display: block;
+    padding: var(--nv-dropdown-item-padding);
+    line-height: var(--nv-dropdown-item-line-height);
+    font-size: var(--nv-dropdown-font-size);
+    color: var(--nv-dropdown-item-color);
+    cursor: pointer;
+    transition: all var(--nv-dropdown-transition-duration);
+    white-space: nowrap;
+    text-decoration: none;
+
+    &:hover:not(.is-disabled):not(&--disabled) {
+      background-color: var(--nv-dropdown-item-hover-background);
+    }
+
+    &:active:not(.is-disabled):not(&--disabled) {
+      background-color: var(--nv-dropdown-item-active-background);
+    }
+
+    &.is-disabled,
+    &--disabled {
+      color: var(--nv-dropdown-item-disabled-color);
+      cursor: not-allowed;
+      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  // 分隔线样式
+  &__menu-divider {
+    height: 1px;
+    margin: var(--nv-dropdown-divider-margin);
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--nv-dropdown-divider-background);
+    line-height: 0;
+  }
+}

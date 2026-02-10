@@ -1,0 +1,22 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024/8/28 11:01
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: html template
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@include b(button-group) {
+  @include inlineFlexCenter();
+
+  // 垂直模式
+  &.is-vertical {
+    flex-direction: column;
+  }
+}

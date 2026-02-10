@@ -1,0 +1,90 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: pagination style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+}
+
+@include b(pagination) {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nv-pagination-gap, 4px);
+
+  // 禁用状态
+  &.is-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // 分页大小选择器的外边距
+  &__sizes {
+    margin-right: var(--nv-pagination-sizes-margin-right, 8px);
+  }
+
+  // 页码容器
+  &__pager {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nv-pagination-pager-gap, 4px);
+  }
+
+  // 省略号 - 根据尺寸变体调整
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nv-pagination-more-color, #606266);
+    box-sizing: border-box;
+
+    // 尺寸变体 - 与 button 高度保持一致
+    &.mini {
+      min-width: var(--nv-global-height-mini);
+      height: var(--nv-global-height-mini);
+    }
+
+    &.small {
+      min-width: var(--nv-global-height-small);
+      height: var(--nv-global-height-small);
+    }
+
+    &.medium {
+      min-width: var(--nv-global-height-medium);
+      height: var(--nv-global-height-medium);
+    }
+
+    &.large {
+      min-width: var(--nv-global-height-large);
+      height: var(--nv-global-height-large);
+    }
+
+    &.huge {
+      min-width: var(--nv-global-height-huge);
+      height: var(--nv-global-height-huge);
+    }
+  }
+
+  // 跳转器
+  &__jumper {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--nv-pagination-jumper-gap, 8px);
+    margin-left: var(--nv-pagination-jumper-margin-left, 8px);
+  }
+
+  &__jumper-text {
+    color: var(--nv-pagination-jumper-text-color, #606266);
+    font-size: var(--nv-pagination-jumper-text-font-size, 14px);
+    white-space: nowrap;
+  }
+
+  &__jumper-input {
+    width: var(--nv-pagination-jumper-input-width, 60px);
+  }
+}

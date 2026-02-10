@@ -1,0 +1,63 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: input组件变量
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** padding *****************/
+  --nv-input-padding-mini: 0 var(--nv-padding-mini);
+  --nv-input-padding-small: 0 var(--nv-padding-small);
+  --nv-input-padding-medium: 0 var(--nv-padding-medium);
+  --nv-input-padding-large: 0 var(--nv-padding-medium);
+  --nv-input-padding-huge: 0 var(--nv-padding-large);
+
+  /**************** font-size *****************/
+  --nv-input-font-size-default: var(--nv-font-size-default);
+  --nv-input-font-size-mini: var(--nv-font-size-mini);
+  --nv-input-font-size-small: var(--nv-font-size-mini);
+  --nv-input-font-size-medium: var(--nv-font-size-small);
+  --nv-input-font-size-large: var(--nv-font-size-medium);
+  --nv-input-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** height *****************/
+  --nv-input-height-mini: var(--nv-global-height-mini);
+  --nv-input-height-small: var(--nv-global-height-small);
+  --nv-input-height-medium: var(--nv-global-height-medium);
+  --nv-input-height-large: var(--nv-global-height-large);
+  --nv-input-height-huge: var(--nv-global-height-huge);
+
+  /************** border-radius ***************/
+  --nv-input-border-radius-mini: var(--nv-border-radius-mini);
+  --nv-input-border-radius-small: var(--nv-border-radius-small);
+  --nv-input-border-radius-medium: var(--nv-border-radius-medium);
+  --nv-input-border-radius-large: var(--nv-border-radius-large);
+  --nv-input-border-radius-huge: var(--nv-border-radius-huge);
+
+  /***************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+  --nv-input-border-color: var(--nv-neutral-color-border-1);
+  --nv-input-border-color-hover: var(--nv-neutral-color-font-4);
+  --nv-input-border-color-focus: var(--nv-primary-color-1);
+  --nv-input-border-color-disabled: var(--nv-neutral-color-border-2);
+  
+  --nv-input-background-color: var(--nv-neutral-color-white);
+  --nv-input-background-color-disabled: var(--nv-neutral-color-border-4);
+  
+  --nv-input-font-color: var(--nv-neutral-color-font-1);
+  --nv-input-font-color-disabled: var(--nv-neutral-color-font-3);
+  --nv-input-font-color-placeholder: var(--nv-neutral-color-font-4);
+  
+  --nv-input-icon-color: var(--nv-neutral-color-font-3);
+  --nv-input-icon-color-hover: var(--nv-neutral-color-font-2);
+  /***************************************************** color end *********************************************************/
+
+  /***************************************************** other start *********************************************************/
+  // number 类型输入框的上下箭头透明度（降低颜色深度）
+  --nv-input-number-spinner-opacity: 0.5;
+  /***************************************************** other end *********************************************************/
+}
+

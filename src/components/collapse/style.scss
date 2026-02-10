@@ -1,0 +1,20 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: collapse style
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(collapse) {
+  border: var(--nv-collapse-border, 1px solid #dcdfe6);
+  border-radius: var(--nv-collapse-border-radius, 4px);
+  background-color: var(--nv-collapse-background-color, #fff);
+  overflow: hidden;
+}
+

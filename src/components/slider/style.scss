@@ -1,0 +1,232 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @Descripttion: slider组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-block;
+  width: 100%;
+}
+
+// .nv-slider
+@include b(slider) {
+  width: 100%;
+  height: var(--nv-slider-height);
+  display: flex;
+  align-items: center;
+
+  // 轨道
+  &__runway {
+    flex: 1;
+    height: var(--nv-slider-runway-height-medium);
+    background-color: var(--nv-slider-runway-background-color);
+    border-radius: var(--nv-slider-runway-border-radius);
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+  // 进度条
+  &__bar {
+    height: var(--nv-slider-bar-height-medium);
+    background-color: var(--nv-slider-bar-background-color);
+    border-top-left-radius: var(--nv-slider-bar-border-radius);
+    border-bottom-left-radius: var(--nv-slider-bar-border-radius);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  // Size modifiers
+  &.is-mini {
+    .nv-slider__runway {
+      height: var(--nv-slider-runway-height-mini);
+    }
+    .nv-slider__bar {
+      height: var(--nv-slider-bar-height-mini);
+    }
+    .nv-slider__button {
+      width: var(--nv-slider-button-width-mini);
+      height: var(--nv-slider-button-height-mini);
+    }
+    .nv-slider__stop {
+      width: var(--nv-slider-stop-width-mini);
+      height: var(--nv-slider-stop-height-mini);
+    }
+  }
+
+  &.is-small {
+    .nv-slider__runway {
+      height: var(--nv-slider-runway-height-small);
+    }
+    .nv-slider__bar {
+      height: var(--nv-slider-bar-height-small);
+    }
+    .nv-slider__button {
+      width: var(--nv-slider-button-width-small);
+      height: var(--nv-slider-button-height-small);
+    }
+    .nv-slider__stop {
+      width: var(--nv-slider-stop-width-small);
+      height: var(--nv-slider-stop-height-small);
+    }
+  }
+
+  &.is-medium {
+    .nv-slider__runway {
+      height: var(--nv-slider-runway-height-medium);
+    }
+    .nv-slider__bar {
+      height: var(--nv-slider-bar-height-medium);
+    }
+    .nv-slider__button {
+      width: var(--nv-slider-button-width-medium);
+      height: var(--nv-slider-button-height-medium);
+    }
+    .nv-slider__stop {
+      width: var(--nv-slider-stop-width-medium);
+      height: var(--nv-slider-stop-height-medium);
+    }
+  }
+
+  &.is-large {
+    .nv-slider__runway {
+      height: var(--nv-slider-runway-height-large);
+    }
+    .nv-slider__bar {
+      height: var(--nv-slider-bar-height-large);
+    }
+    .nv-slider__button {
+      width: var(--nv-slider-button-width-large);
+      height: var(--nv-slider-button-height-large);
+    }
+    .nv-slider__stop {
+      width: var(--nv-slider-stop-width-large);
+      height: var(--nv-slider-stop-height-large);
+    }
+  }
+
+  &.is-huge {
+    .nv-slider__runway {
+      height: var(--nv-slider-runway-height-huge);
+    }
+    .nv-slider__bar {
+      height: var(--nv-slider-bar-height-huge);
+    }
+    .nv-slider__button {
+      width: var(--nv-slider-button-width-huge);
+      height: var(--nv-slider-button-height-huge);
+    }
+    .nv-slider__stop {
+      width: var(--nv-slider-stop-width-huge);
+      height: var(--nv-slider-stop-height-huge);
+    }
+  }
+
+  // 按钮包装器
+  &__button-wrapper {
+    position: absolute;
+    z-index: 1001;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    text-align: center;
+    user-select: none;
+    outline: none;
+  }
+
+  // 按钮
+  &__button {
+    width: var(--nv-slider-button-width-medium);
+    height: var(--nv-slider-button-height-medium);
+    border: var(--nv-slider-button-border-width) solid var(--nv-slider-button-border-color);
+    background-color: var(--nv-slider-button-background-color);
+    border-radius: var(--nv-slider-button-border-radius);
+    transition: 0.2s;
+    user-select: none;
+    cursor: grab;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  // 间断点
+  &__stop {
+    position: absolute;
+    height: var(--nv-slider-stop-height-medium);
+    width: var(--nv-slider-stop-width-medium);
+    border-radius: var(--nv-slider-stop-border-radius);
+    background-color: var(--nv-slider-stop-background-color);
+    transform: translateX(-50%);
+    top: 0;
+    cursor: pointer;
+  }
+
+  // 输入框
+  &__input {
+    flex: 0 0 var(--nv-slider-input-width);
+    margin-left: var(--nv-slider-input-margin-left);
+  }
+
+  // 禁用状态
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .nv-slider__runway {
+      cursor: not-allowed;
+    }
+
+    .nv-slider__button {
+      cursor: not-allowed;
+    }
+
+    .nv-slider__bar {
+      background-color: var(--nv-slider-disabled-bar-background-color);
+    }
+
+    .nv-slider__button {
+      border-color: var(--nv-slider-disabled-button-border-color);
+    }
+  }
+
+  // 竖向模式
+  &.is-vertical {
+    flex-direction: column;
+    height: var(--nv-slider-vertical-height);
+    width: var(--nv-slider-vertical-width);
+
+    .nv-slider__runway {
+      width: var(--nv-slider-vertical-runway-width);
+      height: 100%;
+    }
+
+    .nv-slider__bar {
+      width: var(--nv-slider-vertical-bar-width);
+      height: auto;
+      top: auto;  // 重置 top，让 bottom 生效
+      border-top-left-radius: var(--nv-slider-bar-border-radius);
+      border-top-right-radius: var(--nv-slider-bar-border-radius);
+      border-bottom-left-radius: 0;
+    }
+
+    .nv-slider__button-wrapper {
+      left: 50%;
+      top: auto;  // 重置 top，让 bottom 生效
+      transform: translateX(-50%);
+    }
+
+    .nv-slider__stop {
+      transform: translateY(50%);
+      left: 0;
+    }
+  }
+}
+

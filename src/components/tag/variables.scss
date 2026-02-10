@@ -1,0 +1,109 @@
+/*
+ * @Descripttion: tag组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @lastTime: 2024-12-19
+ */
+:root {
+  /**************************************************** size start *********************************************************/
+
+  /**************** border-radius *****************/
+  --nv-tag-border-radius: var(--nv-border-radius-small);
+  --nv-tag-close-border-radius: 50%;
+
+  /**************** padding *****************/
+  --nv-tag-padding-mini: 0 var(--nv-padding-mini);
+  --nv-tag-padding-small: 0 var(--nv-padding-small);
+  --nv-tag-padding-medium: 0 var(--nv-padding-medium);
+  --nv-tag-padding-large: 0 12px;
+  --nv-tag-padding-huge: 0 14px;
+
+  /**************** font-size *****************/
+  --nv-tag-font-size-mini: var(--nv-font-size-small);
+  --nv-tag-font-size-small: var(--nv-font-size-small);
+  --nv-tag-font-size-medium: var(--nv-font-size-small);
+  --nv-tag-font-size-large: var(--nv-font-size-medium);
+  --nv-tag-font-size-huge: var(--nv-font-size-medium);
+  --nv-tag-close-font-size: var(--nv-font-size-small);
+
+  /**************** height & line-height *****************/
+  --nv-tag-height-mini: var(--nv-global-height-mini);
+  --nv-tag-line-height-mini: calc(var(--nv-global-height-mini) - 2px);
+  --nv-tag-height-small: var(--nv-global-height-small);
+  --nv-tag-line-height-small: calc(var(--nv-global-height-small) - 2px);
+  --nv-tag-height-medium: var(--nv-global-height-medium);
+  --nv-tag-line-height-medium: calc(var(--nv-global-height-medium) - 2px);
+  --nv-tag-height-large: var(--nv-global-height-large);
+  --nv-tag-line-height-large: calc(var(--nv-global-height-large) - 2px);
+  --nv-tag-height-huge: var(--nv-global-height-huge);
+  --nv-tag-line-height-huge: calc(var(--nv-global-height-huge) - 2px);
+
+  /**************** close button *****************/
+  --nv-tag-close-width: 16px;
+  --nv-tag-close-height: 16px;
+  --nv-tag-close-line-height: 16px;
+  --nv-tag-close-top: -1px;
+  --nv-tag-close-right: -5px;
+  --nv-tag-close-scale-mini: 0.8;
+  --nv-tag-close-scale-small: 0.8;
+
+  /**************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+
+  /**************** default *****************/
+  --nv-tag-background-color-default: var(--nv-primary-color-10);
+  --nv-tag-border-color-default: var(--nv-primary-color-7);
+  --nv-tag-font-color-default: var(--nv-secondary-color-info-1);
+
+  /**************** close button *****************/
+  --nv-tag-close-color: var(--nv-secondary-color-info-1);
+  --nv-tag-close-color-hover: var(--nv-primary-color-1);
+
+  /**************** success *****************/
+  --nv-tag-background-color-success-light: var(--nv-secondary-color-success-4);
+  --nv-tag-border-color-success-light: var(--nv-secondary-color-success-2);
+  --nv-tag-font-color-success: var(--nv-secondary-color-success-1);
+  --nv-tag-background-color-success-dark: var(--nv-secondary-color-success-1);
+  --nv-tag-border-color-success-dark: var(--nv-secondary-color-success-1);
+  --nv-tag-font-color-success-dark: var(--nv-neutral-color-white);
+  --nv-tag-background-color-success-plain: var(--nv-neutral-color-white);
+  --nv-tag-border-color-success-plain: var(--nv-secondary-color-success-1);
+
+  /**************** info *****************/
+  --nv-tag-background-color-info-light: var(--nv-secondary-color-info-4);
+  --nv-tag-border-color-info-light: var(--nv-secondary-color-info-2);
+  --nv-tag-font-color-info: var(--nv-secondary-color-info-1);
+  --nv-tag-background-color-info-dark: var(--nv-secondary-color-info-1);
+  --nv-tag-border-color-info-dark: var(--nv-secondary-color-info-1);
+  --nv-tag-font-color-info-dark: var(--nv-neutral-color-white);
+  --nv-tag-background-color-info-plain: var(--nv-neutral-color-white);
+  --nv-tag-border-color-info-plain: var(--nv-secondary-color-info-1);
+
+  /**************** warning *****************/
+  --nv-tag-background-color-warning-light: var(--nv-secondary-color-warning-4);
+  --nv-tag-border-color-warning-light: var(--nv-secondary-color-warning-2);
+  --nv-tag-font-color-warning: var(--nv-secondary-color-warning-1);
+  --nv-tag-background-color-warning-dark: var(--nv-secondary-color-warning-1);
+  --nv-tag-border-color-warning-dark: var(--nv-secondary-color-warning-1);
+  --nv-tag-font-color-warning-dark: var(--nv-neutral-color-white);
+  --nv-tag-background-color-warning-plain: var(--nv-neutral-color-white);
+  --nv-tag-border-color-warning-plain: var(--nv-secondary-color-warning-1);
+
+  /**************** error *****************/
+  --nv-tag-background-color-error-light: var(--nv-secondary-color-danger-4);
+  --nv-tag-border-color-error-light: var(--nv-secondary-color-danger-2);
+  --nv-tag-font-color-error: var(--nv-secondary-color-danger-1);
+  --nv-tag-background-color-error-dark: var(--nv-secondary-color-danger-1);
+  --nv-tag-border-color-error-dark: var(--nv-secondary-color-danger-1);
+  --nv-tag-font-color-error-dark: var(--nv-neutral-color-white);
+  --nv-tag-background-color-error-plain: var(--nv-neutral-color-white);
+  --nv-tag-border-color-error-plain: var(--nv-secondary-color-danger-1);
+
+  /**************** hit *****************/
+  --nv-tag-hit-border-color: var(--nv-primary-color-1);
+
+  /**************************************************** color end ********************************************************/
+}
+

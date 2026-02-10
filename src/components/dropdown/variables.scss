@@ -1,0 +1,57 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024/9/4 20:23
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: dropdown组件变量
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+  // 触发器
+  --nv-dropdown-padding: 8px var(--nv-padding-medium);
+  --nv-dropdown-font-size: var(--nv-font-size-small);
+  --nv-dropdown-border-radius: var(--nv-border-radius-medium);
+  --nv-dropdown-min-width: 120px;
+  
+  // 箭头图标
+  --nv-dropdown-arrow-size: 12px;
+  
+  // 菜单
+  --nv-dropdown-menu-padding: 4px 0;
+  --nv-dropdown-menu-min-width: 120px;
+  
+  // 菜单项
+  --nv-dropdown-item-padding: 8px 12px;
+  --nv-dropdown-item-line-height: 1.5;
+  
+  // 分隔线
+  --nv-dropdown-divider-margin: 4px 0;
+  /***************************************************** size end *********************************************************/
+
+  /**************************************************** color start ********************************************************/
+  // 触发器颜色
+  --nv-dropdown-background: #fff;
+  --nv-dropdown-border-color: var(--nv-neutral-color-border-1);
+  --nv-dropdown-border-color-hover: var(--nv-neutral-color-font-4);
+  --nv-dropdown-border-color-active: var(--nv-primary-color-1);
+  --nv-dropdown-disabled-opacity: 0.6;
+  --nv-dropdown-disabled-background: #f5f5f5;
+  
+  // 菜单颜色
+  --nv-dropdown-menu-background: #fff;
+  --nv-dropdown-menu-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  
+  // 菜单项颜色
+  --nv-dropdown-item-color: rgba(0, 0, 0, 0.85);
+  --nv-dropdown-item-hover-background: #f5f5f5;
+  --nv-dropdown-item-active-background: #e6f7ff;
+  --nv-dropdown-item-disabled-color: rgba(0, 0, 0, 0.25);
+  
+  // 分隔线颜色
+  --nv-dropdown-divider-background: #f0f0f0;
+  /***************************************************** color end *********************************************************/
+  
+  /**************************************************** other start ********************************************************/
+  --nv-dropdown-transition-duration: 0.3s;
+  --nv-dropdown-menu-z-index: 1050;
+  /***************************************************** other end *********************************************************/
+}

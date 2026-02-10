@@ -1,0 +1,37 @@
+/*
+ * @Descripttion: steps组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** simple padding *****************/
+  --nv-steps-simple-padding-mini: 8px 5%;
+  --nv-steps-simple-padding-small: 10px 6%;
+  --nv-steps-simple-padding-medium: 13px 8%;
+  --nv-steps-simple-padding-large: 16px 10%;
+  --nv-steps-simple-padding-huge: 20px 12%;
+
+  --nv-steps-simple-border-radius: var(--nv-border-radius-mini);
+
+  /**************** font-size *****************/
+  --nv-steps-font-size-mini: var(--nv-font-size-mini);
+  --nv-steps-font-size-small: var(--nv-font-size-mini);
+  --nv-steps-font-size-medium: var(--nv-font-size-small);
+  --nv-steps-font-size-large: var(--nv-font-size-medium);
+  --nv-steps-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** vertical *****************/
+  --nv-steps-vertical-padding-bottom: var(--nv-padding-huge);
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+
+  /**************** simple *****************/
+  --nv-steps-simple-background-color: var(--nv-neutral-color-border-4);
+
+  /***************************************************** color end ********************************************************/
+}
+

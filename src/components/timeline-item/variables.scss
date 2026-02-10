@@ -1,0 +1,51 @@
+/*
+ * @Descripttion: timeline-item组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+
+  /**************** padding *****************/
+  --nv-timeline-item-padding-bottom: var(--nv-padding-huge);
+
+  /**************** tail *****************/
+  --nv-timeline-item-tail-left: var(--nv-padding-mini);
+  --nv-timeline-item-tail-border-width: 2px;
+  --nv-timeline-item-tail-right: var(--nv-padding-mini);
+
+  /**************** node *****************/
+  --nv-timeline-item-node-width: 12px;
+  --nv-timeline-item-node-height: 12px;
+  --nv-timeline-item-node-width-has-icon: 24px;
+  --nv-timeline-item-node-height-has-icon: 24px;
+  --nv-timeline-item-node-border-radius: 50%;
+
+  /**************** wrapper *****************/
+  --nv-timeline-item-wrapper-top: -3px;
+  --nv-timeline-item-wrapper-padding-left: 28px;
+  --nv-timeline-item-wrapper-padding-right: 28px;
+
+  /**************** timestamp *****************/
+  --nv-timeline-item-timestamp-font-size: 13px;
+  --nv-timeline-item-timestamp-padding-top: var(--nv-padding-mini);
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** color start *********************************************************/
+
+  /**************** tail *****************/
+  --nv-timeline-item-tail-border-color: var(--nv-neutral-color-border-2);
+
+  /**************** node *****************/
+  --nv-timeline-item-node-background-color: var(--nv-neutral-color-border-2);
+
+  /**************** content *****************/
+  --nv-timeline-item-content-font-color: var(--nv-neutral-color-font-1);
+
+  /**************** timestamp *****************/
+  --nv-timeline-item-timestamp-font-color: var(--nv-neutral-color-font-3);
+
+  /***************************************************** color end ********************************************************/
+}
+

@@ -1,0 +1,22 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024/11/25
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: popup组件变量
+ */
+:root {
+  /***************************************************** color start ********************************************************/
+  --nv-popup-background-color: #fff;
+  --nv-popup-border-color: #e4e7ed;
+  --nv-popup-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  /***************************************************** color end *********************************************************/
+
+  /***************************************************** size start *********************************************************/
+  --nv-popup-border-radius: 4px;
+  --nv-popup-padding: 12px;
+  --nv-popup-z-index: 2000;
+
+  --nv-popup-arrow-size: 8px;
+  --nv-popup-arrow-offset: 12px;
+  /***************************************************** size end *********************************************************/
+}

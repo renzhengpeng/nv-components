@@ -1,0 +1,46 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2024-12-19
+ * @LastAuthor: zhengpeng.ren
+ * @Descripttion: rate组件变量
+ */
+:root {
+  /***************************************************** size start *********************************************************/
+  /**************** icon size *****************/
+  --nv-rate-icon-size-mini: 14px;
+  --nv-rate-icon-size-small: 16px;
+  --nv-rate-icon-size-medium: 20px;
+  --nv-rate-icon-size-large: 24px;
+  --nv-rate-icon-size-huge: 28px;
+
+  /**************** text font-size *****************/
+  --nv-rate-text-font-size-mini: var(--nv-font-size-mini);
+  --nv-rate-text-font-size-small: var(--nv-font-size-mini);
+  --nv-rate-text-font-size-medium: var(--nv-font-size-small);
+  --nv-rate-text-font-size-large: var(--nv-font-size-medium);
+  --nv-rate-text-font-size-huge: var(--nv-font-size-medium);
+
+  /**************** score font-size *****************/
+  --nv-rate-score-font-size-mini: var(--nv-font-size-mini);
+  --nv-rate-score-font-size-small: var(--nv-font-size-mini);
+  --nv-rate-score-font-size-medium: var(--nv-font-size-small);
+  --nv-rate-score-font-size-large: var(--nv-font-size-medium);
+  --nv-rate-score-font-size-huge: var(--nv-font-size-medium);
+
+  /***************************************************** size end *********************************************************/
+
+  /***************************************************** common start *********************************************************/
+  --nv-rate-gap: 8px;
+  --nv-rate-item-gap: 4px;
+  --nv-rate-item-transition-duration: 0.2s;
+  --nv-rate-item-hover-scale: 1.1;
+  --nv-rate-icon-color: #c0c4cc;
+  --nv-rate-icon-transition-duration: 0.2s;
+  --nv-rate-icon-color-active: #f7ba2a;
+  --nv-rate-text-color: #606266;
+  --nv-rate-text-margin-left: 8px;
+  --nv-rate-score-color: #606266;
+  --nv-rate-score-margin-left: 8px;
+  /***************************************************** common end *********************************************************/
+}
+
