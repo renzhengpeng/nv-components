@@ -56,7 +56,7 @@
     "build:es": "tsc && vite build -c es.vite.config.js && node scripts/build-styles-es.js",
     "lint": "eslint"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@lit-labs/virtualizer": "^2.1.1",
     "lit": "3.2.0",
     "prismjs": "^1.30.0"

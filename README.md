@@ -53,7 +53,7 @@ yarn install
 ```bash
 yarn start
 # 或
-yarn run storybook
+yarn run dev
 ```
 
 Storybook 开发服务器将在 <http://localhost:6006> 启动。页面会自动重载，你可以在控制台看到任何 lint 错误。
