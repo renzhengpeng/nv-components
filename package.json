@@ -14,13 +14,13 @@
   ],
   "author": "NV",
   "license": "MIT",
-  "homepage": "https://github.com/nv-components/nv-components",
+  "homepage": "https://github.com/renzhengpeng/nv-components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nv-components/nv-components.git"
+    "url": "https://github.com/renzhengpeng/nv-components.git"
   },
   "bugs": {
-    "url": "https://github.com/nv-components/nv-components/issues"
+    "url": "https://github.com/renzhengpeng/nv-components/issues"
   },
   "type": "module",
   "version": "1.0.0",
