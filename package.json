@@ -23,7 +23,7 @@
     "url": "https://github.com/renzhengpeng/nv-elements/issues"
   },
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "browser": "./dist/index.js",
   "main": "./lib/index.cjs",
   "module": "./es/index.mjs",
