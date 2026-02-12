@@ -1,0 +1,20 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2026-02-12
+ * @Descripttion: breadcrumb组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: block;
+}
+
+@include b(breadcrumb) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: var(--nv-breadcrumb-font-size, 14px);
+  line-height: var(--nv-breadcrumb-line-height, 22px);
+  color: var(--nv-breadcrumb-color, var(--nv-neutral-color-font-2));
+}

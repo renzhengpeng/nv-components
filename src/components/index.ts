@@ -69,3 +69,5 @@ export * from './calendar';
 export * from './upload';
 export * from './transfer';
 export * from './cascader';
+export * from './breadcrumb';
+export * from './breadcrumb-item';

@@ -1,0 +1,53 @@
+/*
+ * @creater: zhengpeng.ren
+ * @since: 2026-02-12
+ * @Descripttion: breadcrumb-item组件样式
+ */
+@import '../../styles/mixins/bem.mixin.scss';
+@import '../../styles/mixins/index.mixin.scss';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+@include b(breadcrumb-item) {
+  display: inline-flex;
+  align-items: center;
+  color: var(--nv-breadcrumb-item-color, var(--nv-neutral-color-font-2));
+  font-size: inherit;
+  line-height: inherit;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--nv-breadcrumb-item-link-color, var(--nv-neutral-color-font-2));
+    text-decoration: none;
+    cursor: pointer;
+    transition: color .2s;
+
+    &:hover {
+      color: var(--nv-breadcrumb-item-link-color-hover, var(--nv-primary-color-1));
+    }
+  }
+
+  &__text {
+    color: var(--nv-breadcrumb-item-current-color, var(--nv-neutral-color-font-1));
+    font-weight: var(--nv-breadcrumb-item-current-font-weight, 500);
+    cursor: default;
+  }
+
+  &__separator {
+    margin: 0 var(--nv-breadcrumb-item-separator-margin, 8px);
+    color: var(--nv-breadcrumb-item-separator-color, var(--nv-neutral-color-font-4));
+    user-select: none;
+  }
+
+  &.is-disabled {
+    .nv-breadcrumb-item__link {
+      color: var(--nv-breadcrumb-item-disabled-color, var(--nv-neutral-color-font-4));
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

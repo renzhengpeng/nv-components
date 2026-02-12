@@ -1,0 +1,15 @@
+/*
+ * @Descripttion: breadcrumb-item组件开放的CSS变量
+ * @creater: zhengpeng.ren
+ * @since: 2026-02-12
+ */
+:root {
+  --nv-breadcrumb-item-color: var(--nv-neutral-color-font-2);
+  --nv-breadcrumb-item-link-color: var(--nv-neutral-color-font-2);
+  --nv-breadcrumb-item-link-color-hover: var(--nv-primary-color-1);
+  --nv-breadcrumb-item-current-color: var(--nv-neutral-color-font-1);
+  --nv-breadcrumb-item-current-font-weight: 500;
+  --nv-breadcrumb-item-separator-margin: 8px;
+  --nv-breadcrumb-item-separator-color: var(--nv-neutral-color-font-4);
+  --nv-breadcrumb-item-disabled-color: var(--nv-neutral-color-font-4);
+}
