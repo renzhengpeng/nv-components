@@ -119,7 +119,7 @@
 
 :host {
     display: inline-flex;
-    overflow: auto;
+    
     & + nv-button {
     margin-left: 5px;
   }
